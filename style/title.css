@@ -1,0 +1,26 @@
+	.Title{
+		padding-top: 25upx;
+		padding-left: 25upx;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: flex-start;
+		height: 40upx;
+	}
+	.logoImg{
+		padding-top: 0upx;
+		width: 40upx;
+		height: 35upx;
+	}
+	.titleText1{
+		padding-left: 10upx;
+		color: black;
+		font-size: 17px;
+		font-weight: 550;
+	}
+	.titleText2{
+		padding-left: 10upx;
+		color: #8d8d8d;
+		font-size: 17px;
+		font-weight: 500;
+	}

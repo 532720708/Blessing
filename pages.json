@@ -1,0 +1,148 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				},
+				"navigationBarTitleText": "",
+                "enablePullDownRefresh": true  //设置为true表示当前页面开启下拉刷新
+			}
+		},
+		{
+			"path": "pages/yixin/index",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				},
+				"navigationBarTitleText": ""
+			}
+		},
+		//具体寺庙
+		{
+			"path":"pages/temple/temple",
+			"style":{
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		},
+		{
+			"path": "pages/index/search",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				},
+				"navigationBarTitleText": ""
+			}
+		},
+		//祈福
+		{
+			"path":"pages/bless/bless"	
+		},
+		// 寺庙列表
+		{
+			"path": "pages/list/list",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				},
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": true  //设置为true表示当前页面开启下拉刷新
+			}
+		},
+		// 佛经列表
+		{
+			"path": "pages/buddhist/list",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				},
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": true  //设置为true表示当前页面开启下拉刷新
+			}
+		},
+		// 佛经详情
+		{
+			"path": "pages/buddhist/info",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				},
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": true  //设置为true表示当前页面开启下拉刷新
+			}
+		},
+		//佛音列表
+		{
+			"path":"pages/buddhist/musiclist",
+			"style":{
+				"navigationBarTitleText":"佛音佛乐"
+			}
+			
+
+		},
+		//日签
+		{
+			"path":"pages/buddhist/dailysignature",
+			"style":{
+				"navigationBarTitleText":"智慧日签"
+			}
+		},
+		
+		// 视频
+		{
+			"path": "pages/video/list",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				},
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": true  //设置为true表示当前页面开启下拉刷新
+			}
+		},
+		
+		
+		// 文章详情
+		{
+			"path": "pages/article/article",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				},
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": true  //设置为true表示当前页面开启下拉刷新
+			}
+		}
+	],
+	"tabBar": {
+	    "color": "#898989",
+	    "selectedColor": "#e2a163",
+	    "borderStyle": "black",
+	    "backgroundColor": "#ffffff",
+	    "list": [{
+	        "pagePath": "pages/index/index",
+	        "iconPath": "static/tab/shouye.png",
+	        "selectedIconPath": "static/tab/shouye_on.png",
+	        "text": "首页"
+	    }, {
+	        "pagePath": "pages/list/list",
+	        "iconPath": "static/tab/simiao.png",
+	        "selectedIconPath": "static/tab/simiao.png",
+	        "text": "寺庙"
+	    }, {
+	        "pagePath": "pages/yixin/index",
+	        "iconPath": "static/tab/yixin.png",
+	        "selectedIconPath": "static/tab/yixin.png",
+	        "text": "乙信"
+	    }
+		]
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	}
+}

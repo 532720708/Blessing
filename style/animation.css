@@ -1,0 +1,58 @@
+@keyframes light
+{
+	0%   {background: url(../../static/canvas/baifo_foxiang_guangquan01.png) no-repeat center;background-size: 50% 50%;}
+	25%  {background: url(../../static/canvas/baifo_foxiang_guangquan02.png) no-repeat center;background-size: 50% 50%;}
+	50%  {background: url(../../static/canvas/baifo_foxiang_guangquan03.png) no-repeat center;background-size: 50% 50%;}
+	100% {background: url(../../static/canvas/baifo_foxiang_guangquan04.png) no-repeat center;background-size: 50% 50%;}
+}
+@-webkit-keyframes light 
+{
+	0%   {background: url(../../static/canvas/baifo_foxiang_guangquan01.png) no-repeat center;background-size: 50% 50%;}
+	25%  {background: url(../../static/canvas/baifo_foxiang_guangquan02.png) no-repeat center;background-size: 50% 50%;}
+	50%  {background: url(../../static/canvas/baifo_foxiang_guangquan03.png) no-repeat center;background-size: 50% 50%;}
+	100% {background: url(../../static/canvas/baifo_foxiang_guangquan04.png) no-repeat center;background-size: 50% 50%;}
+}
+@-o-keyframes light
+{
+	0%   {background: url(../../static/canvas/baifo_foxiang_guangquan01.png) no-repeat center;background-size: 50% 50%;}
+	25%  {background: url(../../static/canvas/baifo_foxiang_guangquan02.png) no-repeat center;background-size: 50% 50%;}
+	50%  {background: url(../../static/canvas/baifo_foxiang_guangquan03.png) no-repeat center;background-size: 50% 50%;}
+	100% {background: url(../../static/canvas/baifo_foxiang_guangquan04.png) no-repeat center;background-size: 50% 50%;}
+}
+@-moz-keyframes light 
+{
+	0%   {background: url(../../static/canvas/baifo_foxiang_guangquan01.png) no-repeat center;background-size: 50% 50%;}
+	25%  {background: url(../../static/canvas/baifo_foxiang_guangquan02.png) no-repeat center;background-size: 50% 50%;}
+	50%  {background: url(../../static/canvas/baifo_foxiang_guangquan03.png) no-repeat center;background-size: 50% 50%;}
+	100% {background: url(../../static/canvas/baifo_foxiang_guangquan04.png) no-repeat center;background-size: 50% 50%;}
+}
+
+@-o-keyframes lotus
+{
+	0%   {background: url(../../static/canvas/baifo_lianhua01.png) no-repeat center; background-size: 100% 100%;}
+	25%  {background: url(../../static/canvas/baifo_lianhua02.png) no-repeat center; background-size: 100% 100%;}
+	50%  {background: url(../../static/canvas/baifo_lianhua03.png) no-repeat center; background-size: 100% 100%;}
+	100% {background: url(../../static/canvas/baifo_lianhua04.png) no-repeat center; background-size: 100% 100%;}
+}
+@-moz-keyframes lotus
+{
+	0%   {background: url(../../static/canvas/baifo_lianhua01.png) no-repeat center; background-size: 100% 100%;}
+	25%  {background: url(../../static/canvas/baifo_lianhua02.png) no-repeat center; background-size: 100% 100%;}
+	50%  {background: url(../../static/canvas/baifo_lianhua03.png) no-repeat center; background-size: 100% 100%;}
+	100% {background: url(../../static/canvas/baifo_lianhua04.png) no-repeat center; background-size: 100% 100%;}
+}
+
+@keyframes lotus
+{
+	0%   {background: url(../../static/canvas/baifo_lianhua01.png) no-repeat center; background-size: 100% 100%;}
+	25%  {background: url(../../static/canvas/baifo_lianhua02.png) no-repeat center; background-size: 100% 100%;}
+	50%  {background: url(../../static/canvas/baifo_lianhua03.png) no-repeat center; background-size: 100% 100%;}
+	100% {background: url(../../static/canvas/baifo_lianhua04.png) no-repeat center; background-size: 100% 100%;}
+}
+@-webkit-keyframes lotus
+{
+	0%   {background: url(../../static/canvas/baifo_lianhua01.png) no-repeat center; background-size: 100% 100%;}
+	25%  {background: url(../../static/canvas/baifo_lianhua02.png) no-repeat center; background-size: 100% 100%;}
+	50%  {background: url(../../static/canvas/baifo_lianhua03.png) no-repeat center; background-size: 100% 100%;}
+	100% {background: url(../../static/canvas/baifo_lianhua04.png) no-repeat center; background-size: 100% 100%;}
+}
