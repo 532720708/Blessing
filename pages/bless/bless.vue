@@ -1,82 +1,127 @@
 <template>
-	<view>
-		<view class="swiperView" >
-			<view class="swiper">
-				<image class="templeImg" :src="temple.img"></image>
-			</view>
-			<!-- 祈福场景 -->
-			<view class="fo-display">
-				<!-- 光圈 -->
-				<!-- <view class="light-view">
-					<image class="light-img" style="background-size: 50% 50%;background: no-repeat;"></image>
-				</view> -->
-				<!-- 莲花 -->
-				<view class="lutos-left-view">
-					<image class="lutos-left" src="../../static/temple/lotus.png"></image>
-					<!-- 直接在keyframes写background-size不奏效（safari） -->
-					<image class="lutos-light-left" style="background-size: 100% 100%;opacity: 0.4;"></image>
+	<view >
+			<view class="swiperView" >
+				<view class="swiper">
+					<image class="templeImg" :src="temple.img"></image>
 				</view>
-				<view class="lutos-right-view">
-					<image class="lutos-right" src="../../static/temple/lotus.png"></image>
-					<image class="lutos-light-right" style="background-size: 100% 100%;opacity: 0.4;"></image>
+				<!-- 祈福场景 -->
+				<view style="text-align: center;width: 100%;">
+					<!--两端挂件-->
+					<view >
+						<image class="lutos-left" :src="blessingCombination"></image>
+					</view>
+					<view >
+						<image class="lutos-right" :src="blessingCombination"></image>
+					</view>
+					<!-- 佛像 -->
+					<view id="fo-img" >
+						<image class="fo-img" :src="choiceImg"></image>
+					</view>	
+					<!-- 椅子 -->
+					<view>
+						<image class="table" src="../../static/temple/table.png"></image>
+					</view>			
+					<!-- 花 -->
+					<view id="flower" :style="opStyle[2]">
+						<image class="flowerLeft" src="../../static/temple/flower.png" mode="aspectFit"></image>
+						<image class="flowerRight" src="../../static/temple/flower.png" mode="aspectFit"></image>
+					</view>
+					
+					<!-- 油 -->
+					<view id="oil" :style="opStyle[0]">
+						<image class="candleImgleft" src="../../static/temple/lazhu.png" mode="aspectFit"></image>
+						<image class="candleImgRight" src="../../static/temple/lazhu.png" mode="aspectFit"></image>
+					</view>
+					<!-- 香 -->
+					<image id="xiang" :style="opStyle[1]" class="xiangImg" src="../../static/temple/xiang.png" mode="aspectFit"></image>
+					<!-- 果 -->
+					<view id="fruit" :style="opStyle[3]">
+						<image class="fruitRight" src="../../static/temple/fruitRight.png" mode="aspectFit"></image>
+						<image class="fruitLeft" src="../../static/temple/fruitLeft.png" mode="aspectFit"></image>
+					</view>
+			
 				</view>
-				<!-- 佛像+椅子 -->
-				<view id="fo-img" class="fo-view">
-					<image class="fo-img" :src="choiceImg"></image>
-				</view>				
-				<!-- 花 -->
-				<view id="flower" :style="opStyle[2]">
-					<image class="flowerLeft" src="../../static/temple/toFlower.png" mode="aspectFit"></image>
-					<image class="flowerRight" src="../../static/temple/toFlower.png" mode="aspectFit"></image>
-				</view>
-				
-				<!-- 油 -->
-				<view id="oil" :style="opStyle[0]">
-					<image class="candleImgleft" src="../../static/temple/candle.png" mode="aspectFit"></image>
-					<image class="candleImgRight" src="../../static/temple/candle.png" mode="aspectFit"></image>
-				</view>
-				<!-- 香 -->
-				<image id="xiang" :style="opStyle[1]" class="xiangImg" src="../../static/temple/toXiang.png" mode="aspectFit"></image>
-				<!-- 果 -->
-				<view id="fruit" :style="opStyle[3]">
-					<image class="fruitRight" src="../../static/temple/fruitRight.png" mode="aspectFit"></image>
-					<image class="fruitLeft" src="../../static/temple/fruitLeft.png" mode="aspectFit"></image>
-				</view>
-
-			</view>
-			<view class="choiceView">
-				<view class="Title">
-					<image class="lotusImg" src="../../static/temple/qiyuan_logo.png" mode="aspectFit"></image>
-					<text class="titleText1">我的祈愿</text>
-					<text class="titleText2">(选择供奉神明)</text>
-				</view>
-
-				<view class="choiceline flex-row-wrap">
-					<view class="choiceline-item flex-col-wrap flex-center" v-for="(choicItem, index) in temple.choice" :id="index" @click="choiceButton" :key="index">
-						<image class="choiceImg" :src="choicItem.img" mode="aspectFit"></image>
-						<view class="choice-font" :class="state[index]">{{choicItem.title}}</view>
+				<view class="choiceView" v-if="!showRalizeBlessing">
+					<view class="Title">
+						<image class="lotusImg" src="../../static/temple/qiyuan_logo.png" mode="aspectFit"></image>
+						<text class="titleText1">我的祈愿</text>
+						<text class="titleText2">(选择供奉神明)</text>
+					</view>
+			
+					<view class="choiceline flex-row-wrap">
+						<view class="choiceline-item flex-col-wrap flex-center" v-for="(choicItem, index) in temple.choice" :id="index" @click="choiceButton" :key="index">
+							<image class="choiceImg" :src="choicItem.img" mode="aspectFit"></image>
+							<view class="choice-font" :class="state[index]">{{choicItem.title}}</view>
+						</view>
 					</view>
 				</view>
 			</view>
-		</view>
-		
-		<view class="BlessContentView">
-			<view class="Title">
-				<image class="lotusImg" src="../../static/temple/blessTitleLogo.png" mode="aspectFit"></image>
-				<text class="titleText1">许愿选择</text>
-			</view>
-			<scroll-view class="blessChoice" scroll-y="true" :show-scrollbar="true">
-				<view v-for="(item,index) in temple.blessChoiceText" :id="index" @click="blessButton(index)" :key="index">
-					<button class="blessButton overflow-manage" :class="index === txtIndex ? 'changeTextStyle' : 'unchangeTextStyle'">{{item}}</button>
+			
+			<view class="BlessContentView" v-if="!showRalizeBlessing">
+				<view class="Title">
+					<image class="lotusImg" src="../../static/temple/blessTitleLogo.png" mode="aspectFit"></image>
+					<text class="titleText1">许愿选择</text>
 				</view>
-			</scroll-view>
-	
-		    <textarea class="textAreaView" v-model="text" placeholder="点击此处输入许愿内容" ></textarea>
-		</view>
-		
-		<view class="buttonView flex-row-wrap flex-center">
-			<button class="pray-button" @click="sumbit">祈愿</button>
-			<button class="pray-button" @click="sumbit">还愿</button>
+				<scroll-view class="blessChoice" scroll-y="true" >
+					<view v-for="(item,index) in temple.blessChoiceText" :id="index" @click="blessButton(index)" :key="index">
+						<button class="blessButton overflow-manage" :class="index === txtIndex ? 'changeTextStyle' : 'unchangeTextStyle'">{{item}}</button>
+					</view>
+				</scroll-view>
+				
+			    <textarea class="textAreaView" v-model="text" placeholder="点击此处输入许愿内容" ></textarea>
+			</view>
+			
+			<view class="buttonView flex-row-wrap flex-center" v-if="!showRalizeBlessing">
+				<button class="pray-button" @click="sumbit">祈愿</button>
+				<button class="pray-button" @click="realizeBlessingButton">还愿</button>
+			</view>
+		<view v-if="showRalizeBlessing" class="realizeBlessingView">
+			<view class="recordTitleView">
+				<text class="titleText1">许愿记录</text>
+			</view>
+			<view class="recordsView">
+				<checkbox-group @change="checkboxChanged">
+				    <label v-for="item in blessContent">
+						<view class="aRecordView">
+							<view class="aColumn">
+								<view>
+									<image class="dot" src="../../static/temple/dot.png"></image>
+									<text class="textTitle">许愿日期</text>
+								</view>	
+								<text class="textContent">{{item.blessingData}}</text>
+								<view>
+									<image class="dot" src="../../static/temple/dot.png"></image>
+									<text class="textTitle">还愿日期</text>
+								</view>
+								<text v-if="!item.realizeData == ''" class="textContent">{{item.realizeData}}</text>
+								<text v-else class="textContent specialText">尚未还愿</text>
+							</view>
+							<view>
+								<image class="line" src="../../static/temple/line.png"></image>
+							</view>
+							<view class="aColumn secondColumn">
+								<view>
+									<image class="dot" src="../../static/temple/dot.png"></image>
+									<text class="textTitle">许愿内容</text>
+								</view>	
+								<text class="textContent overflow-manage-3">{{item.content}}</text>
+							</view>
+							<view>
+								<image class="line" src="../../static/temple/line.png"></image>
+							</view>
+							<view class="checkbox">
+								<checkbox :value="item.content" :checked="item.isSelcted"/>
+							</view>
+							
+						</view>
+				    </label>
+				</checkbox-group>
+			</view>
+			<view class="buttonView">
+				<button class="aButton" @click="selectAll">勾选全部</button>
+				<button class="aButton" @click="cancelSelected">取消勾选全部</button>
+				<button class="aButton buttonRealize" @click="buttonRealize">还愿</button>
+			</view>
 		</view>
 	</view>
 </template>
@@ -87,19 +132,19 @@
 	    data() {
 	        return {
 				phoneHeight: 0,
-				choiceImg:"../../static/temple/caishen.png",
+				blessingCombination:"../../static/temple/qiucaiCombination.png",
+				choiceImg:"../../static/temple/qiucai.png",
 				name:"",
+				blessContent:[{blessingData:"2019-12-22 5:50",realizeData:"2019-12-22 5:50",content:"幸福美满",isSelcted:false},
+				{blessingData:"2019-12-22 13:50",realizeData:"2019-12-22 5:50",content:"早生贵子",isSelcted:false},
+				{blessingData:"2019-12-22 15:50",realizeData:"",
+				content:"幸福美满早生贵子早生贵子早生贵子早早生贵子早生贵子早生贵子早生贵子",isSelcted:false}],
 				temple:{
 					img:"../../static/temple/background.png",
-					choice:[{img:"../../static/temple/you.png", title: "供油"}, 
-						{img: "../../static/temple/xiang.png", title: "供香"},
-						{img: "../../static/temple/hua.png", title: "供花"},
-						{img: "../../static/temple/guo.png", title: "供果"}],
-					
-					introduce:"<p>鸡鸣寺历史可追溯至东吴的栖玄寺，寺址所在为三国时属吴国后苑之地，300年（西晋永康元年）在此倚山造室，始创道场。"+
-					"东晋以后，此处被辟为廷尉署，至527年（南朝梁普通八年）梁武帝在鸡鸣埭兴建同泰寺，使这里从此真正成为佛教胜地。"+
-					"1387年（明朝洪武二十年）明太祖朱元璋下令拆去旧屋，扩大规模，重建寺院。</p><p>朱元璋题额为“鸡鸣寺”。后经明宣德、成化、弘治年间扩建，院落规模宏大，占地达百余亩。"+
-					"后来古寺毁于咸丰战火，虽同治年间重修，规模已大大缩小，但香火却一直旺盛不衰。</p>",
+					choice:[{img:"../../static/temple/gongYou.png", title: "供油"}, 
+						{img: "../../static/temple/gongXiang.png", title: "供香"},
+						{img: "../../static/temple/gongHua.png", title: "供花"},
+						{img: "../../static/temple/gongGuo.png", title: "供果"}],
 					blessChoiceText:["愿我和我的家人在这一年里平安",
 					"我祈求菩萨保佑我一家人平平安安",
 					"请菩萨保佑，祝愿朋友健康",
@@ -111,10 +156,11 @@
 				state: ["offStyle", "offStyle", "offStyle", "offStyle"],
 				
 				opStyle: [{opacity: 0}, {opacity: 0}, {opacity: 0}, {opacity: 0}],
-				toXiang:false,
+				/* toXiang:false,
 				toOil:false,
 				toFlower:false,
-				toFruit:false,
+				toFruit:false, */
+				showRalizeBlessing:false,
 				text:""
 
 			};
@@ -169,6 +215,82 @@
 						_this.opStyle[index].opacity = alpha; //这里 将递减结果alpha 赋给页面的透明度 显示出来
 					}
 				},150);
+			},
+			//判断祈福的项目
+			selectedBlessing(choice){
+				switch(choice)
+				{
+				    case "求姻缘":
+				        this.choiceImg = "../../static/temple/qiuyinyuan.png"
+						this.blessingCombination = "../../static/temple/qiuyinyuanCombination.png"
+				        break;
+				    case "求财":
+				       this.choiceImg = "../../static/temple/qiucai.png"
+					   this.blessingCombination = "../../static/temple/qiucaiCombination.png"
+				       break;
+					case "求子":
+					   this.choiceImg = "../../static/temple/qiuzi.png"
+					   this.blessingCombination = "../../static/temple/qiuziCombination.png"
+					   break;
+					case "求学业":
+					   this.choiceImg = "../../static/temple/qiuxueye.png"
+					   this.blessingCombination = "../../static/temple/qiuxueyeCombination.png"
+					   break;
+					case "求平安":
+					   this.choiceImg = "../../static/temple/qiupingan.png"
+					   this.blessingCombination = "../../static/temple/qiupinganCombination.png"
+					   break;   
+				}
+			},
+			//还愿时显示所有供品和屏蔽一些组件
+			realizeBlessingButton(){
+				this.showRalizeBlessing = true;
+				for(var i = 0 ; i < 4 ; i ++){
+					this.showImg(i);
+				}
+			},
+			//全选
+			selectAll(){
+				this.blessContent.forEach(function(item){
+					item.isSelcted = true
+				})
+			},
+			//取消选择
+			cancelSelected(){
+				console.log("cancel")
+				this.blessContent.forEach(function(item){
+					item.isSelcted = false;
+				})
+			
+			},
+			checkboxChanged(e){
+				let   values = e.detail.value;
+				  for (var i = 0, lenI = this.blessContent.length; i < lenI; ++i) {
+				        const item = this.blessContent[i]
+				        if(values.includes(item.content)){
+				            item.isSelcted = true;
+				        }else{
+				            item.isSelcted = false;
+				         }
+				    }
+			},
+			//还愿按钮
+			buttonRealize(){
+				let indicator = false;
+				this.blessContent.forEach(function(item){
+					if(item.isSelcted == true){
+						console.log(item.content)
+						indicator = true;
+					}
+				})
+				if(indicator == false){
+					uni.showModal({
+						showCancel: false ,
+					    title: '提示',
+					    content: '您还没有选择需要的还愿'
+					});
+				}
+				
 			}
 		},
 		onLoad(options) {
@@ -188,10 +310,11 @@
 			//接收temple界面传递过来的参数
 			var inf = JSON.parse(options.transInfJson)
 			this.name = inf.choice
-			
+			this.selectedBlessing(inf.choice);
 			uni.setNavigationBarTitle({
 				title: this.name,
 			});
+			
 			
 			
 		}
@@ -207,10 +330,103 @@
 		font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
 		background: #f5f5f5;
 	}
+	.realizeBlessingView{
+		background:#ffffff;
+		width: 705upx;
+		right: 22upx;
+		height: 660upx;
+		position: absolute;
+		top: 580upx;
+		z-index: 900;
+		border-radius: 10upx;
+		.recordTitleView{
+			margin-top: 20upx;
+			margin-left: 10upx;
+		}
+		.recordsView{
+			overflow: auto;
+			margin-left: 25upx;
+			width: 650upx;
+			height: 450upx;
+			background: #ffffff;
+			.aRecordView{
+				height: 180upx;
+				width: 650upx;
+				background: #ffe8a9;
+				margin-top: 10upx;
+				border-radius: 10upx;
+				display: flex;
+				flex-direction: row;
+				.aColumn{
+					display: flex;
+					flex-direction: column;
+					width: 200upx;
+					height: 160upx;
+					padding-left: 15upx;
+					padding-top: 10upx;
+					.dot{
+						width: 15upx;
+						height: 15upx;
+						
+					}
+					.textTitle{
+						
+					     margin-left: 10upx;
+						font-weight: 500;
+						font-size: 17px;
+						color: #97612a;
+					}
+					.textContent{
+						margin-top: 5upx;
+						font-weight: 500;
+						font-size: 10px;
+						color: black;
+					}
+					.specialText{
+						margin-left: 30upx;
+					}
+				}
+				.line{
+					padding-top: 10upx;
+					width: 5upx;
+					height: 160upx;
+				}
+				.secondColumn{
+					width: 345upx;
+				}
+				.checkbox{
+					padding-top: 60upx;
+					padding-left: 10upx;
+				}
+			}
+		}
+		.buttonView{
+			width: 650upx;
+			height: 70upx;
+			display: flex;
+			flex-direction: row;
+			padding-top: 15upx;
+			
+			.aButton{
+				width: 205upx;
+				height: 70upx;
+				background: #e7715a;
+				line-height:70upx;
+				font-size: 16px;
+				font-weight: 500upx;
+				color: #ffffff;
+			}
+			.buttonRealize{
+				background: #eab177;
+			}
+			
+		}
+	}
 	.swiperView{
 		width:100%;
 		height: 770upx;
 		position:relative;
+		text-align: center;
 		.swiper{
 			width: 100%;
 			height: 770upx;
@@ -220,68 +436,76 @@
 				 height: 770upx;
 			}
 		}
-		// 佛 +桌子
+		// 佛像
 		.fo-img {
-			width: 676upx;
 			position: absolute;
-			top: 120upx;
-			left: 37upx;
-			height: 640upx;
+			top: 125upx;
 			z-index: 900;
-			//opacity: 50;
+			left: 245upx;
+			width: 280upx;
+			height: 420upx;
+			
+		}
+		.table{
+			position: absolute;
+			top: 540upx;
+			left: 30upx;
+			z-index: 900;
+			height: 90upx;
+			width: 690upx;
 		}
 		.flowerLeft{
 			position: absolute;
-			top: 325upx;
-		
+			top: 385upx;
+			left: 5upx;
 			height: 180upx;
 			width: 130upx;
 			z-index: 900;
 		}
 		.flowerRight{
 			position: absolute;
-			top: 335upx;
-			right: 30upx;
+			top: 385upx;
+			right: 5upx;
 			height: 178upx;
 			width: 130upx;
 			z-index: 900;
 		}
 		.candleImgleft{
 			position: absolute;
-			top: 360upx;
-			left: 115upx;
+			top: 390upx;
+			left: 125upx;
 			height: 150upx;
 			width: 30upx;
 			z-index: 900;
 		}
 		.candleImgRight{
 			position: absolute;
-			top: 366upx;
-			right: 130upx;
+			top: 390upx;
+			right: 125upx;
 			height: 150upx;
 			width: 30upx;
 			z-index: 900;
 		}
 		.xiangImg{
 			position: absolute;
-			top: 332upx;
-			left: 295upx;
+			top: 360upx;
+			left: 313upx;
 			height: 200upx;
 			width: 130upx;
 			z-index: 900;
 		}
 		.fruitLeft{
 			position: absolute;
-			top: 350upx;
-			left: 145upx;
+			top: 389upx;
+			left: 165upx;
 			height: 200upx;
 			width: 140upx;
 			z-index: 900;
 		}
 		.fruitRight{
 			position: absolute;
-			top: 358upx;
-			right: 177upx;
+			top: 389upx;
+			right: 165upx;
 			height: 200upx;
 			width: 140upx;
 			z-index: 900;
@@ -356,8 +580,7 @@
 			height: 150upx;
 			width: 650upx;
 			background: #ffe8a9;
-			border-radius: 18upx;
-			padding-top: 5upx;
+			border-radius: 18upx; 
 			.blessButton{
 				margin-top: 16upx;
 				height: 55upx;
@@ -365,7 +588,27 @@
 				line-height: 28px;
 				font-size: 15px;
 				font-weight: 550;
-				border-radius: 18upx;
+				border-radius: 18upx;	
+			}
+			::-webkit-scrollbar
+			{
+			    width:16upx;
+			    height:150upx;
+			    background-color:#F5F5F5;
+			}
+			/*定义滚动条轨道*/
+			::-webkit-scrollbar-track
+			{
+			    -webkit-box-shadow:inset 0 0 6upx rgba(0,0,0,0.3);
+			    border-radius:10upx;
+			    background-color:#F5F5F5;
+			}
+			/*定义滑块*/
+			::-webkit-scrollbar-thumb
+			{
+			    border-radius:10upx;
+			    -webkit-box-shadow:inset 0 0 6upx rgba(0,0,0,.3);
+			    background-color:#555;
 			}
 		}
 		.textAreaView{
@@ -405,6 +648,12 @@
 		overflow : hidden;
 		text-overflow: ellipsis;
 	}
+	.overflow-manage-3 {
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 3;
+		overflow: hidden;
+	}
 	
 	// 祈福选项变色
 	.onStyle {
@@ -426,11 +675,11 @@
 	}
 	
 	
-	// 佛像
+	// 左右两边挂件
 	.lutos-left, .lutos-right {
 		position: absolute;
-		width: 172upx;
-		height: 139upx;
+		width: 152upx;
+		height: 118upx;
 		top: 180upx;
 		z-index: 900;
 	}
@@ -442,21 +691,6 @@
 		right: 40upx;
 
 	}
-	
-	.lutos-light-left, .lutos-light-right {
-		position: absolute;
-		width: 240upx;
-		height: 240upx;
-		top: 130upx;
-		z-index: 800;
-	}
-	.lutos-light-left {
-		left: 12upx;
-	}
-	.lutos-light-right {
-		right: 12upx;		
-	}
-	
 	.light-view {	
 		position: absolute;
 		left: 122upx;
