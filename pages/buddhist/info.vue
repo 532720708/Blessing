@@ -56,6 +56,12 @@
 	page {
 		background: #f5f5f5;
 	}
+	// 解决fixed布局脱离文档流遮挡下面内容
+	.empty-view {
+		width: 100%;
+		height: 120upx;
+	}
+	
 	.source-text {
 		padding-bottom: 25upx;
 		background: #FFFFFF;

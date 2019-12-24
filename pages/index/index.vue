@@ -13,11 +13,14 @@
 			</view>
 			
 			<!-- 轮播 -->
-			<swiper autoplay="true">
+			<!-- <swiper autoplay="true">
 				<swiper-item  v-for="(carousel, index) in tCarousels" :key="index" @tap="toDetail(carousel.id)">
 					<image :src="carousel.img" mode="scaleToFill"></image>
 				</swiper-item>
-			</swiper>
+			</swiper> -->
+			<view class="m-carousel">
+				<image src="../../static/index/top/buddha.png" mode="scaleToFill"></image>
+			</view>
 			<!-- 分类 -->
 			<view class="type-view">
 				<swiper class="type-swiper" :circular="true" :autoplay="false">
@@ -33,39 +36,43 @@
 				</swiper>
 			</view>
 		</view>
-		<view class="middle-carousel flex-row-wrap flex-center">
-			<!-- 轮播 -->
-			<view class="swiper-view">
-				<swiper autoplay="true" indicator-dots="true" indicator-color="#a4a4a3" indicator-active-color="#ffffff">
-					<swiper-item  v-for="(m, index) in mCarousels" :key="index" @tap="toDetail(m.id)">
-						<!-- 由于图片问题目前只保留长边 -->
-						<image :src="m.img" mode="aspectFill"></image>
-					</swiper-item>
-				</swiper>
-			</view>
-			<!-- <swiperDots class="dots" :current="current" :dots="mCarousels"></swiperDots> -->
-		</view>
-		<view class="bottom-article">
-			<view class="bottom-title flex-row-wrap">
-				<view class="title-word">学佛好文</view>
-				<view class="title-more">查看更多</view>
-			</view>
-			<view class="title-sen flex-row-wrap">
-				<image src="../../static/index/quotation_index.png"></image>
-				<view class="title-sen-txt">禅者心也，处处是禅也。</view>
-			</view>
-			<view class="bottom-content flex-col-wrap flex-center">
-				<view class="content-item flex-row-wrap" v-for="(article, index) in articles" :key="index" @tap="toArticle(article.title)">
-					<view class="item-intro flex-col-wrap">
-						<text class="intro-title intro-title-font">{{article.title}}</text>
-						<view class="intro-view intro-view-font flex-row-wrap">
-							<text class="intro-source">{{article.source}}</text>
-							<text class="intro-view">{{article.viewNum}}人阅读</text>
-						</view>
-					</view>
-					<image class="item-img" :src="article.mImg"></image>						
+		
+		<!-- 在外面套一层为了解决页面横向滑动问题 -->
+		<view class="hidden-overflow">	
+			<view class="middle-carousel flex-row-wrap flex-center">
+				<!-- 轮播 -->
+				<view class="swiper-view">
+					<swiper autoplay="true" indicator-dots="true" indicator-color="#a4a4a3" indicator-active-color="#ffffff">
+						<swiper-item  v-for="(m, index) in mCarousels" :key="index" @tap="toDetail(m.id)">
+							<!-- 由于图片问题目前只保留长边 -->
+							<image :src="m.img" mode="aspectFill"></image>
+						</swiper-item>
+					</swiper>
 				</view>
+				<!-- <swiperDots class="dots" :current="current" :dots="mCarousels"></swiperDots> -->
 			</view>
+			<view class="bottom-article">
+				<view class="bottom-title flex-row-wrap">
+					<view class="title-word">学佛好文</view>
+					<view class="title-more" @tap="toMore()">查看更多</view>
+				</view>
+				<view class="title-sen flex-row-wrap">
+					<image src="../../static/index/quotation_index.png"></image>
+					<view class="title-sen-txt">禅者心也，处处是禅也。</view>
+				</view>
+				<view class="bottom-content flex-col-wrap flex-center">
+					<view class="content-item flex-row-wrap" v-for="(article, index) in articles" :key="index" @tap="toArticle(article.title)">
+						<view class="item-intro flex-col-wrap">
+							<text class="intro-title intro-title-font">{{article.title}}</text>
+							<view class="intro-view intro-view-font flex-row-wrap">
+								<text class="intro-source">{{article.source}}</text>
+								<text class="intro-view">{{article.viewNum}}人阅读</text>
+							</view>
+						</view>
+						<image class="item-img" :src="article.mImg"></image>						
+					</view>
+				</view>
+			</view>	
 		</view>
 	</view>
 </template>
@@ -100,7 +107,7 @@
 					{id: 4, title: '一花一世界，一佛一如来', img: '../../static/index/middle/middle.png'}],
 				current: 0,
 				articles: [{id: 1, title: '宗性法师：如何处理与出家师父之间的关系', source: '第三方投稿', viewNum: 4520, mImg: '../../static/index/article/wenzhang_1.png'},
-					{id: 2, title: '指挥法语：佛对众生的爱超越父母对子女的爱的数据库恢复健康收到货福建师范', source: '第三方投稿', viewNum: 4520, mImg: '../../static/index/article/wenzhang_2.png'},
+					{id: 2, title: '指挥法语：佛对众生的爱超越父母对子女的爱', source: '第三方投稿', viewNum: 4520, mImg: '../../static/index/article/wenzhang_2.png'},
 					{id: 3, title: '佛教故事：有些话选择不说往往能增加福德', source: '第三方投稿', viewNum: 4520, mImg: '../../static/index/article/wenzhang_3.png'}]
 			
 			}
@@ -169,6 +176,12 @@
 				uni.navigateTo({
 					url: '../article/article?aTitle=' + aTitle
 				})
+			},
+			// 跳转更多文章列表
+			toMore() {
+				uni.navigateTo({
+					url: '../article/more'
+				})
 			}
 		}
 	}
@@ -180,6 +193,11 @@
 		font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
 	}
 	
+	.hidden-overflow {
+		width: 100%;
+		overflow-x: hidden;
+	}
+
 	// 上部
 	.top-carousel {
 		width: 100%;
@@ -206,7 +224,7 @@
 				color: #FFFFFF;
 			}
 		}
-		swiper {
+		.m-carousel {
 			height: 475upx;
 			image {
 				width: 100%;
@@ -335,7 +353,7 @@
 				justify-content: space-between;
 				margin-bottom: 15upx;
 				.item-intro {
-					width: 410upx;
+					width: 420upx;  	// 原为410，由于溢出省略在ios上显示问题，稍微增大
 					height: 130upx;
 					justify-content: space-between;
 					.intro-title {

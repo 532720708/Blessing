@@ -13,7 +13,6 @@
 		</view> -->
 		<!-- 标题 -->
 		<navTop class="stickyTop" :showTempleIcon="true" :showSearch="true" :navTitle="navTitle" :backStyle="navBackStyle" :isTab="true"></navTop>
-
 		
 		<!-- 主体 -->
 		<view class="list-content flex-row-nowrap">
@@ -81,7 +80,7 @@
 					{id:11, name: "河北省"},{id:12, name: "河南省"},{id:13, name: "黑龙江省"},{id:14, name: "湖北省"},{id:15, name: "湖南省"},
 					{id:16, name: "江西省"},{id:17, name: "吉林省"},{id:18, name: "江苏省"},{id:19, name: "辽宁省"},{id:20, name: "内蒙古"},
 					{id:21, name: "宁夏回族"},{id:22, name: "青海省"},{id:23, name: "山西省"},{id:24, name: "山东省"},{id:25, name: "陕西省"},
-					{id:26, name: "上海市"},{id:27, name: "四川省"},{id:28, name: "天津市"},{id:29, name: "安西藏"},{id:30, name: "新疆维吾尔"},
+					{id:26, name: "上海市"},{id:27, name: "四川省"},{id:28, name: "天津市"},{id:29, name: "西藏"},{id:30, name: "新疆维吾尔"},
 					{id:31, name: "云南省"},{id:32, name: "浙江省"}],
 				templeCarousel: [{id: 1, carousels: ["../../static/list/remen_carousel1.png"]},
 					{id: 2, carousels: ["../../static/list/anhui_carousel1.png"]}],
@@ -103,12 +102,7 @@
 						{id: 3, name: "化城寺", add: "九华山", desc: "九华山化城寺是九华山的开山主寺，历史最悠久又是地藏菩萨道场，是九华的“总丛林”。 始建于唐....", hot: 603, img: "../../static/list/anhui_temple_2.jpg"},
 						{id: 4, name: "西庐寺", add: "合肥市肥西县", desc: "西庐寺位于安徽省合肥市肥西县，在紫蓬山国家森林公园内，始建于公元180年，为皖中名寺。初为汉末李陵庙...", hot: 603, img: "../../static/list/anhui_temple_1.png"},
 						{id: 5, name: "祗园寺", add: "池州市", desc: "祇园寺建于清乾隆年，该庙面积分一厘五毫，房屋十二间。管理及使用情况为供佛及自住外出租...", hot: 603, img: "../../static/list/anhui_temple_6.png"},
-						{id: 6, name: "甘露寺", add: "池州市", desc: "甘露寺位于安徽省南部的九华山中，也是九华山重要寺庙之一，位于化城山腰定心石下。原名甘露庵，又名甘露禅林...", hot: 603, img: "../../static/list/anhui_temple_5.png"},
-						{id: 1, name: "弘愿寺", add: "宣城市", desc: "弘愿寺位于安徽省宣城市敬亭山脚下，前身为大唐广教寺，为唐代大中年间黄檗禅师创建，历代高僧辈出....", hot: 603, img: "../../static/list/anhui_temple_4.jpg"},
-						{id: 2, name: "明教寺", add: "合肥市", desc: "明教寺，原名明教院、铁佛寺，又称明教台、曹操点将台。原址是三国时期曹操所筑的教弩台，俗称“曹操点将台”....", hot: 603, img: "../../static/list/anhui_temple_3.jpg"},
-						{id: 3, name: "化城寺", add: "九华山", desc: "九华山化城寺是九华山的开山主寺，历史最悠久又是地藏菩萨道场，是九华的“总丛林”。 始建于唐....", hot: 603, img: "../../static/list/anhui_temple_2.jpg"},
-						{id: 4, name: "西庐寺", add: "合肥市肥西县", desc: "西庐寺位于安徽省合肥市肥西县，在紫蓬山国家森林公园内，始建于公元180年，为皖中名寺。初为汉末李陵庙...", hot: 603, img: "../../static/list/anhui_temple_1.png"},
-						{id: 5, name: "祗园寺", add: "池州市", desc: "祇园寺建于清乾隆年，该庙面积分一厘五毫，房屋十二间。管理及使用情况为供佛及自住外出租...", hot: 603, img: "../../static/list/anhui_temple_6.png"}
+						{id: 6, name: "甘露寺", add: "池州市", desc: "甘露寺位于安徽省南部的九华山中，也是九华山重要寺庙之一，位于化城山腰定心石下。原名甘露庵，又名甘露禅林...", hot: 603, img: "../../static/list/anhui_temple_5.png"}
 						]}],
 				curTempleList: [],
 				hotTempleList: [{id: 1, name: "灵谷寺", add: "南京市", desc: "灵谷寺位于江苏省南京市玄武区紫金山东南坡下，中山陵以东约1.5千米处，始建于天监十三年（514年）...", hot: 603, img: "../../static/list/remen_temple_1.png"},
@@ -125,7 +119,9 @@
 						{id: 4, name: "寒山寺", add: "苏州市", desc: "寒山寺位于苏州市姑苏区，始建于南朝萧梁代天监年间（公元502～519年），初名“妙利普明塔院”...", hot: 603, img: "../../static/list/remen_temple_4.png"},
 						{id: 1, name: "灵谷寺", add: "南京市", desc: "灵谷寺位于江苏省南京市玄武区紫金山东南坡下，中山陵以东约1.5千米处，始建于天监十三年（514年）...", hot: 603, img: "../../static/list/remen_temple_1.png"},
 						{id: 2, name: "鸡鸣寺", add: "南京市", desc: "鸡鸣寺位于南京市玄武区鸡笼山东麓山阜上，又称古鸡鸣寺，始建于西晋，是南京最古老的梵刹之一...", hot: 603, img: "../../static/list/remen_temple_2.png"},
-						{id: 3, name: "白马寺", add: "洛阳市", desc: "白马寺位于河南省洛阳市老城以东12公里，洛龙区白马寺镇内。创建于东汉永平十一年（公元68年），中国第一古刹...", hot: 603, img: "../../static/list/remen_temple_3.png"}
+						{id: 3, name: "白马寺", add: "洛阳市", desc: "白马寺位于河南省洛阳市老城以东12公里，洛龙区白马寺镇内。创建于东汉永平十一年（公元68年），中国第一古刹...", hot: 603, img: "../../static/list/remen_temple_3.png"},
+						{id: 4, name: "寒山寺", add: "苏州市", desc: "寒山寺位于苏州市姑苏区，始建于南朝萧梁代天监年间（公元502～519年），初名“妙利普明塔院”...", hot: 603, img: "../../static/list/remen_temple_4.png"},
+						{id: 1, name: "灵谷寺", add: "南京市", desc: "灵谷寺位于江苏省南京市玄武区紫金山东南坡下，中山陵以东约1.5千米处，始建于天监十三年（514年）...", hot: 603, img: "../../static/list/remen_temple_1.png"}
 						],
 				curType: "热门寺庙",
 				navBackStyle: 'redback',
@@ -152,6 +148,13 @@
 			// 	}
 			// })
 		},
+		// 停止刷新动画
+		onPullDownRefresh() {
+			console.log('refresh');
+			setTimeout(function () {
+				uni.stopPullDownRefresh();
+			}, 500);
+		},
 		methods: {
 			init() {
 				let _this = this
@@ -177,14 +180,6 @@
 				uni.pageScrollTo({
 					scrollTop: 0,
 				});
-			},
-			
-			// 停止刷新动画
-			onPullDownRefresh() {
-				console.log('refresh');
-				setTimeout(function () {
-					uni.stopPullDownRefresh();
-				}, 500);
 			},
 			
 			// 分类
@@ -311,8 +306,14 @@
 
 <style lang="scss" scoped> 
 	page {
-		background: #f6f6f6;
+		background: #FFFFFF;
 		font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+	}
+	
+	// 解决fixed布局脱离文档流遮挡下面内容
+	.empty-view {
+		width: 100%;
+		height: 150upx;
 	}
 	
 	// 主体
@@ -343,7 +344,7 @@
 		
 		// 分类选中样式
 		.chooseStyle {
-			background: #f6f6f6;
+			background: #FFFFFF;
 		}
 		
 		// 内容

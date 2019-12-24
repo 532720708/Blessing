@@ -216,6 +216,12 @@
 					})
 				}
 				
+				if (key === '金刚经') {
+					uni.navigateTo({
+						url: "../buddhist/info?bName=金刚经" 
+					})
+				}
+				
 				// uni.showToast({
 				// 	title: key,
 				// 	icon: 'none',

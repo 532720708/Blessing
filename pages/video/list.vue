@@ -1,6 +1,7 @@
 <template>
 	<view>
 		<navTop class="stickyTop" :showTempleIcon="false" :showSearch="false" :navTitle="navTitle" :backStyle="navBackStyle"></navTop>
+		
 		<view class="entry-view" v-for="(entry, index) in videoList" :key="index">
 			<view class="entry-title">佛·{{entry.type}}</view>
 			<view class="entry-content flex-row-wrap">
@@ -80,6 +81,12 @@
 		background-color: #EEEEEE;
 		font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
 	}
+	
+	// 解决fixed布局脱离文档流遮挡下面内容
+	// .empty-view {
+	// 	width: 100%;
+	// 	height: 110upx;
+	// }
 	
 	.entry-view {
 		width: 100%;

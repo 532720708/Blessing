@@ -78,7 +78,8 @@
 		{
 			"path":"pages/buddhist/musiclist",
 			"style":{
-				"navigationBarTitleText":"佛音佛乐"
+				"navigationBarTitleText":"佛音佛乐",
+				"enablePullDownRefresh": true  //设置为true表示当前页面开启下拉刷新
 			}
 			
 
@@ -114,6 +115,16 @@
 				"navigationBarTitleText": "",
 				"enablePullDownRefresh": true  //设置为true表示当前页面开启下拉刷新
 			}
+		},
+		// 更多文章列表
+		{
+			"path": "pages/article/more",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				},
+				"enablePullDownRefresh": true  //设置为true表示当前页面开启下拉刷新
+			}
 		}
 	],
 	"tabBar": {
@@ -123,18 +134,18 @@
 	    "backgroundColor": "#ffffff",
 	    "list": [{
 	        "pagePath": "pages/index/index",
-	        "iconPath": "static/tab/shouye.png",
-	        "selectedIconPath": "static/tab/shouye_on.png",
+	        "iconPath": "static/tab/index.png",
+	        "selectedIconPath": "static/tab/index-on.png",
 	        "text": "首页"
 	    }, {
 	        "pagePath": "pages/list/list",
-	        "iconPath": "static/tab/simiao.png",
-	        "selectedIconPath": "static/tab/simiao.png",
+	        "iconPath": "static/tab/temple.png",
+	        "selectedIconPath": "static/tab/temple-on.png",
 	        "text": "寺庙"
 	    }, {
 	        "pagePath": "pages/yixin/index",
-	        "iconPath": "static/tab/yixin.png",
-	        "selectedIconPath": "static/tab/yixin.png",
+	        "iconPath": "static/tab/yiyin.png",
+	        "selectedIconPath": "static/tab/yixin-on.png",
 	        "text": "乙信"
 	    }
 		]
@@ -144,5 +155,6 @@
 		"navigationBarTitleText": "",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
+		//"enablePullDownRefresh": true
 	}
 }

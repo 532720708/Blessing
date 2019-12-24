@@ -28,7 +28,8 @@
 		</view>
 		<view class="feedback flex-row-nowrap flex-center">
 			<view class="feedback-internal  flex-row-nowrap">
-				<input class="feedback-comment" placeholder="发表评论" placeholder-style="margin-left: 15upx;"/>
+				<input class="feedback-comment" placeholder="发表评论" placeholder-style="margin-left: 15upx;" focus="true"
+					cursor="100"/>
 				<image src="../../static/article/xihuan.png"></image>
 				<image src="../../static/article/shoucang.png"></image>
 				<image src="../../static/article/zhuanfa.png"></image>
@@ -109,6 +110,7 @@
 		z-index: 100;
 		position: fixed;
 		bottom: 0;
+		padding-left:10uxp;
 		
 		.feedback-internal {
 			align-items: center;
