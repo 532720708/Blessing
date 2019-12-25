@@ -80,7 +80,7 @@
 					line-height: 90upx;
 					margin: auto 8upx;
 					font-size: 38upx;
-					font-weight: 500;
+					font-weight: 600;
 				}
 			}
 		}	

@@ -176,7 +176,7 @@
 					flex-direction: column;
 					top: 590upx;
 					left: 17upx;
-					width: 448upx;
+					width: 410upx;
 					height: 130upx;
 					margin-left: 30upx;
 					color: white;
@@ -185,9 +185,7 @@
 					position: absolute;
 					background-color: #ff0000;
 					background-color: rgba(0, 0, 0, 0.3);
-					.dataText{
-						
-					}
+					
 				}
 				.codeIcon{
 					position: absolute;

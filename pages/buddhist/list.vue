@@ -171,7 +171,7 @@
 				font-size: 31upx;
 				font-family: "SourceHanSerifSC-Regular";
 				color: rgb( 0, 0, 0 );
-				font-weight: 600;
+				font-weight: 650;
 			}
 		}
 		
@@ -183,7 +183,7 @@
 		font-size: 28upx;
 		font-family: "SourceHanSerifSC-Regular";
 		color: rgb( 0, 0, 0 );
-		font-weight: 600;
+		font-weight: 650;
 	}
 	
 	

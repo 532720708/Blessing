@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<navTop class="stickyTop" :showTempleIcon="true" :showSearch="false" :navTitle="temple.name" :backStyle="navBackStyle"></navTop>
+		<navTop class="stickyTop" :showTempleIcon="false" :showSearch="false" :navTitle="temple.name" :backStyle="navBackStyle"></navTop>
 		<view  class="videoView">
 			<!-- 正常操作逻辑 -->
 			<!-- <video class="templeVideo" :src="temple.video" poster="../../static/temple/jiming.jpeg"></video> -->
@@ -47,11 +47,11 @@
 				navBackStyle: 'redback',
 				temple:{
 					video:"../../static/templeinf/video.mp4",
-					choice:[{img:"../../static/templeinf/blessqiucai.png", title: "求财"}, 
-						{img: "../../static/templeinf/blessqiuzi.png", title: "求子"},
-						{img: "../../static/templeinf/blessyinyuan.png", title: "求姻缘"},
-						{img: "../../static/templeinf/blesspingan.png", title: "求平安"},
-						{img: "../../static/templeinf/blessxueye.png", title: "求学业"}],
+					choice:[{img:"../../static/templeinf/qiucai.png", title: "求财"}, 
+						{img: "../../static/templeinf/qiuzi.png", title: "求子"},
+						{img: "../../static/templeinf/qiuyinyuan.png", title: "求姻缘"},
+						{img: "../../static/templeinf/qiupingan.png", title: "求平安"},
+						{img: "../../static/templeinf/qiuxueye.png", title: "求学业"}],
 					name:"鸡鸣寺",
 					introduce:"<p>鸡鸣寺历史可追溯至东吴的栖玄寺，寺址所在为三国时属吴国后苑之地，300年（西晋永康元年）在此倚山造室，始创道场。"+
 					"东晋以后，此处被辟为廷尉署，至527年（南朝梁普通八年）梁武帝在鸡鸣埭兴建同泰寺，使这里从此真正成为佛教胜地。"+
@@ -157,8 +157,8 @@
 					font-weight: 600;
 					color: #cb0000;
 					.swiperImg{
-						width: 65upx;
-						height: 70upx;
+						width: 80upx;
+						height: 80upx;
 					}
 				}
 			}

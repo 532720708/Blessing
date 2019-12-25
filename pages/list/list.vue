@@ -12,7 +12,7 @@
 			</view>
 		</view> -->
 		<!-- 标题 -->
-		<navTop class="stickyTop" :showTempleIcon="true" :showSearch="true" :navTitle="navTitle" :backStyle="navBackStyle" :isTab="true"></navTop>
+		<navTop class="stickyTop" :showTempleIcon="false" :showSearch="true" :navTitle="navTitle" :backStyle="navBackStyle" :isTab="true"></navTop>
 		
 		<!-- 主体 -->
 		<view class="list-content flex-row-nowrap">
@@ -83,7 +83,7 @@
 					{id:26, name: "上海市"},{id:27, name: "四川省"},{id:28, name: "天津市"},{id:29, name: "西藏"},{id:30, name: "新疆维吾尔"},
 					{id:31, name: "云南省"},{id:32, name: "浙江省"}],
 				templeCarousel: [{id: 1, carousels: ["../../static/list/remen_carousel1.png"]},
-					{id: 2, carousels: ["../../static/list/anhui_carousel1.png"]}],
+					{id: 2, carousels: ["../../static/list/anhui_carousel1.jpg"]}],
 				curCarousel: [],
 				templeList: [{id: 2, province: "安徽省", temples: [{id: 1, name: "弘愿寺", add: "宣城市", desc: "弘愿寺位于安徽省宣城市敬亭山脚下，前身为大唐广教寺，为唐代大中年间黄檗禅师创建，历代高僧辈出....", hot: 603, img: "../../static/list/anhui_temple_4.jpg"},
 						{id: 2, name: "明教寺", add: "合肥市", desc: "明教寺，原名明教院、铁佛寺，又称明教台、曹操点将台。原址是三国时期曹操所筑的教弩台，俗称“曹操点将台”....", hot: 603, img: "../../static/list/anhui_temple_3.jpg"},
@@ -132,21 +132,6 @@
 			_this.curCarousel = _this.templeCarousel[0]
 			_this.curTempleList = _this.hotTempleList
 			
-			//_this.init()
-			
-			// 隐藏tab
-			// uni.hideTabBar({
-			// 	animation: false,
-			// 	success(info) {
-			// 		console.log(info)
-			// 	},
-			// 	fail(err) {
-			// 		console.log(err)
-			// 	},
-			// 	complete() {
-			// 		
-			// 	}
-			// })
 		},
 		// 停止刷新动画
 		onPullDownRefresh() {
@@ -198,7 +183,7 @@
 				if(id == -1) {
 					_this.curType = "热门寺庙"
 					_this.curTempleList = _this.hotTempleList
-					//_this.getHotTemples()
+					_this.curCarousel = _this.templeCarousel[0]
 					_this.navTitle = _this.curType
 					return
 				}
@@ -207,6 +192,7 @@
 				_this.curType = id
 				_this.navTitle = "寺庙列表"
 				_this.curTempleList = _this.templeList[0].temples
+				_this.curCarousel = _this.templeCarousel[1]
 				
 				// 向后台请求20个当前省份的
 				// _this.$http.Api_C.templeListByP(1, [], id, function(err, rep) {
@@ -243,6 +229,7 @@
 						console.log(err)
 					}
 				})
+				
 			},
 			
 			// mock各省寺庙数据
@@ -323,7 +310,8 @@
 		.content-left {
 			height: auto;
 			width: 170upx;
-			background: url(../../static/list/sheng_back.png) repeat;
+			//background: url(../../static/list/sheng_back.png) repeat;
+			background: #faf2dd;
 			font-size: 30upx;
 			color: #6d5a48;
 			scroll-view {

@@ -100,7 +100,7 @@
 			line-height: 70upx;
 			margin-left: 30upx;
 			font-size: 36upx;
-			font-weight: 550;
+			font-weight: 650;
 			height: 70upx;
 			width: auto;
 			margin-bottom: 10upx;

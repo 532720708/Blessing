@@ -314,7 +314,7 @@
 				line-height: 40upx;
 				margin-left: 30upx;
 				font-size: 36upx;
-				font-weight: 550;
+				font-weight: 650;
 			}
 			.title-more{
 				text-align: center;

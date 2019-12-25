@@ -26,6 +26,14 @@ Vue.component('aColumnMusic', aColumnMusic)
 import navCustom from './component/nav/nav-custom.vue'
 Vue.component('navCustom', navCustom)
 
+// 动画测试
+import aniTest from './component/animation/ani-test.vue'
+Vue.component('aniTest', aniTest)
+
+// 动画
+import bagua from './component/animation/bagua.vue'
+Vue.component('bagua', bagua)
+
 
 import store from './store'
 Vue.prototype.$store = store
