@@ -25,9 +25,9 @@
 			<view class="addCss"></view>
 		</transition> -->
 		
-		<!-- <view class="myImg">
+		<view class="myImg">
 			
-		</view> -->
+		</view>
 		
 		<view class="sprite"></view>
 	</view>
@@ -290,7 +290,7 @@
 	@-webkit-keyframes myimg {
 		0%   {transform: translate3d(-0px,-0px, 0);}
 		50%  {transform: translate3d(-250px,-0px, 0); }
-		100%  {transform: translate3d(-500px,-0px, 0);}
+		100%  {transform: translate3d(-500px,-1250px, 0);}
 		//60%  {transform: translate3d(-1000px,-1250px, 0);background-size: contain;}
 		//100%  {transform: translate3d(-1000px,-1250px, 0);background-size: contain;}
 	}

@@ -9,7 +9,7 @@
 		<navCustom class="nav-custom" :showTempleIcon="true" :showSearch="true" :navTitle="navTitle" :backStyle="navBackStyle" :isTab="true"></navCustom>
 		<h2>这里是乙信</h2>
 		
-		<aniTest></aniTest>
+		<!-- <aniTest></aniTest> -->
 		
 		<bagua></bagua>
 		
