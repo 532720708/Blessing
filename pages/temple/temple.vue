@@ -3,7 +3,7 @@
 		<navTop class="stickyTop" :showTempleIcon="true" :showSearch="false" :navTitle="temple.name" :backStyle="navBackStyle"></navTop>
 		<view  class="videoView">
 			<!-- 正常操作逻辑 -->
-			<!-- <video class="templeVideo" :src="temple.video" poster="../../static/temple/jiming.jpeg"></video> -->
+			<!-- <video class="templeVideo" :src="temple.video" ></video> -->
 			<!-- 模拟视频播放时背景 -->
 
 			<image v-if="showBackground" src="../../static/templeinf/videobackground.png" style="width: 100%;height: 400upx;" @click="showVideo"></image>
@@ -15,11 +15,11 @@
 				<image class="logoImg" src="../../static/templeinf/qiyuan_logo.png" mode="aspectFit"></image>
 				<text class="titleText1">祈愿选择</text>
 			</view>
-			<swiper class="swiperView" :indicator-dots="true">
+			<swiper class="swiperView" indicator-dots="true" indicator-color="white" indicator-active-color="#ffcedf">
 				<swiper-item class="swiperItem" v-for="item in swiper">
 					<view class="oneChoice" v-for="choiceItem in item" :data-choiceID=choiceItem.title @click="choiceButton">
 						<image class="swiperImg" :src="choiceItem.img"></image>
-						<text>{{choiceItem.title}}</text>
+						<text class="fiveTitle">{{choiceItem.title}}</text>
 					</view>
 				</swiper-item>
 			</swiper>		
@@ -153,12 +153,15 @@
 					display: flex;
 					flex-direction: column;
 					align-items: center;
-					font-size: 30upx;
-					font-weight: 600;
-					color: #cb0000;
+					
 					.swiperImg{
 						width: 80upx;
 						height: 80upx;
+					}
+					.fiveTitle{
+						font-size: 30upx;
+						font-weight: 600;
+						color: black;
 					}
 				}
 			}

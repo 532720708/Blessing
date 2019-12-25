@@ -155,14 +155,14 @@
 	}
 	.swiperView{
 		margin-top: 100upx;
-		height: 910upx;
+		height: 940upx;
 		width: 100%;
 		.swiperItem{
 			width: 650upx;
-			height: 910upx;
+			height: 940upx;
 			.item{
 				width: 480upx;
-				height: 910upx;
+				height: 940upx;
 				background: white;
 				/* text-align: center; */
 				.backgroundImg{
@@ -200,17 +200,16 @@
 					height: 180upx;
 					width: 448upx;
 					.symbol{
-						width: 34upx;
-						height: 34upx;
+						width: 30upx;
+						height: 30upx;
 					}
 					.rightSymbol{
-						margin-top: 10upx;
 						margin-left: 400upx;
 					}
 					.signatureText{
 						margin-left: 40upx;
 						width: 360upx;
-						height: 80upx;
+						height: 90upx;
 						color: #181818;
 						font-size: 15px;
 						font-weight: 550;

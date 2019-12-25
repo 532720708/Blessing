@@ -6,16 +6,35 @@
 				</view>
 				<!-- 祈福场景 -->
 				<view style="text-align: center;width: 100%;">
-					<!--两端挂件-->
-					<view >
-						<image class="lutos-left" :src="blessingCombination"></image>
-					</view>
-					<view >
-						<image class="lutos-right" :src="blessingCombination"></image>
-					</view>
-					<!-- 佛像 -->
-					<view id="fo-img" >
-						<image class="fo-img" :src="choiceImg"></image>
+					<view v-if="name == '求财'">
+						<image mode="aspectFit" class="lutos-left" src="../../static/temple/qiucaiCombination.png"></image>
+						<image mode="aspectFit" class="lutos-right" src="../../static/temple/qiucaiCombination.png"></image>
+						<image class="foguang" src="../../static/temple/foguang.png"></image>
+						<image class="fo-img" src="../../static/temple/qiucai.png"></image>
+					</view>	
+					<view v-if="name == '求子'">
+						<image mode="aspectFit" class="lutos-left" src="../../static/temple/qiuziCombination.png"></image>
+						<image mode="aspectFit" class="lutos-right" src="../../static/temple/qiuziCombination.png"></image>
+						<image class="foguang qiuzifoguang" src="../../static/temple/foguang.png"></image>
+						<image class="fo-img" src="../../static/temple/qiuzi.png"></image>
+					</view>	
+					<view v-if="name == '求姻缘'">
+						<image mode="aspectFit" class="lutos-left" src="../../static/temple/qiuyinyuanCombination.png"></image>
+						<image mode="aspectFit" class="lutos-right" src="../../static/temple/qiuyinyuanCombination.png"></image>
+						<image class="foguang" src="../../static/temple/foguang.png"></image>
+						<image class="fo-img" src="../../static/temple/qiuyinyuan.png"></image>
+					</view>	
+					<view v-if="name == '求平安'">
+						<image mode="aspectFit" class="lutos-left" src="../../static/temple/qiuziCombination.png"></image>
+						<image mode="aspectFit" class="lutos-right" src="../../static/temple/qiuziCombination.png"></image>
+						<image class="foguang qiupinganfoguang" src="../../static/temple/foguang.png"></image>
+						<image class="fo-img" src="../../static/temple/qiupingan.png"></image>
+					</view>	
+					<view v-if="name == '求学业'">
+						<image mode="aspectFit" class="lutos-left" src="../../static/temple/qiuxueyeCombination.png"></image>
+						<image mode="aspectFit" class="lutos-right" src="../../static/temple/qiuxueyeCombination.png"></image>
+						<image class="foguang qiuxueyefoguang" src="../../static/temple/foguang.png"></image>
+						<image class="fo-img" src="../../static/temple/qiuxueye.png"></image>
 					</view>	
 					<!-- 椅子 -->
 					<view>
@@ -132,8 +151,6 @@
 	    data() {
 	        return {
 				phoneHeight: 0,
-				blessingCombination:"../../static/temple/qiucaiCombination.png",
-				choiceImg:"../../static/temple/qiucai.png",
 				name:"",
 				blessContent:[{blessingData:"2019-12-22 5:50",realizeData:"2019-12-22 5:50",content:"幸福美满",isSelcted:false},
 				{blessingData:"2019-12-22 13:50",realizeData:"2019-12-22 5:50",content:"早生贵子",isSelcted:false},
@@ -217,7 +234,7 @@
 				},150);
 			},
 			//判断祈福的项目
-			selectedBlessing(choice){
+			/* selectedBlessing(choice){
 				switch(choice)
 				{
 				    case "求姻缘":
@@ -238,10 +255,10 @@
 					   break;
 					case "求平安":
 					   this.choiceImg = "../../static/temple/qiupingan.png"
-					   this.blessingCombination = "../../static/temple/qiupinganCombination.png"
+					   this.blessingCombination = "../../static/temple/qiuziCombination.png"
 					   break;   
 				}
-			},
+			}, */
 			//还愿时显示所有供品和屏蔽一些组件
 			realizeBlessingButton(){
 				this.showRalizeBlessing = true;
@@ -310,7 +327,7 @@
 			//接收temple界面传递过来的参数
 			var inf = JSON.parse(options.transInfJson)
 			this.name = inf.choice
-			this.selectedBlessing(inf.choice);
+			/* this.selectedBlessing(inf.choice); */
 			uni.setNavigationBarTitle({
 				title: this.name,
 			});
@@ -387,9 +404,9 @@
 					}
 				}
 				.line{
-					padding-top: 10upx;
+					padding-top: 20upx;
 					width: 5upx;
-					height: 160upx;
+					height: 135upx;
 				}
 				.secondColumn{
 					width: 345upx;
@@ -439,16 +456,33 @@
 		// 佛像
 		.fo-img {
 			position: absolute;
-			top: 125upx;
+			top: 130upx;
 			z-index: 900;
-			left: 245upx;
+			left: 237upx;
 			width: 280upx;
 			height: 420upx;
-			
+			background-size: contain;
+		}
+		.foguang{
+			top:50upx;
+			left: 262upx;
+			position:absolute;
+			z-index:800;
+			height:225upx;
+			width:225upx;
+		}
+		.qiuzifoguang{
+			left:265upx;
+		}
+		.qiupinganfoguang{
+			left:265upx;
+		}
+		.qiuxueyefoguang{
+			left:258upx;
 		}
 		.table{
 			position: absolute;
-			top: 540upx;
+			top: 535upx;
 			left: 30upx;
 			z-index: 900;
 			height: 90upx;
@@ -456,7 +490,7 @@
 		}
 		.flowerLeft{
 			position: absolute;
-			top: 385upx;
+			top: 383upx;
 			left: 5upx;
 			height: 180upx;
 			width: 130upx;
@@ -464,7 +498,7 @@
 		}
 		.flowerRight{
 			position: absolute;
-			top: 385upx;
+			top: 383upx;
 			right: 5upx;
 			height: 178upx;
 			width: 130upx;
@@ -472,7 +506,7 @@
 		}
 		.candleImgleft{
 			position: absolute;
-			top: 390upx;
+			top: 388upx;
 			left: 125upx;
 			height: 150upx;
 			width: 30upx;
@@ -480,7 +514,7 @@
 		}
 		.candleImgRight{
 			position: absolute;
-			top: 390upx;
+			top: 388upx;
 			right: 125upx;
 			height: 150upx;
 			width: 30upx;
@@ -488,7 +522,7 @@
 		}
 		.xiangImg{
 			position: absolute;
-			top: 360upx;
+			top: 355upx;
 			left: 313upx;
 			height: 200upx;
 			width: 130upx;
@@ -496,7 +530,7 @@
 		}
 		.fruitLeft{
 			position: absolute;
-			top: 389upx;
+			top: 385upx;
 			left: 165upx;
 			height: 200upx;
 			width: 140upx;
@@ -504,7 +538,7 @@
 		}
 		.fruitRight{
 			position: absolute;
-			top: 389upx;
+			top: 380upx;
 			right: 165upx;
 			height: 200upx;
 			width: 140upx;
@@ -580,7 +614,10 @@
 			height: 150upx;
 			width: 650upx;
 			background: #ffe8a9;
-			border-radius: 18upx; 
+			border-radius: 18upx;
+			
+			/* overflow-y: auto;  // 设置滚动
+			 */
 			.blessButton{
 				margin-top: 16upx;
 				height: 55upx;
@@ -596,21 +633,22 @@
 			    height:150upx;
 			    background-color:#F5F5F5;
 			}
-			/*定义滚动条轨道*/
+					
 			::-webkit-scrollbar-track
 			{
-			    -webkit-box-shadow:inset 0 0 6upx rgba(0,0,0,0.3);
+			   -webkit-box-shadow:inset 0 0 6upx rgba(0,0,0,0.3);
 			    border-radius:10upx;
 			    background-color:#F5F5F5;
 			}
-			/*定义滑块*/
+					
 			::-webkit-scrollbar-thumb
 			{
 			    border-radius:10upx;
-			    -webkit-box-shadow:inset 0 0 6upx rgba(0,0,0,.3);
+			    /* -webkit-box-shadow:inset 0 0 6upx rgba(0,0,0,.3); */
 			    background-color:#555;
 			}
 		}
+		
 		.textAreaView{
 			margin-top: 20upx;
 			margin-left: 25upx;
