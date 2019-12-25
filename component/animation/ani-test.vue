@@ -6,11 +6,10 @@
 		</view>
 	</view> -->
 	<view>
-		<!-- 
 		<transition>
 			<view class="bagua-img" style="background-size: contain;">
 			</view>
-		</transition> -->
+		</transition>
 		
 		
 	<!-- 	<view class="bagua-img-single" style="background-size: contain;">
@@ -25,11 +24,11 @@
 			<view class="addCss"></view>
 		</transition> -->
 		
-		<view class="myImg">
+		<!-- <view class="myImg">
 			
 		</view>
 		
-		<view class="sprite"></view>
+		<view class="sprite"></view> -->
 	</view>
 	
 	
@@ -144,7 +143,7 @@
 
 			this.loading()
 			//console.log(this.count)
-			this.addAnimation()
+			//this.addAnimation()
 			
 			
 		},
@@ -673,7 +672,7 @@
 	.bagua-img {	
 		animation-name: bagua;
 		animation-duration: 1.8s;
-		animation-timing-function: steps(1);
+		animation-timing-function: linear;
 		animation-delay: 0s;
 		animation-iteration-count: infinite;
 		animation-direction: normal;
@@ -682,7 +681,7 @@
 		/* Safari 与 Chrome: */
 		-webkit-animation-name: bagua;
 		-webkit-animation-duration: 1.8s;
-		-webkit-animation-timing-function: steps(1);
+		-webkit-animation-timing-function: linear;
 		-webkit-animation-delay: 0s;
 		-webkit-animation-iteration-count: infinite;
 		-webkit-animation-direction: normal;

@@ -6,12 +6,12 @@
 		</view>
 	</view> -->
 	<view>
-		<navCustom class="nav-custom" :showTempleIcon="true" :showSearch="true" :navTitle="navTitle" :backStyle="navBackStyle" :isTab="true"></navCustom>
-		<h2>这里是乙信</h2>
+		<navCustom class="nav-custom" :showTempleIcon="false" :showSearch="true" :navTitle="navTitle" :backStyle="navBackStyle" :isTab="true"></navCustom>
+		<h2>乙信</h2>
 		
 		<!-- <aniTest></aniTest> -->
 		
-		<bagua></bagua>
+		<!-- <bagua></bagua> -->
 		
 	</view>
 	
@@ -54,7 +54,9 @@
 		//background: #000000;
 	}
 	
-	
+	h2 {
+		color: #4CD964;
+	}
 	
 
 </style>

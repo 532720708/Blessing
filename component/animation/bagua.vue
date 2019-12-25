@@ -118,7 +118,7 @@
 		-webkit-animation-fill-mode: backwards;
 		background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center;
 		background-size: contain;
-		width: 250upx;
-		height: 250upx;
+		width: 220upx;
+		height: 220upx;
 	}
 </style>

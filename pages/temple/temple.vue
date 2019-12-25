@@ -35,6 +35,7 @@
 			</scroll-view>
 			<view></view> 	
 		</view>
+		<preload class="loading" v-if="loadingImg" @func="toBless(count)"></preload>
 	</view>
 </template>
 
@@ -60,7 +61,9 @@
 					"后来古寺毁于咸丰战火，虽同治年间重修，规模已大大缩小，但香火却一直旺盛不衰。</p>",
 				},
 				subGroupLength : 5,
-				swiper:[]
+				swiper:[],
+				loadingImg: false,
+				transInfJson: ''
 			};
 	    },
 		methods:{
@@ -79,8 +82,21 @@
 				var id = e.currentTarget.dataset.choiceid ;
 				var transInf = {choice:id,templeName:this.temple.name};
 				var transInfJson = JSON.stringify(transInf);
+				this.transInfJson = transInfJson
+				this.loadingImg = true
+				// uni.navigateTo({
+				// 	url: './loading?transInfJson=' + transInfJson
+				// })
+				// uni.navigateTo({
+				//     url: '../bless/bless?transInfJson=' + transInfJson
+				// });
+			},
+			
+			// loading完跳转
+			toBless(count) {
+				this.loadingImg =false
 				uni.navigateTo({
-				    url: '../bless/bless?transInfJson=' + transInfJson
+				    url: '../bless/bless?transInfJson=' + this.transInfJson
 				});
 			},
 			
@@ -105,9 +121,7 @@
 				//_this.getTempleInfoById(data.tId)
 				_this.temple.name = data.tName
 			}
-			
 	
-			
 			/* uni.setNavigationBarTitle({
 				title: this.temple.name,
 			}); */
@@ -124,6 +138,10 @@
 		-webkit-transform-style: preserve-3d;
 		font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
 		background: #f6f6f6;
+	}
+	
+	.loading {
+		z-index: 100;
 	}
 	.videoView{
 		width: 100%;

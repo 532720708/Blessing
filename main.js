@@ -34,6 +34,10 @@ Vue.component('aniTest', aniTest)
 import bagua from './component/animation/bagua.vue'
 Vue.component('bagua', bagua)
 
+// 预加载
+import preload from './component/preload/img-load.vue'
+Vue.component('preload', preload)
+
 
 import store from './store'
 Vue.prototype.$store = store

@@ -31,8 +31,10 @@
 						<image class="fo-img" src="../../static/temple/qiupingan.png"></image>
 					</view>	
 					<view v-if="name == '求学业'">
-						<image mode="aspectFit" class="lutos-left" src="../../static/temple/qiuxueyeCombination.png"></image>
-						<image mode="aspectFit" class="lutos-right" src="../../static/temple/qiuxueyeCombination.png"></image>
+						<!-- <image mode="aspectFit" class="lutos-left" src="../../static/temple/qiuxueyeCombination.png"></image>
+						<image mode="aspectFit" class="lutos-right" src="../../static/temple/qiuxueyeCombination.png"></image> -->
+						<bagua class="bagua-left"></bagua>
+						<bagua class="bagua-right"></bagua>
 						<image class="foguang qiuxueyefoguang" src="../../static/temple/foguang.png"></image>
 						<image class="fo-img" src="../../static/temple/qiuxueye.png"></image>
 					</view>	
@@ -140,7 +142,7 @@
 				<button class="aButton" @click="selectAll">勾选全部</button>
 				<button class="aButton" @click="cancelSelected">取消勾选全部</button>
 				<button class="aButton buttonRealize" @click="buttonRealize">还愿</button>
-			</view>
+			</view>	
 		</view>
 	</view>
 </template>
@@ -714,11 +716,11 @@
 	
 	
 	// 左右两边挂件
-	.lutos-left, .lutos-right {
+	.lutos-left, .lutos-right, .bagua-left, .bagua-right {
 		position: absolute;
 		width: 152upx;
 		height: 118upx;
-		top: 180upx;
+		top: 150upx;
 		z-index: 900;
 	}
 	
@@ -729,6 +731,13 @@
 		right: 40upx;
 
 	}
+	.bagua-left {
+		left: 16upx;
+	}
+	.bagua-right {
+		right: 80upx;
+	}
+	
 	.light-view {	
 		position: absolute;
 		left: 122upx;

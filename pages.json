@@ -125,6 +125,15 @@
 				},
 				"enablePullDownRefresh": true  //设置为true表示当前页面开启下拉刷新
 			}
+		},
+		// 预加载页
+		{
+			"path": "pages/temple/loading",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				}
+			}
 		}
 	],
 	"tabBar": {
