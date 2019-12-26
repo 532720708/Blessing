@@ -78,6 +78,8 @@
 		width: 100%;
 		height: 690upx;
 		.title{
+			background: url(../../static/index/yuanjiao_back_index.png) no-repeat center;
+			background-size: 100% 50%;
 			margin-left: 22upx;
 			color: black;
 			font-size: 20px;
@@ -130,9 +132,8 @@
 				.nameText{
 					margin-top: 10upx;
 					width: 180upx;
-					color: black;
 					font-size: 17px;
-					font-weight: 530;
+					//font-weight: 500;
 					text-align: center;
 				}
 			}

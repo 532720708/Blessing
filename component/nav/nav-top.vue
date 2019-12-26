@@ -7,7 +7,7 @@
 				<view class="nav-title-font">{{navTitle}}</view>
 				<image v-if="showTempleIcon" src="../../static/list/remensimiao_icon2.png" class="nav-title-icon"></image>
 			</view>
-			<image v-if="showSearch" src="../../static/list/remensousuo_icon.png" mode="aspectFit" class="search-icon"></image>
+			<image v-if="showSearch" src="../../static/list/remensousuo_icon.png" mode="aspectFit" class="search-icon" @tap="toSearch()"></image>
 		</view>
 	</view>	
 </template>
@@ -30,9 +30,14 @@
 				}
 				uni.navigateBack({
 					delta: 1
-				});	
-				
+				});					
+			},
+			toSearch() {
+				uni.navigateTo({
+					url: "../../pages/index/search"
+				})
 			}
+			
 		}
 		
 	}
@@ -75,16 +80,12 @@
 					line-height: 90upx;
 					margin: auto 8upx;
 					font-size: 38upx;
-					font-weight: 500;
+					font-weight: 600;
 				}
 			}
 		}	
 	}
 	
-	.stickyTop {
-		top: 0;
-		z-index: 10000;
-	}
 	.redback {
 		background: url(../../static/list/top_back.png) no-repeat;
 		background-size: 100% 100%;
@@ -96,5 +97,7 @@
 		color: #e2a163;
 		height: 110upx;
 	}
+	
+	
 	
 </style>

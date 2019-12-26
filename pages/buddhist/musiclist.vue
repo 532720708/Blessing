@@ -18,6 +18,13 @@
 			
 			}
 		},
+		// 停止刷新动画
+		onPullDownRefresh() {
+			console.log('refresh');
+			setTimeout(function () {
+				uni.stopPullDownRefresh();
+			}, 500);
+		},
 		methods: {
 			
 		}

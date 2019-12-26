@@ -1,15 +1,13 @@
 <template>
 	<view>
 		<navTop class="stickyTop" :showTempleIcon="false" :showSearch="false" :navTitle="navTitle" :backStyle="navBackStyle"></navTop>
-
 		
 		<view class="top-txt flex-row-wrap">
 			<image class="quotation" src="../../static/buddhist/double-quotation.png"></image>
 			<view class="top-txt-sen">佛曰：菩提本无树，明镜亦非台，本来无一物，何处惹尘埃。</view>
 		</view>
-		<view>
-			<scroll-view :scroll-top="scrollTop" scroll-y="true" class="scroll-Y" @scrolltoupper="upper" @scrolltolower="lower"
-				@scroll="scroll">
+		<view class="bound-scroll">
+			<scroll-view  scroll-y="true" class="scroll-Y" scroll-x="false">
 				<view class="fojing-list flex-row-wrap">
 					<view class="fojing-item flex-col-nowrap" @tap="toBuddhistInfo(item.name)" :class="(index % 3) == 0 ? 'mgleft' : (index % 3 == 2 ? 'mgright' : '')" 
 					v-for="(item, index) in buddhistTxt" :key="index">
@@ -49,6 +47,13 @@
 					{id: 25, name: '悲华经'}]
 			}
 		},
+		// 停止刷新动画
+		onPullDownRefresh() {
+			console.log('refresh');
+			setTimeout(function () {
+				uni.stopPullDownRefresh();
+			}, 500);
+		},
 		methods: {
 			toBuddhistInfo(name) {
 				uni.navigateTo({
@@ -64,6 +69,17 @@
 	
 	page {	
 		background: #FFFFFF;
+	}
+	
+	// 解决fixed布局脱离文档流遮挡下面内容
+	.empty-view {
+		width: 100%;
+		height: 125upx;
+	}
+	
+	.bound-scroll {
+		width: 100%;
+		overflow-x: hidden;
 	}
 	
 	.top-txt {
@@ -155,7 +171,7 @@
 				font-size: 31upx;
 				font-family: "SourceHanSerifSC-Regular";
 				color: rgb( 0, 0, 0 );
-				font-weight: 600;
+				font-weight: 650;
 			}
 		}
 		
@@ -167,7 +183,7 @@
 		font-size: 28upx;
 		font-family: "SourceHanSerifSC-Regular";
 		color: rgb( 0, 0, 0 );
-		font-weight: 600;
+		font-weight: 650;
 	}
 	
 	
