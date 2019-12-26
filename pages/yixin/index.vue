@@ -17,6 +17,7 @@
 		<guangxiao></guangxiao>
 		<candle></candle>
 		<smog></smog>
+		<qifu></qifu>
 	</view>
 	
 	

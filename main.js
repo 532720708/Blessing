@@ -50,6 +50,10 @@ Vue.component('candle', candle)
 import smog from './component/animation/smog.vue'
 Vue.component('smog', smog)
 
+// 祈福动作
+import qifu from './component/animation/qifu.vue'
+Vue.component('qifu', qifu)
+
 
 import store from './store'
 Vue.prototype.$store = store
