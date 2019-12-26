@@ -81,7 +81,7 @@
 					<image class="lotusImg" src="../../static/temple/blessTitleLogo.png" mode="aspectFit"></image>
 					<text class="titleText1">许愿选择</text>
 				</view>
-				<scroll-view class="blessChoice" scroll-y="true" >
+				<scroll-view class="blessChoice" scroll-y="true" show-scroller="true">
 					<view v-for="(item,index) in temple.blessChoiceText" :id="index" @click="blessButton(index)" :key="index">
 						<button class="blessButton overflow-manage" :class="index === txtIndex ? 'changeTextStyle' : 'unchangeTextStyle'">{{item}}</button>
 					</view>
@@ -137,8 +137,8 @@
 				</checkbox-group>
 			</view>
 			<view class="buttonView">
-				<button class="aButton" @click="selectAll">勾选全部</button>
-				<button class="aButton" @click="cancelSelected">取消勾选全部</button>
+				<button class="aButton selectedButton" @click="selectAll" >勾选全部</button>
+				<button class="aButton selectedButton" @click="cancelSelected">取消勾选全部</button>
 				<button class="aButton buttonRealize" @click="buttonRealize">还愿</button>
 			</view>
 		</view>
@@ -306,6 +306,8 @@
 					    title: '提示',
 					    content: '您还没有选择需要的还愿'
 					});
+				}else{
+					this.showRalizeBlessing = false;
 				}
 				
 			}
@@ -434,9 +436,13 @@
 				color: #ffffff;
 			}
 			.buttonRealize{
-				background: #eab177;
+				background: url(../../static/temple/button/realizeBlessing.png);
+				background-size: 100% 100%;
 			}
-			
+			.selectedButton{
+				background: url(../../static/temple/button/selectedButton.png);
+				background-size: 100% 100%;
+			}
 		}
 	}
 	.swiperView{
@@ -599,14 +605,32 @@
 			font-weight: 500;
 		}
 	}
+	
 	.BlessContentView{
 		padding-bottom: 27upx;
 		background: #ffffff;
-		height: 430upx;
+		height: 390upx;
 		width: 705upx;
 		margin-top: 60upx;
 		margin-left: 22upx;
 		border-radius: 18upx;
+		
+		::-webkit-scrollbar {
+		    -webkit-appearance: none;
+		    width: 8px;
+			height:4px;
+		}
+		
+		::-webkit-scrollbar-track {
+		    background-color:#894b0e;
+		    border-radius: 8px;
+		}
+		::-webkit-scrollbar-thumb {
+		    border-radius: 8px;
+		    background-color: #fff8e5;
+		}
+
+		
 		.blessChoice{
 			padding-bottom: 8upx;
 			margin-top: 20upx;
@@ -615,9 +639,6 @@
 			width: 650upx;
 			background: #ffe8a9;
 			border-radius: 18upx;
-			
-			/* overflow-y: auto;  // 设置滚动
-			 */
 			.blessButton{
 				margin-top: 16upx;
 				height: 55upx;
@@ -626,26 +647,6 @@
 				font-size: 15px;
 				font-weight: 550;
 				border-radius: 18upx;	
-			}
-			::-webkit-scrollbar
-			{
-			    width:16upx;
-			    height:150upx;
-			    background-color:#F5F5F5;
-			}
-					
-			::-webkit-scrollbar-track
-			{
-			   -webkit-box-shadow:inset 0 0 6upx rgba(0,0,0,0.3);
-			    border-radius:10upx;
-			    background-color:#F5F5F5;
-			}
-					
-			::-webkit-scrollbar-thumb
-			{
-			    border-radius:10upx;
-			    /* -webkit-box-shadow:inset 0 0 6upx rgba(0,0,0,.3); */
-			    background-color:#555;
 			}
 		}
 		
@@ -673,10 +674,11 @@
 		.pray-button{
 			width: 300upx;
 			height: 80upx;
-			background: #eeb980;
 			color: #ffffff;
 			font-size: 17px;
 			font-weight: 700;
+			background: url(../../static/temple/button/blessingButton.png);
+			background-size: 100% 100%;
 		}
 	}
 	

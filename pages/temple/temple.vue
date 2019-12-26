@@ -15,7 +15,7 @@
 				<image class="logoImg" src="../../static/templeinf/qiyuan_logo.png" mode="aspectFit"></image>
 				<text class="titleText1">祈愿选择</text>
 			</view>
-			<swiper class="swiperView" indicator-dots="true" indicator-color="white" indicator-active-color="#ffcedf">
+			<swiper class="swiperView" >
 				<swiper-item class="swiperItem" v-for="item in swiper">
 					<view class="oneChoice" v-for="choiceItem in item" :data-choiceID=choiceItem.title @click="choiceButton">
 						<image class="swiperImg" :src="choiceItem.img"></image>

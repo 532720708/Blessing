@@ -62,5 +62,19 @@
 	    color: #e2a163;
 		letter-spacing:2px;
 	}
-	
+	/*checkbox选中后样式  */
+	/* uni-checkbox .uni-checkbox-input.uni-checkbox-input-checked{ background: #3D7EFF; border-color:#3D7EFF; } */
+	/*checkbox选中后图标样式  */
+	uni-checkbox .uni-checkbox-input.uni-checkbox-input-checked::before{
+	    width: 20upx;
+	    height: 20upx;  
+		line-height: 20upx;
+		margin-left: -10upx;
+		font-size: 48rpx;
+		color: #a40000;
+		background: url(static/temple/gou.png);
+		transform: translate(-70%, -50%) scale(1);
+		-webkit-transform: translate(-70%, -50%) scale(1);
+	}
+
 </style>
