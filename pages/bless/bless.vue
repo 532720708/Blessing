@@ -4,31 +4,35 @@
 				<view class="swiper">
 					<image class="templeImg" :src="temple.img"></image>
 				</view>
-				<guangxiao class="light-view"></guangxiao>
+				
 				<!-- 祈福场景 -->
 				<view style="text-align: center;width: 100%;">
 					<view v-if="name == '求财'">
 						<image mode="aspectFit" class="lutos-left" src="../../static/temple/qiucaiCombination.png"></image>
 						<image mode="aspectFit" class="lutos-right" src="../../static/temple/qiucaiCombination.png"></image>
 						<!-- <image class="foguang" src="../../static/temple/foguang.png"></image> -->
+						<guangxiao class="light-view"></guangxiao>
 						<image class="fo-img" src="../../static/temple/qiucai.png"></image>
 					</view>	
 					<view v-if="name == '求子'">
 						<image mode="aspectFit" class="lutos-left" src="../../static/temple/qiuziCombination.png"></image>
 						<image mode="aspectFit" class="lutos-right" src="../../static/temple/qiuziCombination.png"></image>
-						<image class="foguang qiuzifoguang" src="../../static/temple/foguang.png"></image>
+						<!-- <image class="foguang qiuzifoguang" src="../../static/temple/foguang.png"></image> -->
+						<guangxiao class="light-view"></guangxiao>
 						<image class="fo-img" src="../../static/temple/qiuzi.png"></image>
 					</view>	
 					<view v-if="name == '求姻缘'">
 						<image mode="aspectFit" class="lutos-left" src="../../static/temple/qiuyinyuanCombination.png"></image>
 						<image mode="aspectFit" class="lutos-right" src="../../static/temple/qiuyinyuanCombination.png"></image>
 						<!-- <image class="foguang" src="../../static/temple/foguang.png"></image> -->
+						<guangxiao class="light-view"></guangxiao>
 						<image class="fo-img" src="../../static/temple/qiuyinyuan.png"></image>
 					</view>	
 					<view v-if="name == '求平安'">
 						<image mode="aspectFit" class="lutos-left" src="../../static/temple/qiuziCombination.png"></image>
 						<image mode="aspectFit" class="lutos-right" src="../../static/temple/qiuziCombination.png"></image>
 						<!-- <image class="foguang qiupinganfoguang" src="../../static/temple/foguang.png"></image> -->
+						<guangxiao class="light-view"></guangxiao>
 						<image class="fo-img" src="../../static/temple/qiupingan.png"></image>
 					</view>	
 					<view v-if="name == '求学业'">
@@ -38,6 +42,7 @@
 						<!-- <image class="bagua-left" mode="aspectFit" src="../../static/canvas/bagua/bagua0001.gif"></image> -->
 						<bagua class="bagua-right"></bagua>
 						<!-- <image class="foguang qiuxueyefoguang" src="../../static/temple/foguang.png"></image> -->
+						<guangxiao class="light-view qiuxueyeLightView"></guangxiao>
 						<image class="fo-img" src="../../static/temple/qiuxueye.png"></image>
 					</view>	
 					<!-- 椅子 -->
@@ -52,11 +57,19 @@
 					
 					<!-- 油 -->
 					<view id="oil" :style="opStyle[0]">
+						<candle class="huomiaoLeft"></candle>
+						<candle class="huomiaoRight"></candle>
 						<image class="candleImgleft" src="../../static/temple/lazhu.png" mode="aspectFit"></image>
 						<image class="candleImgRight" src="../../static/temple/lazhu.png" mode="aspectFit"></image>
 					</view>
 					<!-- 香 -->
-					<image id="xiang" :style="opStyle[1]" class="xiangImg" src="../../static/temple/xiang.png" mode="aspectFit"></image>
+					<view id="xiang" :style="opStyle[1]" >
+						<smog class="smog1"></smog>
+						<smog class="smog2"></smog>
+						<smog class="smog3"></smog>
+						<image  class="xiangImg" src="../../static/temple/xiang.png" mode="aspectFit"></image>
+					</view>
+					
 					<!-- 果 -->
 					<view id="fruit" :style="opStyle[3]">
 						<image class="fruitRight" src="../../static/temple/fruitRight.png" mode="aspectFit"></image>
@@ -177,8 +190,8 @@
 				state: ["offStyle", "offStyle", "offStyle", "offStyle"],
 				
 				opStyle: [{opacity: 0}, {opacity: 0}, {opacity: 0}, {opacity: 0}],
-				/* toXiang:false,
-				toOil:false,
+				toXiang:false,
+				/* toOil:false,
 				toFlower:false,
 				toFruit:false, */
 				showRalizeBlessing:false,
@@ -196,13 +209,16 @@
 				return newArray;
 			},
 			choiceButton(e){
-				this.showImg(e.currentTarget.id)
 				
-				if(this.state[e.currentTarget.id] === "onStyle") {
+				this.showImg(e.currentTarget.id)
+				if(e.currentTarget.id == 1){
+					this.toXiang = !this.toXiang
+				}
+			/* 	if(this.state[e.currentTarget.id] === "onStyle") {
 					this.state[e.currentTarget.id] == "offStyle";
 				} else {
 					this.state[e.currentTarget.id] = "onStyle"
-				}
+				} */
 				 
 			},
 			blessButton(index){
@@ -467,29 +483,13 @@
 		.fo-img {
 			position: absolute;
 			top: 130upx;
-			z-index: 900;
+			z-index: 800;
 			left: 237upx;
 			width: 280upx;
 			height: 420upx;
 			background-size: contain;
 		}
-		.foguang{
-			top:50upx;
-			left: 262upx;
-			position:absolute;
-			z-index:800;
-			height:225upx;
-			width:225upx;
-		}
-		.qiuzifoguang{
-			left:265upx;
-		}
-		.qiupinganfoguang{
-			left:265upx;
-		}
-		.qiuxueyefoguang{
-			left:258upx;
-		}
+		
 		.table{
 			position: absolute;
 			top: 535upx;
@@ -514,21 +514,51 @@
 			width: 130upx;
 			z-index: 900;
 		}
-		.candleImgleft{
+		.huomiaoLeft{
 			position: absolute;
 			top: 388upx;
 			left: 125upx;
+			
+		}
+		.huomiaoRight{
+			position: absolute;
+			top: 388upx;
+			right: 125upx;
+			
+		}
+		.candleImgleft{
+			position: absolute;
+			top: 405upx;
+			left: 135upx;
 			height: 150upx;
 			width: 30upx;
 			z-index: 900;
 		}
 		.candleImgRight{
 			position: absolute;
-			top: 388upx;
-			right: 125upx;
+			top: 405upx;
+			right: 135upx;
 			height: 150upx;
 			width: 30upx;
 			z-index: 900;
+		}
+		.smog1{
+			position: absolute;
+			z-index: 900;
+			top: 290upx;
+			left: 310upx;
+		}
+		.smog2{
+			position: absolute;
+			z-index: 900;
+			top: 290upx;
+			left: 325upx;
+		}
+		.smog3{
+			position: absolute;
+			z-index: 900;
+			top: 290upx;
+			left: 345upx;
 		}
 		.xiangImg{
 			position: absolute;
@@ -744,11 +774,13 @@
 	
 	.light-view {	
 		position: absolute;
-		left: 246upx;
+		left: 255upx;
 		top: 50upx;
 		z-index: 700;
 	}
-	
+	.qiuxueyeLightView{
+		left:242upx;
+	}
 	
 	.light-img {
 		margin-top: -40upx;
