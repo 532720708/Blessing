@@ -96,54 +96,54 @@
 				<button class="pray-button" @click="sumbit">祈愿</button>
 				<button class="pray-button" @click="realizeBlessingButton">还愿</button>
 			</view>
-		<view v-if="showRalizeBlessing" class="realizeBlessingView">
-			<view class="recordTitleView">
-				<text class="titleText1">许愿记录</text>
-			</view>
-			<view class="recordsView">
-				<checkbox-group @change="checkboxChanged">
-				    <label v-for="item in blessContent">
-						<view class="aRecordView">
-							<view class="aColumn">
-								<view>
-									<image class="dot" src="../../static/temple/dot.png"></image>
-									<text class="textTitle">许愿日期</text>
-								</view>	
-								<text class="textContent">{{item.blessingData}}</text>
-								<view>
-									<image class="dot" src="../../static/temple/dot.png"></image>
-									<text class="textTitle">还愿日期</text>
+			<view v-if="showRalizeBlessing" class="realizeBlessingView">
+				<view class="recordTitleView">
+					<text class="titleText1">许愿记录</text>
+				</view>
+				<view class="recordsView">
+					<checkbox-group @change="checkboxChanged">
+						<label v-for="item in blessContent">
+							<view class="aRecordView">
+								<view class="aColumn">
+									<view>
+										<image class="dot" src="../../static/temple/dot.png"></image>
+										<text class="textTitle">许愿日期</text>
+									</view>	
+									<text class="textContent">{{item.blessingData}}</text>
+									<view>
+										<image class="dot" src="../../static/temple/dot.png"></image>
+										<text class="textTitle">还愿日期</text>
+									</view>
+									<text v-if="!item.realizeData == ''" class="textContent">{{item.realizeData}}</text>
+									<text v-else class="textContent specialText">尚未还愿</text>
 								</view>
-								<text v-if="!item.realizeData == ''" class="textContent">{{item.realizeData}}</text>
-								<text v-else class="textContent specialText">尚未还愿</text>
-							</view>
-							<view>
-								<image class="line" src="../../static/temple/line.png"></image>
-							</view>
-							<view class="aColumn secondColumn">
 								<view>
-									<image class="dot" src="../../static/temple/dot.png"></image>
-									<text class="textTitle">许愿内容</text>
-								</view>	
-								<text class="textContent overflow-manage-3">{{item.content}}</text>
+									<image class="line" src="../../static/temple/line.png"></image>
+								</view>
+								<view class="aColumn secondColumn">
+									<view>
+										<image class="dot" src="../../static/temple/dot.png"></image>
+										<text class="textTitle">许愿内容</text>
+									</view>	
+									<text class="textContent overflow-manage-3">{{item.content}}</text>
+								</view>
+								<view>
+									<image class="line" src="../../static/temple/line.png"></image>
+								</view>
+								<view class="checkbox">
+									<checkbox :value="item.content" :checked="item.isSelcted"/>
+								</view>
+								
 							</view>
-							<view>
-								<image class="line" src="../../static/temple/line.png"></image>
-							</view>
-							<view class="checkbox">
-								<checkbox :value="item.content" :checked="item.isSelcted"/>
-							</view>
-							
-						</view>
-				    </label>
-				</checkbox-group>
+						</label>
+					</checkbox-group>
+				</view>
+				<view class="buttonView">
+					<button class="aButton selectedButton" @click="selectAll" >勾选全部</button>
+					<button class="aButton selectedButton" @click="cancelSelected">取消勾选全部</button>
+					<button class="aButton buttonRealize" @click="buttonRealize">还愿</button>
+				</view>	
 			</view>
-			<view class="buttonView">
-				<button class="aButton selectedButton" @click="selectAll" >勾选全部</button>
-				<button class="aButton selectedButton" @click="cancelSelected">取消勾选全部</button>
-				<button class="aButton buttonRealize" @click="buttonRealize">还愿</button>
-			</view>	
-		</view>
 	</view>
 </template>
 
@@ -620,7 +620,7 @@
 		::-webkit-scrollbar {
 		    -webkit-appearance: none;
 		    width: 8px;
-			height:4px;
+			heigh:4px;
 		}
 		
 		::-webkit-scrollbar-track {
@@ -631,8 +631,8 @@
 		    border-radius: 8px;
 		    background-color: #fff8e5;
 		}
-
 		
+	
 		.blessChoice{
 			padding-bottom: 8upx;
 			margin-top: 20upx;
