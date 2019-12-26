@@ -38,6 +38,18 @@ Vue.component('bagua', bagua)
 import preload from './component/preload/img-load.vue'
 Vue.component('preload', preload)
 
+// 光效
+import guangxiao from './component/animation/guangxiao.vue'
+Vue.component('guangxiao', guangxiao)
+
+// 蜡烛
+import candle from './component/animation/candle.vue'
+Vue.component('candle', candle)
+
+// 烟
+import smog from './component/animation/smog.vue'
+Vue.component('smog', smog)
+
 
 import store from './store'
 Vue.prototype.$store = store
