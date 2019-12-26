@@ -9,10 +9,14 @@
 		<navCustom class="nav-custom" :showTempleIcon="false" :showSearch="true" :navTitle="navTitle" :backStyle="navBackStyle" :isTab="true"></navCustom>
 		<h2>乙信</h2>
 		
+		<!-- <image style="width: 300upx;height: 300upx;" mode="aspectFit" src="../../static/canvas/aixin/aixin.gif"></image> -->
 		<!-- <aniTest></aniTest> -->
-		
+		<!-- <image style="width: 200upx; height: 200upx;" mode="aspectFit" src="../../static/canvas/bagua/bagua.gif"></image -->
 		<!-- <bagua></bagua> -->
-		
+
+		<guangxiao></guangxiao>
+		<candle></candle>
+		<smog></smog>
 	</view>
 	
 	
@@ -51,7 +55,7 @@
 
 <style lang="scss">
 	page {
-		//background: #000000;
+		background: #333333;
 	}
 	
 	h2 {

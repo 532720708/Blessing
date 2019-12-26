@@ -4,12 +4,13 @@
 				<view class="swiper">
 					<image class="templeImg" :src="temple.img"></image>
 				</view>
+				<guangxiao class="light-view"></guangxiao>
 				<!-- 祈福场景 -->
 				<view style="text-align: center;width: 100%;">
 					<view v-if="name == '求财'">
 						<image mode="aspectFit" class="lutos-left" src="../../static/temple/qiucaiCombination.png"></image>
 						<image mode="aspectFit" class="lutos-right" src="../../static/temple/qiucaiCombination.png"></image>
-						<image class="foguang" src="../../static/temple/foguang.png"></image>
+						<!-- <image class="foguang" src="../../static/temple/foguang.png"></image> -->
 						<image class="fo-img" src="../../static/temple/qiucai.png"></image>
 					</view>	
 					<view v-if="name == '求子'">
@@ -21,21 +22,22 @@
 					<view v-if="name == '求姻缘'">
 						<image mode="aspectFit" class="lutos-left" src="../../static/temple/qiuyinyuanCombination.png"></image>
 						<image mode="aspectFit" class="lutos-right" src="../../static/temple/qiuyinyuanCombination.png"></image>
-						<image class="foguang" src="../../static/temple/foguang.png"></image>
+						<!-- <image class="foguang" src="../../static/temple/foguang.png"></image> -->
 						<image class="fo-img" src="../../static/temple/qiuyinyuan.png"></image>
 					</view>	
 					<view v-if="name == '求平安'">
 						<image mode="aspectFit" class="lutos-left" src="../../static/temple/qiuziCombination.png"></image>
 						<image mode="aspectFit" class="lutos-right" src="../../static/temple/qiuziCombination.png"></image>
-						<image class="foguang qiupinganfoguang" src="../../static/temple/foguang.png"></image>
+						<!-- <image class="foguang qiupinganfoguang" src="../../static/temple/foguang.png"></image> -->
 						<image class="fo-img" src="../../static/temple/qiupingan.png"></image>
 					</view>	
 					<view v-if="name == '求学业'">
 						<!-- <image mode="aspectFit" class="lutos-left" src="../../static/temple/qiuxueyeCombination.png"></image>
 						<image mode="aspectFit" class="lutos-right" src="../../static/temple/qiuxueyeCombination.png"></image> -->
 						<bagua class="bagua-left"></bagua>
+						<!-- <image class="bagua-left" mode="aspectFit" src="../../static/canvas/bagua/bagua0001.gif"></image> -->
 						<bagua class="bagua-right"></bagua>
-						<image class="foguang qiuxueyefoguang" src="../../static/temple/foguang.png"></image>
+						<!-- <image class="foguang qiuxueyefoguang" src="../../static/temple/foguang.png"></image> -->
 						<image class="fo-img" src="../../static/temple/qiuxueye.png"></image>
 					</view>	
 					<!-- 椅子 -->
@@ -742,10 +744,9 @@
 	
 	.light-view {	
 		position: absolute;
-		left: 122upx;
+		left: 246upx;
+		top: 50upx;
 		z-index: 700;
-		width: 200upx;
-		height: 200upx;
 	}
 	
 	
