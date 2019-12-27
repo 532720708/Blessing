@@ -8,29 +8,37 @@
 				<!-- 祈福场景 -->
 				<view style="text-align: center;width: 100%;">
 					<view v-if="name == '求财'">
-						<image mode="aspectFit" class="lutos-left" src="../../static/temple/qiucaiCombination.png"></image>
-						<image mode="aspectFit" class="lutos-right" src="../../static/temple/qiucaiCombination.png"></image>
+						<!-- <image mode="aspectFit" class="lutos-left" src="../../static/temple/qiucaiCombination.png"></image>
+						<image mode="aspectFit" class="lutos-right" src="../../static/temple/qiucaiCombination.png"></image> -->
+						<bagua class="bagua-left"></bagua>
+						<bagua class="bagua-right"></bagua>
 						<!-- <image class="foguang" src="../../static/temple/foguang.png"></image> -->
 						<guangxiao class="light-view"></guangxiao>
 						<image class="fo-img" src="../../static/temple/qiucai.png"></image>
 					</view>	
 					<view v-if="name == '求子'">
-						<image mode="aspectFit" class="lutos-left" src="../../static/temple/qiuziCombination.png"></image>
-						<image mode="aspectFit" class="lutos-right" src="../../static/temple/qiuziCombination.png"></image>
+						<!-- <image mode="aspectFit" class="lutos-left" src="../../static/temple/qiuziCombination.png"></image>
+						<image mode="aspectFit" class="lutos-right" src="../../static/temple/qiuziCombination.png"></image> -->
+						<bagua class="bagua-left"></bagua>
+						<bagua class="bagua-right"></bagua>
 						<!-- <image class="foguang qiuzifoguang" src="../../static/temple/foguang.png"></image> -->
 						<guangxiao class="light-view"></guangxiao>
 						<image class="fo-img" src="../../static/temple/qiuzi.png"></image>
 					</view>	
 					<view v-if="name == '求姻缘'">
-						<image mode="aspectFit" class="lutos-left" src="../../static/temple/qiuyinyuanCombination.png"></image>
-						<image mode="aspectFit" class="lutos-right" src="../../static/temple/qiuyinyuanCombination.png"></image>
+						<!-- <image mode="aspectFit" class="lutos-left" src="../../static/temple/qiuyinyuanCombination.png"></image>
+						<image mode="aspectFit" class="lutos-right" src="../../static/temple/qiuyinyuanCombination.png"></image> -->
+						<bagua class="bagua-left"></bagua>
+						<bagua class="bagua-right"></bagua>
 						<!-- <image class="foguang" src="../../static/temple/foguang.png"></image> -->
 						<guangxiao class="light-view"></guangxiao>
 						<image class="fo-img" src="../../static/temple/qiuyinyuan.png"></image>
 					</view>	
 					<view v-if="name == '求平安'">
-						<image mode="aspectFit" class="lutos-left" src="../../static/temple/qiuziCombination.png"></image>
-						<image mode="aspectFit" class="lutos-right" src="../../static/temple/qiuziCombination.png"></image>
+					<!-- 	<image mode="aspectFit" class="lutos-left" src="../../static/temple/qiuziCombination.png"></image>
+						<image mode="aspectFit" class="lutos-right" src="../../static/temple/qiuziCombination.png"></image> -->
+						<bagua class="bagua-left"></bagua>
+						<bagua class="bagua-right"></bagua>
 						<!-- <image class="foguang qiupinganfoguang" src="../../static/temple/foguang.png"></image> -->
 						<guangxiao class="light-view"></guangxiao>
 						<image class="fo-img" src="../../static/temple/qiupingan.png"></image>
@@ -39,7 +47,6 @@
 						<!-- <image mode="aspectFit" class="lutos-left" src="../../static/temple/qiuxueyeCombination.png"></image>
 						<image mode="aspectFit" class="lutos-right" src="../../static/temple/qiuxueyeCombination.png"></image> -->
 						<bagua class="bagua-left"></bagua>
-						<!-- <image class="bagua-left" mode="aspectFit" src="../../static/canvas/bagua/bagua0001.gif"></image> -->
 						<bagua class="bagua-right"></bagua>
 						<!-- <image class="foguang qiuxueyefoguang" src="../../static/temple/foguang.png"></image> -->
 						<guangxiao class="light-view qiuxueyeLightView"></guangxiao>
