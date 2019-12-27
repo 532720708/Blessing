@@ -389,7 +389,7 @@
 		background: url(../../static/canvas/smog/yan0001.png) no-repeat center;
 		background-size: contain;
 		width: 100upx;
-		height: 100upx;
+		height: 200upx;
 	}
 	
 </style>

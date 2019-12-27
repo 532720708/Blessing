@@ -588,19 +588,19 @@
 		.smog1{
 			position: absolute;
 			z-index: 900;
-			top: 290upx;
+			top: 190upx;
 			left: 310upx;
 		}
 		.smog2{
 			position: absolute;
 			z-index: 900;
-			top: 290upx;
+			top: 190upx;
 			left: 325upx;
 		}
 		.smog3{
 			position: absolute;
 			z-index: 900;
-			top: 290upx;
+			top: 190upx;
 			left: 345upx;
 		}
 		.xiangImg{
@@ -816,7 +816,7 @@
 	
 	.light-view {	
 		position: absolute;
-		left: 275upx;
+		left: 258upx;
 		top: 50upx;
 		z-index: 700;
 	}
