@@ -115,6 +115,7 @@
 			<view v-if="showRalizeBlessing" class="realizeBlessingView">
 				<view class="recordTitleView">
 					<text class="titleText1">许愿记录</text>
+					<image class="cancelButton" src="../../static/temple/cancel.png" @click="cancelButton"></image>
 				</view>
 				<view class="recordsView">
 					<checkbox-group @change="checkboxChanged">
@@ -344,6 +345,9 @@
 				}
 				
 			},
+			cancelButton(){
+				this.showRalizeBlessing = false;
+			},
 			//祈愿按钮
 			blessingButton(){
 				let _this = this
@@ -423,9 +427,18 @@
 		border-radius: 10upx;
 		.recordTitleView{
 			margin-top: 20upx;
-			margin-left: 10upx;
+			margin-left: 20upx;
+			margin-right: 30upx;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			.cancelButton{
+				width: 40upx;
+				height: 40upx;
+			}
 		}
 		.recordsView{
+			
 			overflow: auto;
 			margin-left: 25upx;
 			width: 650upx;
