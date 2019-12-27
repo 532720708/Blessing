@@ -130,4 +130,5 @@
 		-webkit-transform: translate(-70%, -50%) scale(1);
 	}
 
+
 </style>

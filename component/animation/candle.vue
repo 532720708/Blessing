@@ -441,8 +441,8 @@
 		-webkit-animation-fill-mode: both;
 		background: url(../../static/canvas/candle/lazhu0001.png) no-repeat center;
 		background-size: contain;
-		width: 100upx;
-		height: 100upx;
+		width: 50upx;
+		height: 50upx;
 	}
 	
 </style>

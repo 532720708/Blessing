@@ -4,31 +4,35 @@
 				<view class="swiper">
 					<image class="templeImg" :src="temple.img"></image>
 				</view>
-				<guangxiao class="light-view"></guangxiao>
+				
 				<!-- 祈福场景 -->
 				<view style="text-align: center;width: 100%;">
 					<view v-if="name == '求财'">
 						<image mode="aspectFit" class="lutos-left" src="../../static/temple/qiucaiCombination.png"></image>
 						<image mode="aspectFit" class="lutos-right" src="../../static/temple/qiucaiCombination.png"></image>
 						<!-- <image class="foguang" src="../../static/temple/foguang.png"></image> -->
+						<guangxiao class="light-view"></guangxiao>
 						<image class="fo-img" src="../../static/temple/qiucai.png"></image>
 					</view>	
 					<view v-if="name == '求子'">
 						<image mode="aspectFit" class="lutos-left" src="../../static/temple/qiuziCombination.png"></image>
 						<image mode="aspectFit" class="lutos-right" src="../../static/temple/qiuziCombination.png"></image>
-						<image class="foguang qiuzifoguang" src="../../static/temple/foguang.png"></image>
+						<!-- <image class="foguang qiuzifoguang" src="../../static/temple/foguang.png"></image> -->
+						<guangxiao class="light-view"></guangxiao>
 						<image class="fo-img" src="../../static/temple/qiuzi.png"></image>
 					</view>	
 					<view v-if="name == '求姻缘'">
 						<image mode="aspectFit" class="lutos-left" src="../../static/temple/qiuyinyuanCombination.png"></image>
 						<image mode="aspectFit" class="lutos-right" src="../../static/temple/qiuyinyuanCombination.png"></image>
 						<!-- <image class="foguang" src="../../static/temple/foguang.png"></image> -->
+						<guangxiao class="light-view"></guangxiao>
 						<image class="fo-img" src="../../static/temple/qiuyinyuan.png"></image>
 					</view>	
 					<view v-if="name == '求平安'">
 						<image mode="aspectFit" class="lutos-left" src="../../static/temple/qiuziCombination.png"></image>
 						<image mode="aspectFit" class="lutos-right" src="../../static/temple/qiuziCombination.png"></image>
 						<!-- <image class="foguang qiupinganfoguang" src="../../static/temple/foguang.png"></image> -->
+						<guangxiao class="light-view"></guangxiao>
 						<image class="fo-img" src="../../static/temple/qiupingan.png"></image>
 					</view>	
 					<view v-if="name == '求学业'">
@@ -38,6 +42,7 @@
 						<!-- <image class="bagua-left" mode="aspectFit" src="../../static/canvas/bagua/bagua0001.gif"></image> -->
 						<bagua class="bagua-right"></bagua>
 						<!-- <image class="foguang qiuxueyefoguang" src="../../static/temple/foguang.png"></image> -->
+						<guangxiao class="light-view qiuxueyeLightView"></guangxiao>
 						<image class="fo-img" src="../../static/temple/qiuxueye.png"></image>
 					</view>	
 					<!-- 椅子 -->
@@ -52,11 +57,19 @@
 					
 					<!-- 油 -->
 					<view id="oil" :style="opStyle[0]">
+						<candle class="huomiaoLeft"></candle>
+						<candle class="huomiaoRight"></candle>
 						<image class="candleImgleft" src="../../static/temple/lazhu.png" mode="aspectFit"></image>
 						<image class="candleImgRight" src="../../static/temple/lazhu.png" mode="aspectFit"></image>
 					</view>
 					<!-- 香 -->
-					<image id="xiang" :style="opStyle[1]" class="xiangImg" src="../../static/temple/xiang.png" mode="aspectFit"></image>
+					<view id="xiang" :style="opStyle[1]" >
+						<smog class="smog1"></smog>
+						<smog class="smog2"></smog>
+						<smog class="smog3"></smog>
+						<image  class="xiangImg" src="../../static/temple/xiang.png" mode="aspectFit"></image>
+					</view>
+					
 					<!-- 果 -->
 					<view id="fruit" :style="opStyle[3]">
 						<image class="fruitRight" src="../../static/temple/fruitRight.png" mode="aspectFit"></image>
@@ -95,57 +108,63 @@
 			</view>
 			
 			<view class="buttonView flex-row-wrap flex-center" v-if="!showRalizeBlessing">
-				<button class="pray-button" @click="sumbit">祈愿</button>
+				<button class="pray-button" @click="blessingButton">祈愿</button>
 				<button class="pray-button" @click="realizeBlessingButton">还愿</button>
 			</view>
-		<view v-if="showRalizeBlessing" class="realizeBlessingView">
-			<view class="recordTitleView">
-				<text class="titleText1">许愿记录</text>
-			</view>
-			<view class="recordsView">
-				<checkbox-group @change="checkboxChanged">
-				    <label v-for="item in blessContent">
-						<view class="aRecordView">
-							<view class="aColumn">
-								<view>
-									<image class="dot" src="../../static/temple/dot.png"></image>
-									<text class="textTitle">许愿日期</text>
-								</view>	
-								<text class="textContent">{{item.blessingData}}</text>
-								<view>
-									<image class="dot" src="../../static/temple/dot.png"></image>
-									<text class="textTitle">还愿日期</text>
+			
+			<view v-if="showRalizeBlessing" class="realizeBlessingView">
+				<view class="recordTitleView">
+					<text class="titleText1">许愿记录</text>
+				</view>
+				<view class="recordsView">
+					<checkbox-group @change="checkboxChanged">
+						<label v-for="item in blessContent">
+							<view class="aRecordView">
+								<view class="aColumn">
+									<view>
+										<image class="dot" src="../../static/temple/dot.png"></image>
+										<text class="textTitle">许愿日期</text>
+									</view>	
+									<text class="textContent">{{item.blessingData}}</text>
+									<view>
+										<image class="dot" src="../../static/temple/dot.png"></image>
+										<text class="textTitle">还愿日期</text>
+									</view>
+									<text v-if="!item.realizeData == ''" class="textContent">{{item.realizeData}}</text>
+									<text v-else class="textContent specialText">尚未还愿</text>
 								</view>
-								<text v-if="!item.realizeData == ''" class="textContent">{{item.realizeData}}</text>
-								<text v-else class="textContent specialText">尚未还愿</text>
-							</view>
-							<view>
-								<image class="line" src="../../static/temple/line.png"></image>
-							</view>
-							<view class="aColumn secondColumn">
 								<view>
-									<image class="dot" src="../../static/temple/dot.png"></image>
-									<text class="textTitle">许愿内容</text>
-								</view>	
-								<text class="textContent overflow-manage-3">{{item.content}}</text>
+									<image class="line" src="../../static/temple/line.png"></image>
+								</view>
+								<view class="aColumn secondColumn">
+									<view>
+										<image class="dot" src="../../static/temple/dot.png"></image>
+										<text class="textTitle">许愿内容</text>
+									</view>	
+									<text class="textContent overflow-manage-3">{{item.content}}</text>
+								</view>
+								<view>
+									<image class="line" src="../../static/temple/line.png"></image>
+								</view>
+								<view class="checkbox">
+									<checkbox :value="item.content" :checked="item.isSelcted"/>
+								</view>
+								
 							</view>
-							<view>
-								<image class="line" src="../../static/temple/line.png"></image>
-							</view>
-							<view class="checkbox">
-								<checkbox :value="item.content" :checked="item.isSelcted"/>
-							</view>
-							
-						</view>
-				    </label>
-				</checkbox-group>
+						</label>
+					</checkbox-group>
+				</view>
+				<view class="buttonView">
+					<button class="aButton selectedButton" @click="selectAll" >勾选全部</button>
+					<button class="aButton selectedButton" @click="cancelSelected">取消勾选全部</button>
+					<button class="aButton buttonRealize" @click="buttonRealize">还愿</button>
+				</view>	
 			</view>
-			<view class="buttonView">
-				<button class="aButton selectedButton" @click="selectAll" >勾选全部</button>
-				<button class="aButton selectedButton" @click="cancelSelected">取消勾选全部</button>
-				<button class="aButton buttonRealize" @click="buttonRealize">还愿</button>
-			</view>	
-		</view>
+			<view  class="qifuView">
+				<!-- <qifu class="qifu"></qifu> -->
+				<!-- <image v-if="showblessing" class="qifu" src="../../static/temple/shangxiang.gif"></image> -->
+				<image :class="showblessing ? 'qifu' : 'hiddenQifu'" src="../../static/temple/shangxiang.gif"></image>
+			</view>
 	</view>
 </template>
 
@@ -177,11 +196,12 @@
 				state: ["offStyle", "offStyle", "offStyle", "offStyle"],
 				
 				opStyle: [{opacity: 0}, {opacity: 0}, {opacity: 0}, {opacity: 0}],
-				/* toXiang:false,
-				toOil:false,
+				toXiang:false,
+				/* toOil:false,
 				toFlower:false,
 				toFruit:false, */
 				showRalizeBlessing:false,
+				showblessing:false,
 				text:""
 
 			};
@@ -196,13 +216,16 @@
 				return newArray;
 			},
 			choiceButton(e){
-				this.showImg(e.currentTarget.id)
 				
-				if(this.state[e.currentTarget.id] === "onStyle") {
+				this.showImg(e.currentTarget.id)
+				if(e.currentTarget.id == 1){
+					this.toXiang = !this.toXiang
+				}
+			/* 	if(this.state[e.currentTarget.id] === "onStyle") {
 					this.state[e.currentTarget.id] == "offStyle";
 				} else {
 					this.state[e.currentTarget.id] = "onStyle"
-				}
+				} */
 				 
 			},
 			blessButton(index){
@@ -210,7 +233,7 @@
 					this.txtIndex = !this.txtIndex
 				}else {
 					this.txtIndex = index;
-					console.log(this.txtIndex)
+					
 				}
 				
 				this.text = this.temple.blessChoiceText[index]
@@ -227,7 +250,7 @@
 				clearInterval(timer);　　　　//在开启一个定时器之前，先关闭已经开起的定时器
 				timer = setInterval(function(){
 					var speed = 0.1;                //设置透明度变化的速度
-					//console.log(alpha)
+					
 					if(alpha >= 1){
 						clearInterval(timer)
 						return ;
@@ -278,7 +301,7 @@
 			},
 			//取消选择
 			cancelSelected(){
-				console.log("cancel")
+				
 				this.blessContent.forEach(function(item){
 					item.isSelcted = false;
 				})
@@ -297,10 +320,11 @@
 			},
 			//还愿按钮
 			buttonRealize(){
+				
 				let indicator = false;
 				this.blessContent.forEach(function(item){
 					if(item.isSelcted == true){
-						console.log(item.content)
+					
 						indicator = true;
 					}
 				})
@@ -311,9 +335,23 @@
 					    content: '您还没有选择需要的还愿'
 					});
 				}else{
+					uni.showModal({
+						showCancel: false ,
+					    title: '还愿成功',
+					    content: '祝您心想事成，愿望成真'
+					});
 					this.showRalizeBlessing = false;
 				}
 				
+			},
+			//祈愿按钮
+			blessingButton(){
+				let _this = this
+				_this.showblessing = true;
+				setTimeout(function(){
+					_this.showblessing = false;
+					
+				},1300)
 			}
 		},
 		onLoad(options) {
@@ -352,6 +390,23 @@
 		-webkit-transform-style: preserve-3d;
 		font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
 		background: #f5f5f5;
+	}
+	.qifuView{
+		width: 100%;
+		right: 22upx;
+		height: 660upx;
+		position: absolute;
+		top: 580upx;
+		z-index: 900;
+		left: 0upx;
+	}
+	.qifu{
+		width: 100%;
+		height: 660upx;
+		display: block;
+	}
+	.hiddenQifu{
+		display: none;
 	}
 	.realizeBlessingView{
 		background:#ffffff;
@@ -467,29 +522,13 @@
 		.fo-img {
 			position: absolute;
 			top: 130upx;
-			z-index: 900;
+			z-index: 800;
 			left: 237upx;
 			width: 280upx;
 			height: 420upx;
 			background-size: contain;
 		}
-		.foguang{
-			top:50upx;
-			left: 262upx;
-			position:absolute;
-			z-index:800;
-			height:225upx;
-			width:225upx;
-		}
-		.qiuzifoguang{
-			left:265upx;
-		}
-		.qiupinganfoguang{
-			left:265upx;
-		}
-		.qiuxueyefoguang{
-			left:258upx;
-		}
+		
 		.table{
 			position: absolute;
 			top: 535upx;
@@ -514,21 +553,51 @@
 			width: 130upx;
 			z-index: 900;
 		}
-		.candleImgleft{
+		.huomiaoLeft{
 			position: absolute;
 			top: 388upx;
 			left: 125upx;
+			
+		}
+		.huomiaoRight{
+			position: absolute;
+			top: 388upx;
+			right: 125upx;
+			
+		}
+		.candleImgleft{
+			position: absolute;
+			top: 405upx;
+			left: 135upx;
 			height: 150upx;
 			width: 30upx;
 			z-index: 900;
 		}
 		.candleImgRight{
 			position: absolute;
-			top: 388upx;
-			right: 125upx;
+			top: 405upx;
+			right: 135upx;
 			height: 150upx;
 			width: 30upx;
 			z-index: 900;
+		}
+		.smog1{
+			position: absolute;
+			z-index: 900;
+			top: 290upx;
+			left: 310upx;
+		}
+		.smog2{
+			position: absolute;
+			z-index: 900;
+			top: 290upx;
+			left: 325upx;
+		}
+		.smog3{
+			position: absolute;
+			z-index: 900;
+			top: 290upx;
+			left: 345upx;
 		}
 		.xiangImg{
 			position: absolute;
@@ -556,7 +625,7 @@
 		}
 		.choiceView{
 			position: absolute;
-			z-index: 1000;
+			z-index: 900;
 			top: 580upx;
 			left: 22upx;
 			width: 705upx;
@@ -622,7 +691,7 @@
 		::-webkit-scrollbar {
 		    -webkit-appearance: none;
 		    width: 8px;
-			height:4px;
+			heigh:4px;
 		}
 		
 		::-webkit-scrollbar-track {
@@ -633,8 +702,8 @@
 		    border-radius: 8px;
 		    background-color: #fff8e5;
 		}
-
 		
+	
 		.blessChoice{
 			padding-bottom: 8upx;
 			margin-top: 20upx;
@@ -744,11 +813,13 @@
 	
 	.light-view {	
 		position: absolute;
-		left: 246upx;
+		left: 255upx;
 		top: 50upx;
 		z-index: 700;
 	}
-	
+	.qiuxueyeLightView{
+		left:242upx;
+	}
 	
 	.light-img {
 		margin-top: -40upx;
