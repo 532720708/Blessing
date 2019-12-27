@@ -54,6 +54,10 @@ Vue.component('smog', smog)
 import qifu from './component/animation/qifu.vue'
 Vue.component('qifu', qifu)
 
+// canvas
+import cav from './component/animation/canvas-test.vue'
+Vue.component('cav', cav)
+
 
 import store from './store'
 Vue.prototype.$store = store

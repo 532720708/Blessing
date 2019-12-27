@@ -108,9 +108,10 @@
 			</view>
 			
 			<view class="buttonView flex-row-wrap flex-center" v-if="!showRalizeBlessing">
-				<button class="pray-button" @click="sumbit">祈愿</button>
+				<button class="pray-button" @click="blessingButton">祈愿</button>
 				<button class="pray-button" @click="realizeBlessingButton">还愿</button>
 			</view>
+			
 			<view v-if="showRalizeBlessing" class="realizeBlessingView">
 				<view class="recordTitleView">
 					<text class="titleText1">许愿记录</text>
@@ -159,8 +160,10 @@
 					<button class="aButton buttonRealize" @click="buttonRealize">还愿</button>
 				</view>	
 			</view>
-			<view class="qifuView">
-				<image v-if="showShangxiang" class="qifu" src="../../static/temple/shangxiang.gif"></image>
+			<view v-if="showblessing" class="qifuView">
+				<!-- <qifu class="qifu"></qifu> -->
+				<!-- <image v-if="showblessing" class="qifu" src="../../static/temple/shangxiang.gif"></image> -->
+				<image id="img1"  :class="showblessing ? 'qifu' : 'hiddenQifu'" :src="gifSrc"></image>
 			</view>
 	</view>
 </template>
@@ -198,9 +201,10 @@
 				toFlower:false,
 				toFruit:false, */
 				showRalizeBlessing:false,
-				showShangxiang:false,
-				text:""
-
+				showblessing:false,
+				text:"",
+				gif: '../../static/temple/shangxiang1.gif',
+				gifSrc: ''
 			};
 	    },
 		methods:{ 	
@@ -230,13 +234,12 @@
 					this.txtIndex = !this.txtIndex
 				}else {
 					this.txtIndex = index;
-					console.log(this.txtIndex)
+					
 				}
 				
 				this.text = this.temple.blessChoiceText[index]
 				
 			},
-
 			// 图片浮现
 			showImg(index) {
 				let _this = this
@@ -247,7 +250,7 @@
 				clearInterval(timer);　　　　//在开启一个定时器之前，先关闭已经开起的定时器
 				timer = setInterval(function(){
 					var speed = 0.1;                //设置透明度变化的速度
-					//console.log(alpha)
+					
 					if(alpha >= 1){
 						clearInterval(timer)
 						return ;
@@ -298,7 +301,7 @@
 			},
 			//取消选择
 			cancelSelected(){
-				console.log("cancel")
+				
 				this.blessContent.forEach(function(item){
 					item.isSelcted = false;
 				})
@@ -317,10 +320,11 @@
 			},
 			//还愿按钮
 			buttonRealize(){
+				
 				let indicator = false;
 				this.blessContent.forEach(function(item){
 					if(item.isSelcted == true){
-						console.log(item.content)
+					
 						indicator = true;
 					}
 				})
@@ -331,16 +335,24 @@
 					    content: '您还没有选择需要的还愿'
 					});
 				}else{
+					uni.showModal({
+						showCancel: false ,
+					    title: '还愿成功',
+					    content: '祝您心想事成，愿望成真'
+					});
 					this.showRalizeBlessing = false;
 				}
 				
 			},
-			sumbit(){
-				let _this = this;
-				_this.showShangxiang = true;
+			//祈愿按钮
+			blessingButton(){
+				let _this = this
+				_this.showblessing = true
+				this.gifSrc = this.gif + "?temp=" + Math.random()
 				setTimeout(function(){
-					_this.showShangxiang = false;
-				},2000)
+					_this.showblessing = false;
+				},1500)
+				 
 			}
 		},
 		onLoad(options) {
@@ -381,15 +393,24 @@
 		background: #f5f5f5;
 	}
 	.qifuView{
-		position: absolute;
-		top: 750upx;
-		z-index: 900;
 		width: 100%;
-		height: 500upx;
-		.qifu{
-			width: 100%;
-			height: 660upx;
-		}
+		right: 22upx;
+		height: 660upx;
+		position: absolute;
+		top: 580upx;
+		z-index: 900;
+		left: 0upx;
+	}
+	.qifu{
+		width: 750upx;
+		height: 660upx;
+		display: block;
+		//background-image: url(../../static/temple/shangxiang.gif);
+		background-size: cover;
+	}
+	.hiddenQifu{
+		display: none;
+		//background: #FFFFFF;
 	}
 	.realizeBlessingView{
 		background:#ffffff;
@@ -785,7 +806,6 @@
 	}
 	.lutos-right {
 		right: 40upx;
-
 	}
 	.bagua-left {
 		left: 16upx;
@@ -796,12 +816,12 @@
 	
 	.light-view {	
 		position: absolute;
-		left: 255upx;
+		left: 275upx;
 		top: 50upx;
 		z-index: 700;
 	}
 	.qiuxueyeLightView{
-		left:242upx;
+		left:250upx;
 	}
 	
 	.light-img {
