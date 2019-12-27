@@ -271,7 +271,7 @@
 		//display: block;
 		width: 250px;
 		height: 250px;
-		background-image: url(../../static/canvas/css_sprites.png);
+		//background-image: url(../../static/canvas/css_sprites.png);
 		background-repeat: no-repeat;
 		background-position: -750px -1250px;
 		//background: #007AFF;
@@ -438,7 +438,7 @@
 		display: block;
 		width: 1890px;
 		height: 1620px;
-		background-image: url(../../static/canvas/css_sprites.png);
+		//background-image: url(../../static/canvas/css_sprites.png);
 		background-repeat: no-repeat;
 		background-size: contain;
 		

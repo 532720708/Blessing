@@ -160,10 +160,10 @@
 					<button class="aButton buttonRealize" @click="buttonRealize">还愿</button>
 				</view>	
 			</view>
-			<view  class="qifuView">
+			<view v-if="showblessing" class="qifuView">
 				<!-- <qifu class="qifu"></qifu> -->
 				<!-- <image v-if="showblessing" class="qifu" src="../../static/temple/shangxiang.gif"></image> -->
-				<image :class="showblessing ? 'qifu' : 'hiddenQifu'" src="../../static/temple/shangxiang.gif"></image>
+				<image id="img1"  :class="showblessing ? 'qifu' : 'hiddenQifu'" :src="gifSrc"></image>
 			</view>
 	</view>
 </template>
@@ -202,7 +202,9 @@
 				toFruit:false, */
 				showRalizeBlessing:false,
 				showblessing:false,
-				text:""
+				text:"",
+				gif: '../../static/temple/shangxiang1.gif',
+				gifSrc: ''
 
 			};
 	    },
@@ -347,11 +349,12 @@
 			//祈愿按钮
 			blessingButton(){
 				let _this = this
-				_this.showblessing = true;
+				_this.showblessing = true
+				this.gifSrc = this.gif + "?temp=" + Math.random()
 				setTimeout(function(){
 					_this.showblessing = false;
-					
-				},1300)
+				},1500)
+				 
 			}
 		},
 		onLoad(options) {
@@ -401,12 +404,15 @@
 		left: 0upx;
 	}
 	.qifu{
-		width: 100%;
+		width: 750upx;
 		height: 660upx;
 		display: block;
+		//background-image: url(../../static/temple/shangxiang.gif);
+		background-size: cover;
 	}
 	.hiddenQifu{
 		display: none;
+		//background: #FFFFFF;
 	}
 	.realizeBlessingView{
 		background:#ffffff;
@@ -813,12 +819,12 @@
 	
 	.light-view {	
 		position: absolute;
-		left: 255upx;
+		left: 275upx;
 		top: 50upx;
 		z-index: 700;
 	}
 	.qiuxueyeLightView{
-		left:242upx;
+		left:250upx;
 	}
 	
 	.light-img {

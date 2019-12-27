@@ -1,10 +1,10 @@
 <template>
 	<view>
-		<!-- <transition>
+		<transition>
 			<view  class="bagua-mode"></view>
-		</transition> -->
-		<canvas v-show="show"  style="width: 280upx; height: 280upx;" canvas-id="firstCanvas" ></canvas>
-		<canvas v-show="show"  style="width: 280upx; height: 280upx;" canvas-id="secondCanvas" ></canvas>
+		</transition>
+		<!-- <canvas v-show="show"  style="width: 280upx; height: 280upx;" canvas-id="firstCanvas" ></canvas>
+		<canvas v-show="show"  style="width: 280upx; height: 280upx;" canvas-id="secondCanvas" ></canvas> -->
 	</view>
 </template>
 
@@ -57,9 +57,10 @@
 			}
 		},
 		mounted() {
-			this.loading(this.res,this.addCanvas())
+			//this.loading(this.res,this.addCanvas())
 			//this.addCanvas()
 			//this.cacheTest()
+			this.addAnimation()
 		},
 		methods: {
 			cacheTest() {
