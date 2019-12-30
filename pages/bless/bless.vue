@@ -35,8 +35,6 @@
 						<image class="fo-img" src="../../static/temple/qiuyinyuan.png"></image>
 					</view>	
 					<view v-if="name == '求平安'">
-						<!-- <image mode="aspectFit" class="lutos-left" src="../../static/temple/qiuziCombination.png"></image>
-						<image mode="aspectFit" class="lutos-right" src="../../static/temple/qiuziCombination.png"></image> -->
 						<bagua class="bagua-left"></bagua>
 						<bagua class="bagua-right"></bagua>
 						<!-- <image class="foguang qiupinganfoguang" src="../../static/temple/foguang.png"></image> -->

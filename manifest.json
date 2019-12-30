@@ -86,7 +86,7 @@
             }
         },
         "router" : {
-            "base" : ""
+            "base" : "/Blessing/"
         },
         "domain" : ""
     }

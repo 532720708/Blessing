@@ -60,7 +60,7 @@
 			//this.loading(this.res,this.addCanvas())
 			//this.addCanvas()
 			//this.cacheTest()
-			this.addAnimation()
+			//this.addAnimation()
 		},
 		methods: {
 			cacheTest() {
@@ -178,9 +178,674 @@
 </script>
 
 <style lang="scss">
+	
+	@keyframes bagua-single
+	{
+	    0%  {
+				background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center; background-size: contain; 
+				-webkit-transform: rotate(0deg);
+				-moz-transform: rotate(0deg);
+				-ms-transform: rotate(0deg);
+				-o-transform: rotate(0deg);
+				transform: rotate(0deg);
+			}
+		2.5%  {
+				background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center; background-size: contain;
+				-webkit-transform: rotate(9deg);
+				-moz-transform: rotate(9deg);
+				-ms-transform: rotate(9deg);
+				-o-transform: rotate(9deg);
+				transform: rotate(9deg);
+			  }
+	    5%  {
+				background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center; background-size: contain;
+				-webkit-transform: rotate(18deg);
+				-moz-transform: rotate(18deg);
+				-ms-transform: rotate(18deg);
+				-o-transform: rotate(18deg);
+				transform: rotate(18deg);
+			}
+	    7.5%  {
+				background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center; background-size: contain;
+				-webkit-transform: rotate(27deg);
+				-moz-transform: rotate(27deg);
+				-ms-transform: rotate(27deg);
+				-o-transform: rotate(27deg);
+				transform: rotate(27deg);
+			  }
+	    10%  {
+				background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center; background-size: contain;
+				-webkit-transform: rotate(36deg);
+				-moz-transform: rotate(36deg);
+				-ms-transform: rotate(36deg);
+				-o-transform: rotate(36deg);
+				transform: rotate(36deg);
+			 }
+	    12.5%  {
+					background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center; background-size: contain;
+					-webkit-transform: rotate(45deg);
+					-moz-transform: rotate(45deg);
+					-ms-transform: rotate(45deg);
+					-o-transform: rotate(45deg);
+					transform: rotate(45deg);
+			   }
+	    15% {
+				background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center; background-size: contain;
+				-webkit-transform: rotate(54deg);
+				-moz-transform: rotate(54deg);
+				-ms-transform: rotate(54deg);
+				-o-transform: rotate(54deg);
+				transform: rotate(54deg);
+			}
+	    17.5%   {
+					background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center; background-size: contain;
+					-webkit-transform: rotate(63deg);
+					-moz-transform: rotate(63deg);
+					-ms-transform: rotate(63deg);
+					-o-transform: rotate(63deg);
+					transform: rotate(63deg);
+				}
+	    20% {
+				background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center; background-size: contain;
+				-webkit-transform: rotate(72deg);
+				-moz-transform: rotate(72deg);
+				-ms-transform: rotate(72deg);
+				-o-transform: rotate(72deg);
+				transform: rotate(72deg);
+			}
+	    22.5%   {
+					background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center; background-size: contain;
+					-webkit-transform: rotate(81deg);
+					-moz-transform: rotate(81deg);
+					-ms-transform: rotate(81deg);
+					-o-transform: rotate(81deg);
+					transform: rotate(81deg);
+				}
+	    25% {
+				background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center; background-size: contain;
+				-webkit-transform: rotate(90deg);
+				-moz-transform: rotate(90deg);
+				-ms-transform: rotate(90deg);
+				-o-transform: rotate(90deg);
+				transform: rotate(90deg);
+			}
+	    27.5%   {
+					background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center; background-size: contain;
+					-webkit-transform: rotate(99deg);
+					-moz-transform: rotate(99deg);
+					-ms-transform: rotate(99deg);
+					-o-transform: rotate(99deg);
+					transform: rotate(99deg);
+				}
+	    30% {
+				background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center; background-size: contain;
+				-webkit-transform: rotate(108deg);
+				-moz-transform: rotate(108deg);
+				-ms-transform: rotate(108deg);
+				-o-transform: rotate(108deg);
+				transform: rotate(108deg);
+			}
+	    32.5%   {
+					background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center; background-size: contain;
+					-webkit-transform: rotate(117deg);
+					-moz-transform: rotate(117deg);
+					-ms-transform: rotate(117deg);
+					-o-transform: rotate(117deg);
+					transform: rotate(117deg);
+				}
+	    35% {
+				background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center; background-size: contain;
+				-webkit-transform: rotate(126deg);
+				-moz-transform: rotate(126deg);
+				-ms-transform: rotate(126deg);
+				-o-transform: rotate(126deg);
+				transform: rotate(126deg);
+			}
+	    37.5%   {
+					background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center; background-size: contain;
+					-webkit-transform: rotate(135deg);
+					-moz-transform: rotate(135deg);
+					-ms-transform: rotate(135deg);
+					-o-transform: rotate(135deg);
+					transform: rotate(135deg);
+				}
+	    40% {
+				background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center; background-size: contain;
+				-webkit-transform: rotate(144deg);
+				-moz-transform: rotate(144deg);
+				-ms-transform: rotate(144deg);
+				-o-transform: rotate(144deg);
+				transform: rotate(144deg);
+			}
+	    42.5%   {
+					background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center; background-size: contain;
+					-webkit-transform: rotate(153deg);
+					-moz-transform: rotate(153deg);
+					-ms-transform: rotate(153deg);
+					-o-transform: rotate(153deg);
+					transform: rotate(153deg);
+				}
+	    45% {
+				background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center; background-size: contain;
+				-webkit-transform: rotate(162deg);
+				-moz-transform: rotate(162deg);
+				-ms-transform: rotate(162deg);
+				-o-transform: rotate(162deg);
+				transform: rotate(162deg);
+			}
+	    47.5%   {
+					background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center; background-size: contain;
+					-webkit-transform: rotate(171deg);
+					-moz-transform: rotate(171deg);
+					-ms-transform: rotate(171deg);
+					-o-transform: rotate(171deg);
+					transform: rotate(171deg);
+				}
+	    50% {
+				background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center; background-size: contain;
+				-webkit-transform: rotate(180deg);
+				-moz-transform: rotate(180deg);
+				-ms-transform: rotate(180deg);
+				-o-transform: rotate(180deg);
+				transform: rotate(180deg);
+			}
+	    52.5%   {
+					background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center; background-size: contain;
+					-webkit-transform: rotate(189deg);
+					-moz-transform: rotate(189deg);
+					-ms-transform: rotate(189deg);
+					-o-transform: rotate(189deg);
+					transform: rotate(189deg);
+				}
+	    55% {
+				background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center; background-size: contain;
+				-webkit-transform: rotate(198deg);
+				-moz-transform: rotate(198deg);
+				-ms-transform: rotate(198deg);
+				-o-transform: rotate(198deg);
+				transform: rotate(198deg);
+			}
+	    57.5%   {
+					background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center; background-size: contain;
+					-webkit-transform: rotate(207deg);
+					-moz-transform: rotate(207deg);
+					-ms-transform: rotate(207deg);
+					-o-transform: rotate(207deg);
+					transform: rotate(207deg);
+				}
+	    60% {
+				background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center; background-size: contain;
+				-webkit-transform: rotate(216deg);
+				-moz-transform: rotate(216deg);
+				-ms-transform: rotate(216deg);
+				-o-transform: rotate(216deg);
+				transform: rotate(216deg);
+			}
+	    62.5%   {
+					background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center; background-size: contain;
+					-webkit-transform: rotate(225deg);
+					-moz-transform: rotate(225deg);
+					-ms-transform: rotate(225deg);
+					-o-transform: rotate(225deg);
+					transform: rotate(225deg);
+				}
+	    65% {
+				background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center; background-size: contain;
+				-webkit-transform: rotate(234deg);
+				-moz-transform: rotate(234deg);
+				-ms-transform: rotate(234deg);
+				-o-transform: rotate(234deg);
+				transform: rotate(234deg);
+			}
+	    67.5%   {
+					background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center; background-size: contain;
+					-webkit-transform: rotate(243deg);
+					-moz-transform: rotate(243deg);
+					-ms-transform: rotate(243deg);
+					-o-transform: rotate(243deg);
+					transform: rotate(243deg);
+				}
+	    70% {
+				background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center; background-size: contain;
+				-webkit-transform: rotate(252deg);
+				-moz-transform: rotate(252deg);
+				-ms-transform: rotate(252deg);
+				-o-transform: rotate(252deg);
+				transform: rotate(252deg);
+			}
+	    72.5%   {
+					background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center; background-size: contain;
+					-webkit-transform: rotate(261deg);
+					-moz-transform: rotate(261deg);
+					-ms-transform: rotate(261deg);
+					-o-transform: rotate(261deg);
+					transform: rotate(261deg);
+				}
+	    75% {
+				background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center; background-size: contain;
+				-webkit-transform: rotate(270deg);
+				-moz-transform: rotate(270deg);
+				-ms-transform: rotate(270deg);
+				-o-transform: rotate(270deg);
+				transform: rotate(270deg);
+			}
+	    77.5%   {
+					background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center; background-size: contain;
+					-webkit-transform: rotate(279deg);
+					-moz-transform: rotate(279deg);
+					-ms-transform: rotate(279deg);
+					-o-transform: rotate(279deg);
+					transform: rotate(279deg);
+				}
+	    80% {
+				background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center; background-size: contain;
+				-webkit-transform: rotate(288deg);
+				-moz-transform: rotate(288deg);
+				-ms-transform: rotate(288deg);
+				-o-transform: rotate(288deg);
+				transform: rotate(288deg);
+			}
+	    82.5%   {
+					background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center; background-size: contain;
+					-webkit-transform: rotate(297deg);
+					-moz-transform: rotate(297deg);
+					-ms-transform: rotate(297deg);
+					-o-transform: rotate(297deg);
+					transform: rotate(297deg);
+				}
+	    85% {
+				background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center; background-size: contain;
+				-webkit-transform: rotate(306deg);
+				-moz-transform: rotate(306deg);
+				-ms-transform: rotate(306deg);
+				-o-transform: rotate(306deg);
+				transform: rotate(306deg);
+			}
+	    87.5%   {
+					background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center; background-size: contain;
+					-webkit-transform: rotate(315deg);
+					-moz-transform: rotate(315deg);
+					-ms-transform: rotate(315deg);
+					-o-transform: rotate(315deg);
+					transform: rotate(315deg);
+				}
+	    90% {
+				background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center; background-size: contain;
+				-webkit-transform: rotate(324deg);
+				-moz-transform: rotate(324deg);
+				-ms-transform: rotate(324deg);
+				-o-transform: rotate(324deg);
+				transform: rotate(324deg);
+			}
+	    92.5%   {
+					background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center; background-size: contain;
+					-webkit-transform: rotate(333deg);
+					-moz-transform: rotate(333deg);
+					-ms-transform: rotate(333deg);
+					-o-transform: rotate(333deg);
+					transform: rotate(333deg);
+				}
+	    95% {
+				background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center; background-size: contain;
+				-webkit-transform: rotate(342deg);
+				-moz-transform: rotate(342deg);
+				-ms-transform: rotate(342deg);
+				-o-transform: rotate(342deg);
+				transform: rotate(342deg);
+			}
+	    97.5%   {
+					background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center; background-size: contain;
+					-webkit-transform: rotate(351deg);
+					-moz-transform: rotate(351deg);
+					-ms-transform: rotate(351deg);
+					-o-transform: rotate(351deg);
+					transform: rotate(351deg);
+				}
+	    100%    {
+					background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center; background-size: contain;
+					-webkit-transform: rotate(360deg);
+					-moz-transform: rotate(360deg);
+					-ms-transform: rotate(360deg);
+					-o-transform: rotate(360deg);
+					transform: rotate(360deg);
+			    }
+	}
+	@-webkit-keyframes bagua-single
+	{
+	  0%  {
+	  		background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center; 
+	  		-webkit-transform: rotate(0deg);
+	  		-moz-transform: rotate(0deg);
+	  		-ms-transform: rotate(0deg);
+	  		-o-transform: rotate(0deg);
+	  		transform: rotate(0deg);
+	  	}
+	  2.5%  {
+	  		background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center;
+	  		-webkit-transform: rotate(9deg);
+	  		-moz-transform: rotate(9deg);
+	  		-ms-transform: rotate(9deg);
+	  		-o-transform: rotate(9deg);
+	  		transform: rotate(9deg);
+	  	  }
+	  5%  {
+	  		background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center;
+	  		-webkit-transform: rotate(18deg);
+	  		-moz-transform: rotate(18deg);
+	  		-ms-transform: rotate(18deg);
+	  		-o-transform: rotate(18deg);
+	  		transform: rotate(18deg);
+	  	}
+	  7.5%  {
+	  		background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center;
+	  		-webkit-transform: rotate(27deg);
+	  		-moz-transform: rotate(27deg);
+	  		-ms-transform: rotate(27deg);
+	  		-o-transform: rotate(27deg);
+	  		transform: rotate(27deg);
+	  	  }
+	  10%  {
+	  		background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center;
+	  		-webkit-transform: rotate(36deg);
+	  		-moz-transform: rotate(36deg);
+	  		-ms-transform: rotate(36deg);
+	  		-o-transform: rotate(36deg);
+	  		transform: rotate(36deg);
+	  	 }
+	  12.5%  {
+	  			background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center;
+	  			-webkit-transform: rotate(45deg);
+	  			-moz-transform: rotate(45deg);
+	  			-ms-transform: rotate(45deg);
+	  			-o-transform: rotate(45deg);
+	  			transform: rotate(45deg);
+	  	   }
+	  15% {
+	  		background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center;
+	  		-webkit-transform: rotate(54deg);
+	  		-moz-transform: rotate(54deg);
+	  		-ms-transform: rotate(54deg);
+	  		-o-transform: rotate(54deg);
+	  		transform: rotate(54deg);
+	  	}
+	  17.5%   {
+	  			background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center;
+	  			-webkit-transform: rotate(63deg);
+	  			-moz-transform: rotate(63deg);
+	  			-ms-transform: rotate(63deg);
+	  			-o-transform: rotate(63deg);
+	  			transform: rotate(63deg);
+	  		}
+	  20% {
+	  		background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center;
+	  		-webkit-transform: rotate(72deg);
+	  		-moz-transform: rotate(72deg);
+	  		-ms-transform: rotate(72deg);
+	  		-o-transform: rotate(72deg);
+	  		transform: rotate(72deg);
+	  	}
+	  22.5%   {
+	  			background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center;
+	  			-webkit-transform: rotate(81deg);
+	  			-moz-transform: rotate(81deg);
+	  			-ms-transform: rotate(81deg);
+	  			-o-transform: rotate(81deg);
+	  			transform: rotate(81deg);
+	  		}
+	  25% {
+	  		background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center;
+	  		-webkit-transform: rotate(90deg);
+	  		-moz-transform: rotate(90deg);
+	  		-ms-transform: rotate(90deg);
+	  		-o-transform: rotate(90deg);
+	  		transform: rotate(90deg);
+	  	}
+	  27.5%   {
+	  			background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center;
+	  			-webkit-transform: rotate(99deg);
+	  			-moz-transform: rotate(99deg);
+	  			-ms-transform: rotate(99deg);
+	  			-o-transform: rotate(99deg);
+	  			transform: rotate(99deg);
+	  		}
+	  30% {
+	  		background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center;
+	  		-webkit-transform: rotate(108deg);
+	  		-moz-transform: rotate(108deg);
+	  		-ms-transform: rotate(108deg);
+	  		-o-transform: rotate(108deg);
+	  		transform: rotate(108deg);
+	  	}
+	  32.5%   {
+	  			background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center;
+	  			-webkit-transform: rotate(117deg);
+	  			-moz-transform: rotate(117deg);
+	  			-ms-transform: rotate(117deg);
+	  			-o-transform: rotate(117deg);
+	  			transform: rotate(117deg);
+	  		}
+	  35% {
+	  		background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center;
+	  		-webkit-transform: rotate(126deg);
+	  		-moz-transform: rotate(126deg);
+	  		-ms-transform: rotate(126deg);
+	  		-o-transform: rotate(126deg);
+	  		transform: rotate(126deg);
+	  	}
+	  37.5%   {
+	  			background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center;
+	  			-webkit-transform: rotate(135deg);
+	  			-moz-transform: rotate(135deg);
+	  			-ms-transform: rotate(135deg);
+	  			-o-transform: rotate(135deg);
+	  			transform: rotate(135deg);
+	  		}
+	  40% {
+	  		background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center;
+	  		-webkit-transform: rotate(144deg);
+	  		-moz-transform: rotate(144deg);
+	  		-ms-transform: rotate(144deg);
+	  		-o-transform: rotate(144deg);
+	  		transform: rotate(144deg);
+	  	}
+	  42.5%   {
+	  			background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center;
+	  			-webkit-transform: rotate(153deg);
+	  			-moz-transform: rotate(153deg);
+	  			-ms-transform: rotate(153deg);
+	  			-o-transform: rotate(153deg);
+	  			transform: rotate(153deg);
+	  		}
+	  45% {
+	  		background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center;
+	  		-webkit-transform: rotate(162deg);
+	  		-moz-transform: rotate(162deg);
+	  		-ms-transform: rotate(162deg);
+	  		-o-transform: rotate(162deg);
+	  		transform: rotate(162deg);
+	  	}
+	  47.5%   {
+	  			background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center;
+	  			-webkit-transform: rotate(171deg);
+	  			-moz-transform: rotate(171deg);
+	  			-ms-transform: rotate(171deg);
+	  			-o-transform: rotate(171deg);
+	  			transform: rotate(171deg);
+	  		}
+	  50% {
+	  		background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center;
+	  		-webkit-transform: rotate(180deg);
+	  		-moz-transform: rotate(180deg);
+	  		-ms-transform: rotate(180deg);
+	  		-o-transform: rotate(180deg);
+	  		transform: rotate(180deg);
+	  	}
+	  52.5%   {
+	  			background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center;
+	  			-webkit-transform: rotate(189deg);
+	  			-moz-transform: rotate(189deg);
+	  			-ms-transform: rotate(189deg);
+	  			-o-transform: rotate(189deg);
+	  			transform: rotate(189deg);
+	  		}
+	  55% {
+	  		background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center;
+	  		-webkit-transform: rotate(198deg);
+	  		-moz-transform: rotate(198deg);
+	  		-ms-transform: rotate(198deg);
+	  		-o-transform: rotate(198deg);
+	  		transform: rotate(198deg);
+	  	}
+	  57.5%   {
+	  			background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center;
+	  			-webkit-transform: rotate(207deg);
+	  			-moz-transform: rotate(207deg);
+	  			-ms-transform: rotate(207deg);
+	  			-o-transform: rotate(207deg);
+	  			transform: rotate(207deg);
+	  		}
+	  60% {
+	  		background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center;
+	  		-webkit-transform: rotate(216deg);
+	  		-moz-transform: rotate(216deg);
+	  		-ms-transform: rotate(216deg);
+	  		-o-transform: rotate(216deg);
+	  		transform: rotate(216deg);
+	  	}
+	  62.5%   {
+	  			background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center;
+	  			-webkit-transform: rotate(225deg);
+	  			-moz-transform: rotate(225deg);
+	  			-ms-transform: rotate(225deg);
+	  			-o-transform: rotate(225deg);
+	  			transform: rotate(225deg);
+	  		}
+	  65% {
+	  		background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center;
+	  		-webkit-transform: rotate(234deg);
+	  		-moz-transform: rotate(234deg);
+	  		-ms-transform: rotate(234deg);
+	  		-o-transform: rotate(234deg);
+	  		transform: rotate(234deg);
+	  	}
+	  67.5%   {
+	  			background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center;
+	  			-webkit-transform: rotate(243deg);
+	  			-moz-transform: rotate(243deg);
+	  			-ms-transform: rotate(243deg);
+	  			-o-transform: rotate(243deg);
+	  			transform: rotate(243deg);
+	  		}
+	  70% {
+	  		background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center;
+	  		-webkit-transform: rotate(252deg);
+	  		-moz-transform: rotate(252deg);
+	  		-ms-transform: rotate(252deg);
+	  		-o-transform: rotate(252deg);
+	  		transform: rotate(252deg);
+	  	}
+	  72.5%   {
+	  			background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center;
+	  			-webkit-transform: rotate(261deg);
+	  			-moz-transform: rotate(261deg);
+	  			-ms-transform: rotate(261deg);
+	  			-o-transform: rotate(261deg);
+	  			transform: rotate(261deg);
+	  		}
+	  75% {
+	  		background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center;
+	  		-webkit-transform: rotate(270deg);
+	  		-moz-transform: rotate(270deg);
+	  		-ms-transform: rotate(270deg);
+	  		-o-transform: rotate(270deg);
+	  		transform: rotate(270deg);
+	  	}
+	  77.5%   {
+	  			background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center;
+	  			-webkit-transform: rotate(279deg);
+	  			-moz-transform: rotate(279deg);
+	  			-ms-transform: rotate(279deg);
+	  			-o-transform: rotate(279deg);
+	  			transform: rotate(279deg);
+	  		}
+	  80% {
+	  		background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center;
+	  		-webkit-transform: rotate(288deg);
+	  		-moz-transform: rotate(288deg);
+	  		-ms-transform: rotate(288deg);
+	  		-o-transform: rotate(288deg);
+	  		transform: rotate(288deg);
+	  	}
+	  82.5%   {
+	  			background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center;
+	  			-webkit-transform: rotate(297deg);
+	  			-moz-transform: rotate(297deg);
+	  			-ms-transform: rotate(297deg);
+	  			-o-transform: rotate(297deg);
+	  			transform: rotate(297deg);
+	  		}
+	  85% {
+	  		background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center;
+	  		-webkit-transform: rotate(306deg);
+	  		-moz-transform: rotate(306deg);
+	  		-ms-transform: rotate(306deg);
+	  		-o-transform: rotate(306deg);
+	  		transform: rotate(306deg);
+	  	}
+	  87.5%   {
+	  			background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center;
+	  			-webkit-transform: rotate(315deg);
+	  			-moz-transform: rotate(315deg);
+	  			-ms-transform: rotate(315deg);
+	  			-o-transform: rotate(315deg);
+	  			transform: rotate(315deg);
+	  		}
+	  90% {
+	  		background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center;
+	  		-webkit-transform: rotate(324deg);
+	  		-moz-transform: rotate(324deg);
+	  		-ms-transform: rotate(324deg);
+	  		-o-transform: rotate(324deg);
+	  		transform: rotate(324deg);
+	  	}
+	  92.5%   {
+	  			background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center;
+	  			-webkit-transform: rotate(333deg);
+	  			-moz-transform: rotate(333deg);
+	  			-ms-transform: rotate(333deg);
+	  			-o-transform: rotate(333deg);
+	  			transform: rotate(333deg);
+	  		}
+	  95% {
+	  		background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center;
+	  		-webkit-transform: rotate(342deg);
+	  		-moz-transform: rotate(342deg);
+	  		-ms-transform: rotate(342deg);
+	  		-o-transform: rotate(342deg);
+	  		transform: rotate(342deg);
+	  	}
+	  97.5%   {
+	  			background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center;
+	  			-webkit-transform: rotate(351deg);
+	  			-moz-transform: rotate(351deg);
+	  			-ms-transform: rotate(351deg);
+	  			-o-transform: rotate(351deg);
+	  			transform: rotate(351deg);
+	  		}
+	  100%    {
+	  			background: url(../../static/canvas/bagua/bagua0001.png) no-repeat center;
+	  			-webkit-transform: rotate(360deg);
+	  			-moz-transform: rotate(360deg);
+	  			-ms-transform: rotate(360deg);
+	  			-o-transform: rotate(360deg);
+	  			transform: rotate(360deg);
+	  	    }
+	}
+	
+	
 	// 测试js
 	.bagua-mode {
-		animation-name: baguamove; 
+		animation-name: bagua-single; 
 		animation-duration: 1.8s;
 		animation-timing-function: linear;
 		animation-delay: 0s;
@@ -189,7 +854,7 @@
 		animation-play-state: running;
 		animation-fill-mode: backwards;
 		/* Safari 与 Chrome: */
-		-webkit-animation-name: baguamove;
+		-webkit-animation-name: bagua-single;
 		-webkit-animation-duration: 1.8s;
 		-webkit-animation-timing-function: linear;
 		-webkit-animation-delay: 0s;
