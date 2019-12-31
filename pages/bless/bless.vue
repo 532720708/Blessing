@@ -1,5 +1,6 @@
 <template>
 	<view >
+			<view v-show="!loadingImg">
 			<view class="swiperView" >
 				<view class="swiper">
 					<image class="templeImg" :src="temple.img"></image>
@@ -114,6 +115,7 @@
 			    <textarea class="textAreaView" v-model="text" placeholder="点击此处输入许愿内容" ></textarea>
 			</view>
 			
+			
 			<view class="buttonView flex-row-wrap flex-center" v-if="!showRalizeBlessing">
 				<button class="pray-button" @click="blessingButton">祈愿</button>
 				<button class="pray-button" @click="realizeBlessingButton">还愿</button>
@@ -172,6 +174,10 @@
 				<!-- <image v-if="showblessing" class="qifu" src="../../static/temple/shangxiang.gif"></image> -->
 				<image id="img1"  :class="showblessing ? 'qifu' : 'hiddenQifu'" :src="gifSrc"></image>
 			</view>
+			
+			</view>
+			
+			<preload class="loading" v-if="loadingImg" @func="toBless(count)"></preload>
 	</view>
 </template>
 
@@ -211,7 +217,8 @@
 				showblessing:false,
 				text:"",
 				gif: '../../static/temple/shangxiang1.gif',
-				gifSrc: ''
+				gifSrc: '',
+				loadingImg: true
 			};
 	    },
 		methods:{ 	
@@ -360,6 +367,13 @@
 					_this.showblessing = false;
 				},1500)
 				 
+			},
+			// loading完显示
+			toBless(count) {
+				let _this = this
+				setTimeout(function() {
+					_this.loadingImg = false
+				},1500)
 			}
 		},
 		onLoad(options) {
@@ -399,6 +413,14 @@
 		font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
 		background: #f5f5f5;
 	}
+	
+	.loading {
+		position: absolute;
+		top: 200upx;
+		left: 325upx;
+		z-index: 2000;
+	}
+	
 	.qifuView{
 		width: 100%;
 		right: 22upx;
@@ -566,14 +588,14 @@
 		}
 		.huomiaoLeft{
 			position: absolute;
-			top: 388upx;
-			left: 125upx;
+			top: 379upx;
+			left: 120upx;
 			
 		}
 		.huomiaoRight{
 			position: absolute;
-			top: 388upx;
-			right: 125upx;
+			top: 379upx;
+			right: 98upx;
 			
 		}
 		.candleImgleft{
@@ -596,19 +618,19 @@
 			position: absolute;
 			z-index: 900;
 			top: 190upx;
-			left: 310upx;
+			left: 285upx;
 		}
 		.smog2{
 			position: absolute;
 			z-index: 900;
 			top: 190upx;
-			left: 325upx;
+			left: 300upx;
 		}
 		.smog3{
 			position: absolute;
 			z-index: 900;
 			top: 190upx;
-			left: 345upx;
+			left: 320upx;
 		}
 		.xiangImg{
 			position: absolute;

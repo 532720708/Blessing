@@ -28,7 +28,10 @@
 		<!-- <div class="box">
 			<canvas id="canvas" width="800" height="600" ref="canvas"></canvas>
 		</div> -->
-		<!-- <bagua></bagua> -->
+		<bagua></bagua>
+		<candle></candle>
+		<guangxiao></guangxiao>
+		<smog></smog>
 	</view>
 	
 	
@@ -184,7 +187,7 @@
 
 <style lang="scss">
 	page {
-		background: #FFFFFF;
+		background: #000000;
 	}
 	
 	h2 {

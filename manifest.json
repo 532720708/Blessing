@@ -86,7 +86,7 @@
             }
         },
         "router" : {
-            "base" : "/Blessing/"
+            "base" : ""
         },
         "domain" : "116.62.14.206"
     }

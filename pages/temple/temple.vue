@@ -34,7 +34,7 @@
 			</scroll-view>
 			<view></view> 	
 		</view>
-		<preload class="loading" v-if="loadingImg" @func="toBless(count)"></preload>
+		
 	</view>
 </template>
 
@@ -61,7 +61,6 @@
 				},
 				subGroupLength : 5,
 				swiper:[],
-				loadingImg: false,
 				transInfJson: ''
 			};
 	    },
@@ -82,20 +81,9 @@
 				var transInf = {choice:id,templeName:this.temple.name};
 				var transInfJson = JSON.stringify(transInf);
 				this.transInfJson = transInfJson
-				this.loadingImg = true
-				// uni.navigateTo({
-				// 	url: './loading?transInfJson=' + transInfJson
-				// })
-				// uni.navigateTo({
-				//     url: '../bless/bless?transInfJson=' + transInfJson
-				// });
-			},
-			
-			// loading完跳转
-			toBless(count) {
-				this.loadingImg =false
+
 				uni.navigateTo({
-				    url: '../bless/bless?transInfJson=' + this.transInfJson
+				    url: '../bless/bless?transInfJson=' + transInfJson
 				});
 			},
 			
@@ -139,9 +127,6 @@
 		background: #f6f6f6;
 	}
 	
-	.loading {
-		z-index: 100;
-	}
 	.videoView{
 		width: 100%;
 		height: 400upx;

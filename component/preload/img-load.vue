@@ -138,7 +138,6 @@
 						require("../../static/temple/table.png"),
 						require("../../static/temple/xiang.png"),
 						require("../../static/temple/shangxiang.gif")
-						
 						],
 				per: 0,
 				count: 0
