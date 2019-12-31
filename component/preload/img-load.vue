@@ -61,28 +61,15 @@
 						require("../../static/canvas/bagua/bagua0038.png"),
 						require("../../static/canvas/bagua/bagua0039.png"),
 						require("../../static/canvas/bagua/bagua0040.png"),					
-						// require("../../static/canvas/qiyuan/shangxiang0001.png"),
-						// require("../../static/canvas/qiyuan/shangxiang0002.png"),
-						// require("../../static/canvas/qiyuan/shangxiang0003.png"),
-						// require("../../static/canvas/qiyuan/shangxiang0004.png"),
-						// require("../../static/canvas/qiyuan/shangxiang0005.png"),
-						// require("../../static/canvas/qiyuan/shangxiang0006.png"),
-						// require("../../static/canvas/qiyuan/shangxiang0007.png"),
-						// require("../../static/canvas/qiyuan/shangxiang0008.png"),
-						// require("../../static/canvas/qiyuan/shangxiang0009.png"),
-						// require("../../static/canvas/qiyuan/shangxiang0010.png"),
-						// require("../../static/canvas/qiyuan/shangxiang0011.png"),
-						// require("../../static/canvas/qiyuan/shangxiang0012.png"),
-						// require("../../static/canvas/qiyuan/shangxiang0013.png"),
-						// require("../../static/canvas/qiyuan/shangxiang0014.png"),
-						// require("../../static/canvas/qiyuan/shangxiang0015.png"),
-						// require("../../static/canvas/qiyuan/shangxiang0016.png"),
-						// require("../../static/canvas/qiyuan/shangxiang0017.png"),
-						// require("../../static/canvas/qiyuan/shangxiang0018.png"),
-						// require("../../static/canvas/qiyuan/shangxiang0019.png"),
-						// require("../../static/canvas/qiyuan/shangxiang0020.png"),
-						// require("../../static/canvas/qiyuan/shangxiang0021.png"),
-						// require("../../static/canvas/qiyuan/shangxiang0022.png"),
+						require("../../static/canvas/lianhua/lianhua0001.png"),
+						require("../../static/canvas/lianhua/lianhua0002.png"),
+						require("../../static/canvas/lianhua/lianhua0003.png"),
+						require("../../static/canvas/aixin/xin0001.png"),
+						require("../../static/canvas/aixin/xin0002.png"),
+						require("../../static/canvas/aixin/xin0003.png"),
+						require("../../static/canvas/aixin/xin0004.png"),
+						require("../../static/canvas/aixin/xin0005.png"),
+						require("../../static/canvas/aixin/xin0006.png"),
 						require("../../static/canvas/candle/lazhu0001.png"),
 						require("../../static/canvas/candle/lazhu0002.png"),
 						require("../../static/canvas/candle/lazhu0003.png"),
@@ -161,17 +148,18 @@
 			},
 			per: function(val) {
 				if(val == 100) {
-					this.$emit('func',this.count)
+					this.$emit('func')
 				}
 			}
 		},
 		methods: {
 			loading() {
+				// 加入
 				var imgs = this.allImgs
 				for(let img of imgs) {
 					let i = new Image();		
 					i.onload = () => {
-						console.log("加载")
+						//console.log("加载")
 						this.count ++
 						this.per = this.count / imgs.length * 100
 					}

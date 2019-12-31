@@ -11,8 +11,10 @@
 					<view v-if="name == '求财'">
 						<!-- <image mode="aspectFit" class="lutos-left" src="../../static/temple/qiucaiCombination.png"></image>
 						<image mode="aspectFit" class="lutos-right" src="../../static/temple/qiucaiCombination.png"></image> -->
-						<bagua class="bagua-left"></bagua>
-						<bagua class="bagua-right"></bagua>
+						<!-- <bagua class="bagua-left"></bagua>
+						<bagua class="bagua-right"></bagua> -->
+						<jinyuanbao class="yuanbao-left"></jinyuanbao>
+						<jinyuanbao class="yuanbao-right"></jinyuanbao>
 						<!-- <image class="foguang" src="../../static/temple/foguang.png"></image> -->
 						<guangxiao class="light-view"></guangxiao>
 						<image class="fo-img" src="../../static/temple/qiucai.png"></image>
@@ -20,8 +22,10 @@
 					<view v-if="name == '求子'">
 						<!-- <image mode="aspectFit" class="lutos-left" src="../../static/temple/qiuziCombination.png"></image>
 						<image mode="aspectFit" class="lutos-right" src="../../static/temple/qiuziCombination.png"></image> -->
-						<bagua class="bagua-left"></bagua>
-						<bagua class="bagua-right"></bagua>
+						<!-- <bagua class="bagua-left"></bagua>
+						<bagua class="bagua-right"></bagua> -->
+						<lianhua class="bagua-left"></lianhua>
+						<lianhua class="bagua-right"></lianhua>
 						<!-- <image class="foguang qiuzifoguang" src="../../static/temple/foguang.png"></image> -->
 						<guangxiao class="light-view"></guangxiao>
 						<image class="fo-img" src="../../static/temple/qiuzi.png"></image>
@@ -29,17 +33,19 @@
 					<view v-if="name == '求姻缘'">
 						<!-- <image mode="aspectFit" class="lutos-left" src="../../static/temple/qiuyinyuanCombination.png"></image>
 						<image mode="aspectFit" class="lutos-right" src="../../static/temple/qiuyinyuanCombination.png"></image> -->
-						<bagua class="bagua-left"></bagua>
-						<bagua class="bagua-right"></bagua>
+						<!-- <bagua class="bagua-left"></bagua>
+						<bagua class="bagua-right"></bagua> -->
+						<aixin class="aixin-left"></aixin>
+						<aixin class="aixin-right"></aixin>
 						<!-- <image class="foguang" src="../../static/temple/foguang.png"></image> -->
 						<guangxiao class="light-view"></guangxiao>
 						<image class="fo-img" src="../../static/temple/qiuyinyuan.png"></image>
 					</view>	
 					<view v-if="name == '求平安'">
-					<!-- 	<image mode="aspectFit" class="lutos-left" src="../../static/temple/qiuziCombination.png"></image>
-						<image mode="aspectFit" class="lutos-right" src="../../static/temple/qiuziCombination.png"></image> -->
-						<bagua class="bagua-left"></bagua>
-						<bagua class="bagua-right"></bagua>
+						<!-- <bagua class="bagua-left"></bagua>
+						<bagua class="bagua-right"></bagua> -->
+						<lianhua class="bagua-left"></lianhua>
+						<lianhua class="bagua-right"></lianhua>
 						<!-- <image class="foguang qiupinganfoguang" src="../../static/temple/foguang.png"></image> -->
 						<guangxiao class="light-view"></guangxiao>
 						<image class="fo-img" src="../../static/temple/qiupingan.png"></image>
@@ -75,6 +81,7 @@
 						<smog class="smog1"></smog>
 						<smog class="smog2"></smog>
 						<smog class="smog3"></smog>
+						<image  class="xiangluImg" src="../../static/temple/xianglu.png" mode="aspectFit"></image>
 						<image  class="xiangImg" src="../../static/temple/xiang.png" mode="aspectFit"></image>
 					</view>
 					
@@ -124,6 +131,7 @@
 			<view v-if="showRalizeBlessing" class="realizeBlessingView">
 				<view class="recordTitleView">
 					<text class="titleText1">许愿记录</text>
+					<image class="cancelButton" src="../../static/temple/cancel.png" @click="cancelButton"></image>
 				</view>
 				<view class="recordsView">
 					<checkbox-group @change="checkboxChanged">
@@ -216,9 +224,10 @@
 				showRalizeBlessing:false,
 				showblessing:false,
 				text:"",
-				gif: '../../static/temple/shangxiang1.gif',
+				gif: '../../static/temple/shangxiang.gif',
 				gifSrc: '',
 				loadingImg: true
+
 			};
 	    },
 		methods:{ 	
@@ -358,6 +367,9 @@
 				}
 				
 			},
+			cancelButton(){
+				this.showRalizeBlessing = false;
+			},
 			//祈愿按钮
 			blessingButton(){
 				let _this = this
@@ -365,15 +377,15 @@
 				this.gifSrc = this.gif + "?temp=" + Math.random()
 				setTimeout(function(){
 					_this.showblessing = false;
-				},1500)
+				},3200)
 				 
 			},
 			// loading完显示
-			toBless(count) {
+			toBless() {
 				let _this = this
 				setTimeout(function() {
 					_this.loadingImg = false
-				},1500)
+				},2400)
 			}
 		},
 		onLoad(options) {
@@ -452,9 +464,18 @@
 		border-radius: 10upx;
 		.recordTitleView{
 			margin-top: 20upx;
-			margin-left: 10upx;
+			margin-left: 20upx;
+			margin-right: 30upx;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			.cancelButton{
+				width: 40upx;
+				height: 40upx;
+			}
 		}
 		.recordsView{
+			
 			overflow: auto;
 			margin-left: 25upx;
 			width: 650upx;
@@ -617,27 +638,35 @@
 		.smog1{
 			position: absolute;
 			z-index: 900;
-			top: 190upx;
-			left: 285upx;
+			top: 210upx;
+			left: 282upx;
 		}
 		.smog2{
 			position: absolute;
 			z-index: 900;
-			top: 190upx;
-			left: 300upx;
+			top: 210upx;
+			left: 297upx;
 		}
 		.smog3{
 			position: absolute;
 			z-index: 900;
-			top: 190upx;
-			left: 320upx;
+			top: 210upx;
+			left: 317upx;
+		}
+		.xiangluImg{
+			position: absolute;
+			top: 385upx;
+			left: 310upx;
+			height: 200upx;
+			width: 130upx;
+			z-index: 900;
 		}
 		.xiangImg{
 			position: absolute;
-			top: 355upx;
-			left: 313upx;
-			height: 200upx;
-			width: 130upx;
+			top: 360upx;
+			left: 335upx;
+			height: 80upx;
+			width: 80upx;
 			z-index: 900;
 		}
 		.fruitLeft{
@@ -822,12 +851,32 @@
 	
 	
 	// 左右两边挂件
-	.lutos-left, .lutos-right, .bagua-left, .bagua-right {
+	.lutos-left, .lutos-right, .bagua-left, .bagua-right, .yuanbao-left, .yuanbao-right, .aixin-left, .aixin-right{
 		position: absolute;
 		width: 152upx;
 		height: 118upx;
 		top: 150upx;
 		z-index: 900;
+	}
+	
+	.aixin-left {
+		left: -22upx;
+		top: 105upx;
+	}
+	
+	.aixin-right {
+		right: 125upx;
+		top: 105upx;
+	}
+	
+	.yuanbao-left {
+		left: -22upx;
+		top: 105upx;
+	}
+	
+	.yuanbao-right {
+		right: 125upx;
+		top: 105upx;
 	}
 	
 	.lutos-left {

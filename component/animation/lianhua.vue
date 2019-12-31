@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<canvas v-show="show"  style="width: 80upx; height: 80upx;" canvas-id="candleCanvas" ></canvas>
+		<canvas v-show="show"  style="width: 280upx; height: 280upx;" canvas-id="lianhuaCanvas" ></canvas>
 	</view>
 </template>
 
@@ -8,10 +8,9 @@
 	export default {
 		data() {
 			return {
-				res: ["../../static/canvas/candle/lazhu0001.png",
-						"../../static/canvas/candle/lazhu0002.png",
-						"../../static/canvas/candle/lazhu0003.png",
-						"../../static/canvas/candle/lazhu0004.png"
+				res: ["../../static/canvas/lianhua/lianhua0001.png",
+						"../../static/canvas/lianhua/lianhua0002.png",
+						"../../static/canvas/lianhua/lianhua0003.png"
 						],
 				show: false
 			}
@@ -21,6 +20,7 @@
 			this.addCanvas()
 		},
 		methods: {
+			
 			loading(sources,callback) {
 				var images=[];
 				var loadedImages = 0;
@@ -30,12 +30,10 @@
 					images[i] = new Image();
 					//当一张图片加载完成时执行
 					images[i].onload = function(){
-						console.log(numImages)
 						//当所有图片加载完成时，执行回调函数callback
 						if (++loadedImages >= numImages) {
 							callback(images);
 							console.log(loadedImages)							
-							console.log(this.show)
 						}
 					};
 					//把sources中的图片信息导入images数组
@@ -45,35 +43,31 @@
 			},
 			
 			addCanvas(images) {
-				//this.show = true
-				var ctx = uni.createCanvasContext('candleCanvas')
-				//var ctxCache = uni.createCanvasContext('secondCanvas')
-										
+				var ctx = uni.createCanvasContext('lianhuaCanvas')
+					
 				var i = -1
 				var res = this.res
-				ctx.drawImage(res[0], 0, 0, 30, 30)
+				ctx.drawImage(res[0], 0, 0, 100, 100)
 				ctx.draw()
 						
 				setInterval(function () {				
-					i = i == 3 ? -1 : i
-					//console.log(i)
-					ctx.clearRect(0,0,30,30)
-					ctx.drawImage(res[++i], 0, 0, 30, 30)
+					i = i == 2 ? -1 : i
+	
+					ctx.clearRect(0,0,100,100)
+					ctx.drawImage(res[++i], 0, 0, 100, 100)
 					ctx.draw()
-				},430);  // 1帧图像/100s
+				},200);  // 1帧图像/100s
+				
 				
 				let _this = this
-				setTimeout(function() {
-					_this.show = true
-				}, 2000)
-				//this.show = true
-				console.log(_this.show)
+				_this.show = true
+
 			}
 		}
 	}
 </script>
 
 <style lang="scss">
-	
-	
+	   
 </style>
+

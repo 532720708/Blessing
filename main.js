@@ -50,6 +50,18 @@ Vue.component('candle', candle)
 import smog from './component/animation/smog.vue'
 Vue.component('smog', smog)
 
+// 莲花
+import lianhua from './component/animation/lianhua.vue'
+Vue.component('lianhua', lianhua)
+
+// 金元宝
+import jinyuanbao from './component/animation/jinyuanbao.vue'
+Vue.component('jinyuanbao', jinyuanbao)
+
+// 金元宝
+import aixin from './component/animation/aixin.vue'
+Vue.component('aixin', aixin)
+
 // 祈福动作
 import qifu from './component/animation/qifu.vue'
 Vue.component('qifu', qifu)

@@ -90,27 +90,25 @@
 				setInterval(function () {				
 					i = i == 39 ? -1 : i
 	
-					ctx.clearRect(0,0,220,220)
+					ctx.clearRect(0,0,100,100)
 					ctx.drawImage(res[++i], 0, 0, 100, 100)
 					ctx.draw()
 				},50);  // 1帧图像/100s
 				
-				console.log(this.show)
+				//console.log(this.show)
 				
 				let _this = this
-				// setTimeout(function() {
-				// 	_this.show = true
-				// }, 2000)
+				setTimeout(function() {
+					_this.show = true
+				}, 2000)
 				//this.show = true
 				_this.show = true
-				console.log(_this.show)
+				//console.log(_this.show)
 			}
 		}
 	}
 </script>
 
 <style lang="scss">
-	
-	
 	   
 </style>
