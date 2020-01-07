@@ -91,10 +91,10 @@
 				uni.navigateBack({
 					delta: 1
 				});
-			},
-			onChange(e) {
-				this.status = e.detail.value
 			}
+		},
+		onLoad(option){
+			this.title = option.selected
 		}
 	}
 </script>

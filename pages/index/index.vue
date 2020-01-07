@@ -37,7 +37,20 @@
 			</view>
 		</view>
 		
-		<!-- 在外面套一层为了解决页面横向滑动问题 -->
+		<!-- 佛教资讯 -->
+		<view class="zixun-block flex-center flex-row-nowrap">
+			<view class="zixun-view flex-row-nowrap">
+				<image class="zixun-icon" src="../../static/index/top/zixun_icon.png" mode="aspectFit"></image>
+				<view class="zixun-title">佛教资讯</view>
+				<swiper autoplay="true" vertical="true">
+					<swiper-item v-for="(msg, index) in msgs" @tap="toMsgInfo(msg.id)" :key=index>
+						<view class="overflow-mag">{{msg.txt}}</view>
+					</swiper-item>
+				</swiper>
+			</view>		
+		</view>
+		
+		<!-- 这里为了解决横向滑动问题在外层设置overflow,但是导致搜索sticky失效 -->
 		<view class="hidden-overflow">	
 			<view class="middle-carousel flex-row-wrap flex-center">
 				<!-- 轮播 -->
@@ -51,9 +64,56 @@
 				</view>
 				<!-- <swiperDots class="dots" :current="current" :dots="mCarousels"></swiperDots> -->
 			</view>
-			<view class="bottom-article">
+			
+			<!-- 诸佛圣诞日 -->
+			<view class="middle-birth">	
+				<view class=" bottom-title flex-row-wrap">
+					<view class="title-view flex-row-nowrap">
+						<image class="title-dot" src="../../static/index/middle/yuanxing.png" mode="aspectFit"></image>
+						<view class="title-word">诸佛圣诞日</view>
+					</view>
+					<view class="title-more" @tap="toBirthday()">查看更多</view>
+				</view>
+				
+				<swiper class="birth-view flex-row-nowrap" :autoplay="false" display-multiple-items="5">
+					<swiper-item class="birth-img-view" v-for="(b, index) in birthInfo" :style="'left:' + curLeft(index) + 'upx;z-index:' + curZIndex(index) " :key="index">
+						<image class="birth-img" :src="b.img" mode="scaleToFill" :z-index="index"></image>
+					</swiper-item>
+				</swiper>
+				<!-- <view class="birth-view flex-row-nowrap">
+					<view class="birth-img-view" v-for="(b, index) in birthInfo" :style="'left:' + curLeft(index) + 'upx;z-index:' + curZIndex(index) " :key="index">
+						<image class="birth-img" :src="b.img" mode="scaleToFill" :z-index="index"></image>
+					</view>	
+				</view> -->
+			</view>
+			
+			<!-- 众生圈 -->
+			<view class="middle-zone">	
 				<view class="bottom-title flex-row-wrap">
-					<view class="title-word">学佛好文</view>
+					<view class="title-view flex-row-nowrap">
+						<image class="title-dot" src="../../static/index/middle/yuanxing.png" mode="aspectFit"></image>
+						<view class="title-word">众生圈</view>
+					</view>
+					<view class="zone-view flex-row-nowrap">
+						<view class="zhongsheng">
+							<image class="zhongsheng-main" src="../../static/index/community/zhongsheng.png"></image>
+							<view class="zhongsheng-click" @click="toCommand('众生说')">进入众生说</view>
+						</view>
+						<view class="zhongsheng">
+							<image class="zhongsheng-main" src="../../static/index/community/fashi.png"></image>
+							<view class="zhongsheng-click" @click="toCommand('法师说')">进入法师说</view>
+						</view>
+					</view>
+				</view>
+				
+			</view>
+			
+			<view class="bottom-article">
+				<view class="bottom-title flex-row-nowrap">
+					<view class="title-view flex-row-nowrap">
+						<image class="title-dot" src="../../static/index/middle/yuanxing.png" mode="aspectFit"></image>
+						<view class="title-word">学佛好文</view>
+					</view>
 					<view class="title-more" @tap="toMore()">查看更多</view>
 				</view>
 				<view class="title-sen flex-row-wrap">
@@ -73,6 +133,15 @@
 					</view>
 				</view>
 			</view>	
+			
+			<!-- 最底部 -->
+			<view class="very-bottom flex-row-nowrap">
+				<view class="very-bottom-txt flex-row-nowrap flex-center">
+					————————<span>如是勤精进，能调付其心</span>————————
+				</view>
+			</view>
+			
+			
 		</view>
 	</view>
 </template>
@@ -108,7 +177,16 @@
 				current: 0,
 				articles: [{id: 1, title: '宗性法师：如何处理与出家师父之间的关系', source: '第三方投稿', viewNum: 4520, mImg: '../../static/index/article/wenzhang_1.png'},
 					{id: 2, title: '指挥法语：佛对众生的爱超越父母对子女的爱', source: '第三方投稿', viewNum: 4520, mImg: '../../static/index/article/wenzhang_2.png'},
-					{id: 3, title: '佛教故事：有些话选择不说往往能增加福德', source: '第三方投稿', viewNum: 4520, mImg: '../../static/index/article/wenzhang_3.png'}]
+					{id: 3, title: '佛教故事：有些话选择不说往往能增加福德', source: '第三方投稿', viewNum: 4520, mImg: '../../static/index/article/wenzhang_3.png'}],
+				msgs: [{txt: '明白了这个道理，就是一通一切通',id: 1},{txt: '有些话选择不说，往往能增加福德', id: 2},{txt: '佛对众生的爱，超越父母对子女的爱', id: 3}],
+				birthInfo: [{id: 1, img: '../../static/index/birth/mile_birth.png'},
+						{id: 2, img: '../../static/index/birth/dingguang_birth.png'},
+						{id: 3, img: '../../static/index/birth/dishi_birth.png'},
+						{id: 4, img: '../../static/index/birth/shijia_birth.png'},
+						{id: 5, img: '../../static/index/birth/huineng_birth.png'},
+						{id: 6, img: '../../static/index/birth/dishi_birth.png'},
+						{id: 7, img: '../../static/index/birth/shijia_birth.png'},
+						{id: 8, img: '../../static/index/birth/huineng_birth.png'}]
 			
 			}
 		},
@@ -182,6 +260,32 @@
 				uni.navigateTo({
 					url: '../article/more'
 				})
+			},
+			//跳转到诸佛圣诞日
+			toBirthday(){
+				uni.navigateTo({
+					url: '../birthday/birthday'
+				})
+			},
+			// 跳转到资讯列表
+			toMsgInfo() {
+				uni.navigateTo({
+					url: '../msg/list'
+				})
+			},
+			toCommand(selected){
+				uni.navigateTo({
+					url: '../viewpoint/viewpoints?selected=' + selected
+				})
+			},
+			// 圣诞日卡片位置
+			curLeft(index) {
+				//return index*140 + 30
+				return 30;
+			},
+			// 卡片zindex
+			curZIndex(index) {
+				return this.birthInfo.length - index
 			}
 		}
 	}
@@ -265,12 +369,45 @@
 		}
 	}
 	
+	// 资讯
+	.zixun-block {
+		width: 100%;
+		height: 75upx;
+		background: #FFFFFF;
+		line-height: 75upx;
+		.zixun-view {
+			margin-top: 5upx;
+			width: 690upx;
+			height: 100%;
+			border-top: 2upx solid #efefef;
+			border-bottom: 2upx solid #efefef;
+			.zixun-icon {
+				margin-right: 10upx;
+				width: 35upx;
+				height: 75upx;
+			}
+			.zixun-title {
+				font-size: 34upx;
+				font-weight: 600;
+				width: 180upx;
+			}
+			swiper {
+				height: 100%;
+				width: 550upx;
+				font-size: 28upx;
+			}
+			
+		}
+	}
+	
+	
 	// 中部
 	.middle-carousel {
-		height: 280upx;
+		height: 300upx;
+		padding: 10upx 0upx;
 		width: 100%;
 		background: #FFFFFF;
-		margin-top: 15upx;
+		margin-top: 0upx;
 		.swiper-view {
 			border-radius: 22upx;
 			overflow: hidden;
@@ -296,6 +433,68 @@
 		}	
 	}
 	
+	// 圣诞日
+	.middle-birth {
+		margin: 30upx auto;
+		width: 100%;
+		height: 300upx;
+		.birth-view {
+			position: relative;
+			width: 100%;
+			height: 100%;
+			margin: 30upx auto;
+			.birth-img-view {
+				position: absolute;
+				width: 160upx;
+				height: 230upx;
+				.birth-img {
+					border-radius: 20upx;
+					border-bottom-right-radius: 35upx;
+					width: 160upx;
+					height: 230upx;
+				}
+			}
+				
+			
+		}	
+	}
+	
+	// 众生圈
+	.middle-zone {
+		background: #FFFFFF;
+		width:100%;
+		height: 320upx;
+		padding-top:20upx;
+		.zone-view {
+			padding-top:20upx;
+			width: 100%;
+			.zhongsheng {
+				position: relative;
+				margin-left: 33upx;
+				.zhongsheng-main {
+					width: 330upx;
+					height: 239upx;
+				}
+				.zhongsheng-click {
+					position: absolute;
+					width: 180upx;
+					height: 60upx;
+					background: #FFFFFF;
+					opacity: 0.8;
+					border-radius: 30upx;
+					top: 150upx;
+					left: 75upx;
+					font-size: 28upx;
+					text-align: center;
+					line-height: 60upx;
+					font-weight: 600;
+				}
+				
+				
+			}
+		}
+	}
+	
 	// 下部
 	.bottom-article {
 		width: 100%;
@@ -304,31 +503,7 @@
 		padding-top: 20upx;
 		padding-bottom: 15upx;
 		background: #FFFFFF;
-		.bottom-title {
-			height: 40upx;
-			width: 100%;
-			justify-content: space-between;
-			align-items: center;
-			.title-word {
-				background: url(../../static/index/yuanjiao_back_index.png);
-				background-size: 100% 100%;
-				line-height: 40upx;
-				margin-left: 30upx;
-				font-size: 36upx;
-				font-weight: 650;
-			}
-			.title-more{
-				text-align: center;
-				line-height: 45upx;
-				font-size: 26upx;
-				margin-right: 30upx;
-				color: #323643;
-				width: 120upx;
-				height: 45upx;
-				border-radius: 40upx;
-				border: 1upx solid #acadb1;
-			}
-		}
+		
 		.title-sen {
 			width: 100%;
 			height: 50upx;
@@ -380,6 +555,69 @@
 					height: 130upx;
 				}
 			}
+		}
+	}
+	
+	
+	
+	// 标题
+	.bottom-title {
+		height: 40upx;
+		width: 100%;
+		justify-content: space-between;
+		align-items: center;
+		.title-view {
+			padding-left: 30upx;
+			width: 400upx;
+			height: 100%;
+			// 标题前圆点
+			.title-dot {
+				width: 25upx;
+				height: 100%;
+				margin-right: -15upx;
+			}
+			.title-word {
+				background: url(../../static/index/yuanjiao_back_index.png);
+				background-size: 100% 100%;
+				line-height: 40upx;
+				margin-left: 30upx;
+				font-size: 36upx;
+				font-weight: 650;
+			}
+		}
+		
+		.title-more{
+			text-align: center;
+			line-height: 45upx;
+			font-size: 26upx;
+			margin-right: 30upx;
+			color: #323643;
+			width: 120upx;
+			height: 45upx;
+			border-radius: 40upx;
+			border: 1upx solid #acadb1;
+		}
+	}
+	
+	// 最底部
+	.very-bottom {
+		height: 130upx;
+		width: 100%;
+		text-align: center;
+		letter-spacing: -10upx; 
+		color: #b1b2b5;
+		padding-left:55upx;
+		.very-bottom-txt {
+			height: 100%;
+			line-height: 130upx;
+			text-align: center;
+			color: #b1b2b5;
+			font-size: 28upx;
+		}
+		span {
+			 letter-spacing: 0; 
+			 color: #b1b2b5; 
+			 margin:0 20upx;
 		}
 	}
 	

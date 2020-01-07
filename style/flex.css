@@ -31,6 +31,13 @@
 	align-items: center;
 }
 
+.overflow-mag {
+	width: 100%;
+	white-space: nowrap;
+	overflow : hidden;
+	text-overflow: ellipsis;
+}
+
 
 // 吸顶控制
 .stickyTop {
