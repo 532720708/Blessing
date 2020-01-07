@@ -6,7 +6,7 @@
 				<image class="msg-img" :src="m.img"></image>
 				<view class="msg-main flex-col-nowrap">
 					<view class="msg-title overflow-mag">{{m.title}}</view>
-					<view class="msg-content">{{m.content}}</view>
+					<view class="msg-content overflow-mag-muti">{{m.content}}</view>
 				</view>
 				<image v-if="m.star == 1" class="star-img" src="../../static/index/msg/star.png" mode="aspectFit"></image>
 			</view>
@@ -100,5 +100,14 @@
 	.stickyTop {
 		color: #000000;
 		z-index: 100;
+	}
+	
+	.overflow-mag-muti {
+		// 对非webkit内核的浏览器有兼容问题
+		display: -webkit-box; /* 必须结合的属性 ，将对象作为弹性伸缩盒子模型显示 。*/
+		-webkit-box-orient: vertical; /* 必须结合的属性 ，设置或检索伸缩盒对象的子元素的排列方式 。*/
+		text-overflow: ellipsis; /* 可以用来多行文本的情况下，用省略号“…”隐藏超出范围的文本 。*/
+		-webkit-line-clamp: 4;
+		overflow : hidden;
 	}
 </style>
