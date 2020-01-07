@@ -72,7 +72,7 @@
 						<image class="title-dot" src="../../static/index/middle/yuanxing.png" mode="aspectFit"></image>
 						<view class="title-word">诸佛圣诞日</view>
 					</view>
-					<view class="title-more" @tap="toMore()">查看更多</view>
+					<view class="title-more" @tap="toBirthday()">查看更多</view>
 				</view>
 				
 				<swiper class="birth-view flex-row-nowrap" :autoplay="false" display-multiple-items="5">
@@ -97,11 +97,11 @@
 					<view class="zone-view flex-row-nowrap">
 						<view class="zhongsheng">
 							<image class="zhongsheng-main" src="../../static/index/community/zhongsheng.png"></image>
-							<view class="zhongsheng-click">进入众生说</view>
+							<view class="zhongsheng-click" @click="toCommand('众生说')">进入众生说</view>
 						</view>
 						<view class="zhongsheng">
 							<image class="zhongsheng-main" src="../../static/index/community/fashi.png"></image>
-							<view class="zhongsheng-click">进入法师说</view>
+							<view class="zhongsheng-click" @click="toCommand('法师说')">进入法师说</view>
 						</view>
 					</view>
 				</view>
@@ -261,10 +261,21 @@
 					url: '../article/more'
 				})
 			},
+			//跳转到诸佛圣诞日
+			toBirthday(){
+				uni.navigateTo({
+					url: '../birthday/birthday'
+				})
+			},
 			// 跳转到资讯列表
 			toMsgInfo() {
 				uni.navigateTo({
 					url: '../msg/list'
+				})
+			},
+			toCommand(selected){
+				uni.navigateTo({
+					url: '../viewpoint/viewpoints?selected=' + selected
 				})
 			},
 			// 圣诞日卡片位置
