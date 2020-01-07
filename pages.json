@@ -125,6 +125,23 @@
 				},
 				"enablePullDownRefresh": true  //设置为true表示当前页面开启下拉刷新
 			}
+		},	
+		//众生说、法师说
+		{
+			"path": "pages/viewpoint/viewpoints",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				},
+				"enablePullDownRefresh": true
+			}
+		},
+		//诸佛圣诞日
+		{
+			"path": "pages/birthday/birthday",
+			"style":{
+				"navigationBarTitleText":"诸佛圣诞日"
+			}
 		},
 		// 预加载页
 		{

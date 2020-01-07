@@ -185,7 +185,7 @@
 			
 			</view>
 			
-			<preload class="loading" v-if="loadingImg" @func="toBless(count)"></preload>
+			<preload class="loading" v-if="loadingImg" @func="toBless()"></preload>
 	</view>
 </template>
 

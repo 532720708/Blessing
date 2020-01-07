@@ -4,10 +4,10 @@
 			<!-- 搜索 -->
 			<view class="stickyTop">
 				<view class="search-view flex-row-wrap flex-center" @tap="toSearch()">
-					<image class="search-img" src="../../static/index/top/sousuo_white.png" mode="scaleToFill"></image>
+					<image class="search-img" src="../../static/index/top/sousuo.png" mode="scaleToFill"></image>
 					<!-- <view class="search-tip">搜索寺庙/佛经</view> -->
 					<input class="search-input flex-row-wrap flex-center" :adjust-position="false" type="text" placeholder="搜索寺庙/佛经" 
-						placeholder-style="text-align:center;color: #ffffff" disabled confirm-type="search">
+						placeholder-style="text-align:center;color: #343844" disabled confirm-type="search">
 					</input>	
 				</view>
 			</view>
@@ -211,17 +211,18 @@
 			z-index: 10000;	
 			.search-img {
 				position: absolute;
-				left: 236upx;
-				height: 35upx;
-				width: 35upx;		
+				left: 230upx;
+				top: 18upx;
+				height: 30upx;
+				width: 30upx;		
 			}
 			.search-input {
 				height: 100%;
 				width: 690upx;
 				border-radius: 40upx;
-				background: #f0b47b;
+				background: #ffffff;
 				font-size: 33upx;
-				color: #FFFFFF;
+				color: #343844;
 			}
 		}
 		.m-carousel {

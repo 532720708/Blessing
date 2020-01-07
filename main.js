@@ -70,6 +70,13 @@ Vue.component('qifu', qifu)
 import cav from './component/animation/canvas-test.vue'
 Vue.component('cav', cav)
 
+//法师说众生说中的一条认知
+import aViewPoint from './component/viewpoint/aViewPoint.vue'
+Vue.component('aViewPoint', aViewPoint)
+
+//上拉加载
+import uniloadmore from './component/uni-load-more/uni-load-more.vue'
+Vue.component('uni-load-more', uniloadmore)
 
 import store from './store'
 Vue.prototype.$store = store
