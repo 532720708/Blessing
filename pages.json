@@ -134,6 +134,15 @@
 					"titleNView": false
 				}
 			}
+		},
+		// 资讯
+		{
+			"path":"pages/msg/list",
+			"style": {
+				"app-plus": {
+					"titleNView":false
+				}
+			}
 		}
 	],
 	"tabBar": {
