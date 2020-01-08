@@ -21,6 +21,10 @@
 			<view class="m-carousel">
 				<image src="../../static/index/top/buddha.png" mode="scaleToFill"></image>
 			</view>
+			<view>
+				<image class="jieyuan" src="../../static/index/top/jieyuan.gif" mode="aspectFit"></image>
+			</view>
+			
 			<!-- 分类 -->
 			<view class="type-view">
 				<swiper class="type-swiper" :circular="true" :autoplay="false">
@@ -367,6 +371,15 @@
 				}
 			}
 		}
+	}
+	
+	.jieyuan {
+		position: absolute;
+		z-index: 2000;
+		width: 150upx;
+		height: 300upx;
+		right: 50upx;
+		top: 80upx;
 	}
 	
 	// 资讯

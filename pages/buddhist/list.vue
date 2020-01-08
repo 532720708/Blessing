@@ -186,5 +186,9 @@
 		font-weight: 650;
 	}
 	
+	.stickyTop {
+		z-index: 2000;
+	}
+	
 	
 </style>
