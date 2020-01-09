@@ -141,7 +141,7 @@
 			<!-- 最底部 -->
 			<view class="very-bottom flex-row-nowrap">
 				<view class="very-bottom-txt flex-row-nowrap flex-center">
-					————————<span>如是勤精进，能调付其心</span>————————
+					————————<span>如是勤精进，能调付其心</span>————————  
 				</view>
 			</view>
 			
