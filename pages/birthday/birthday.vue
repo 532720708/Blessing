@@ -20,10 +20,10 @@
 				</view>
 			</view>
 		</view>
-		<view class="bottomView">
-			<image class="aLine" src="../../static/birthday/aLine.PNG"></image>
-			<text class="bottomText">如是精进，能调付其心</text>
-			<image class="aLine" src="../../static/birthday/aLine.PNG"></image>
+		<view class="very-bottom flex-row-nowrap">
+			<view class="very-bottom-txt flex-row-nowrap flex-center">
+				————————<span>如是勤精进，能调付其心</span>————————  
+			</view>
 		</view>
 	</view>
 </template>
@@ -35,7 +35,7 @@
 				buddha:[{name:'弥勒菩萨圣诞',birthday:'正月初一日',picture:'../../static/birthday/mile.png'},
 				{name:'定光佛圣诞',birthday:'正月初六日',picture:'../../static/birthday/dingguangfo.png'},
 				{name:'帝释天尊圣诞',birthday:'正月初九日',picture:'../../static/birthday/dishitian.png'},
-				{name:'释迦摩尼圣诞',birthday:'正月初九日',picture:'../../static/birthday/dishitian.png'},
+				{name:'释迦摩尼圣诞',birthday:'正月初八日',picture:'../../static/birthday/shijiamoni.png'},
 				{name:'弥勒菩萨圣诞',birthday:'正月初一日',picture:'../../static/birthday/mile.png'},
 				{name:'定光佛圣诞',birthday:'正月初六日',picture:'../../static/birthday/dingguangfo.png'},
 				{name:'帝释天尊圣诞',birthday:'正月初九日',picture:'../../static/birthday/dishitian.png'},
@@ -48,6 +48,7 @@
 			}
 		},
 		methods:{
+			/* 将数组分为两个对象一组 */
 			swiperGroup(array,subGroupLength){
 				let index = 0;
 				let newArray = [];
@@ -57,7 +58,6 @@
 				return newArray;
 			},
 			setTime(item){
-				console.log("111" + item)
 				uni.showModal({
 					showCancel: false ,
 				    title: '提醒成功',
@@ -75,25 +75,7 @@
 	page{
 		background: #fce4ca;
 	}
-	.bottomView{
-		display: flex;
-		flex-direction: row;
-		width: 690upx;
-		height: 80upx;
-		align-items: center;
-		margin-left: 50upx;
-		.aLine{
-			width: 150upx;
-			height: 5upx;
-		}
-		.bottomText{
-			padding-left: 20upx;
-			padding-right: 20upx;
-			font-size: 15px;
-			font-weight: 500;
-			color: #e2a163;
-		}
-	}
+	button::after{ border: none;}
 	.aView{
 		display: flex;
 		flex-direction: row;
@@ -106,6 +88,7 @@
 		background-repeat: no-repeat;
 		.first{
 			position: relative;
+			margin-top: 20upx;
 			margin-left: 30upx;
 			width: 300upx;
 			height: 390upx;
@@ -150,13 +133,12 @@
 				color: #844401;
 			}
 			.setTime{
-			/* 	position: absolute;
-				top: 325upx; */
 				margin-top: 10upx;
 				width: 220upx;
 				height: 65upx;
 				border-radius: 30upx;
-				border: none;
+				border: 0px;
+				outline: none;
 				background: url(../../static/birthday/buttonBack.png);
 				background-size: 100% 100%;
 				vertical-align:middle ;
@@ -165,6 +147,26 @@
 				font-weight: 500;
 				color: #e2a163;
 			}
+		}
+	}
+	.very-bottom {
+		height: 130upx;
+		width: 100%;
+		text-align: center;
+		letter-spacing: -10upx; 
+		color: #b1b2b5;
+		padding-left:55upx;
+		.very-bottom-txt {
+			height: 100%;
+			line-height: 130upx;
+			text-align: center;
+			color: #b1b2b5;
+			font-size: 28upx;
+		}
+		span {
+			 letter-spacing: 0; 
+			 color: #b1b2b5; 
+			 margin:0 20upx;
 		}
 	}
 </style>

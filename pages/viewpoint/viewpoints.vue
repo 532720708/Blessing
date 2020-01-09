@@ -8,6 +8,7 @@
 		<view v-for="item in viewpoints" @change="onChange">
 			<aViewPoint :content="item"></aViewPoint>
 		</view>
+		<!-- 上拉加载动画 -->
 		<view class="Test">
 			<uni-load-more :status="status" :content-text="contentText" ></uni-load-more>
 		</view>
@@ -20,6 +21,7 @@
 			return {
 				title: "众生说",
 				viewpoints: [{
+						id:0,
 						headPhoto: "../../static/viewpoint/headPhoto.png",
 						author: "星云大师",
 						data: "01-05 21:14",
@@ -29,8 +31,9 @@
 						like: 23
 					},
 					{
+						id:1,
 						headPhoto: "../../static/viewpoint/headPhoto.png",
-						author: "星云大师",
+						author: "净土法门",
 						data: "01-05 21:14",
 						title: "四句佛经",
 						description: "第一句是不忘初心，第二句是不清之友，第三句是不念旧恶，第四局是不变随缘，之后第一句是不忘初心，第二句是不清之友，第三句是不念旧恶，第四局是不变随缘",
@@ -38,8 +41,9 @@
 						like: 23
 					},
 					{
+						id:2,
 						headPhoto: "../../static/viewpoint/headPhoto.png",
-						author: "星云大师",
+						author: "宏远大师",
 						data: "01-05 21:14",
 						title: "四句佛经",
 						description: "第一句是不忘初心，第二句是不清之友，第三句是不念旧恶，第四局是不变随缘，之后第一句是不忘初心，第二句是不清之友，第三句是不念旧恶，第四局是不变随缘",
@@ -47,6 +51,7 @@
 						like: 23
 					},
 					{
+						id:3,
 						headPhoto: "../../static/viewpoint/headPhoto.png",
 						author: "星云大师",
 						data: "01-05 21:14",
@@ -78,6 +83,7 @@
 			}
 		},
 		methods: {
+			/* 选择众生说或是法师说，从而加载不同的内容 */
 			selcted(title){
 				this.title = title;
 			},
