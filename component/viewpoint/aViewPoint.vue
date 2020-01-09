@@ -152,6 +152,7 @@
 </script>
 
 <style lang="scss" scoped>
+	button::after{ border: none;}
 	.titleView{
 		display: flex;
 		flex-direction: row;
@@ -216,7 +217,7 @@
 		.userAction{
 			display: flex;
 			flex-direction: row;
-			margin-left: 300upx;
+			margin-left: 400upx;
 			width: 100%;
 			height: 50upx;
 			.icon{
@@ -252,8 +253,8 @@
 				font-weight: 550;
 			}
 			.arrowIcon{
-				height: 30upx;
-				width: 40upx;
+				height: 25upx;
+				width: 45upx;
 			}
 		}
 		.commendScrollView{

@@ -119,7 +119,7 @@
 					</view>
 				</scroll-view>
 				
-			    <textarea class="textAreaView" v-model="text" placeholder="点击此处输入许愿内容" ></textarea>
+			    <!-- <textarea class="textAreaView" v-model="text" placeholder="点击此处输入许愿内容" ></textarea> -->
 			</view>
 			
 			
@@ -744,7 +744,7 @@
 	.BlessContentView{
 		padding-bottom: 27upx;
 		background: #ffffff;
-		height: 390upx;
+		height: 250upx;
 		width: 705upx;
 		margin-top: 60upx;
 		margin-left: 22upx;
