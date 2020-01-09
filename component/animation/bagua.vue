@@ -88,7 +88,7 @@
 				ctx.draw()
 						
 				setInterval(function () {				
-					i = i == 39 ? -1 : i
+					i = i == 38 ? -1 : i
 	
 					ctx.clearRect(0,0,100,100)
 					ctx.drawImage(res[++i], 0, 0, 100, 100)

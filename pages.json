@@ -160,6 +160,15 @@
 					"titleNView":false
 				}
 			}
+		},
+		// 资讯详情
+		{
+			"path":"pages/msg/detail",
+			"style": {
+				"app-plus": {
+					"titleNView":false
+				}
+			}
 		}
 	],
 	"tabBar": {

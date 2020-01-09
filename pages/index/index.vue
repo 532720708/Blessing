@@ -316,7 +316,8 @@
 			top: 20upx;
 			width: 100%;
 			height: 65upx;
-			z-index: 10000;	
+			opacity: 0.9;
+			//z-index: 10000;	
 			.search-img {
 				position: absolute;
 				left: 230upx;
@@ -325,6 +326,7 @@
 				width: 30upx;		
 			}
 			.search-input {
+				
 				height: 100%;
 				width: 690upx;
 				border-radius: 40upx;
@@ -378,8 +380,8 @@
 		z-index: 2000;
 		width: 150upx;
 		height: 300upx;
-		right: 50upx;
-		top: 80upx;
+		right: 26upx;
+		top: 75upx;
 	}
 	
 	// 资讯
@@ -401,7 +403,7 @@
 			}
 			.zixun-title {
 				font-size: 34upx;
-				font-weight: 600;
+				font-weight: 700;
 				width: 180upx;
 			}
 			swiper {
@@ -641,7 +643,7 @@
 		position: -webkit-sticky;//safari 里这样写
 		position: sticky;
 		top: 0;
-		z-index: 10;
+		z-index: 2001;
 	}
 	
 	// 溢出处理
