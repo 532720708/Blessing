@@ -4,7 +4,7 @@
 		<view class="flex-col-nowrap">
 			<view class="msg-view" v-for="(m, index) in msgList" :key="index">
 				<image class="msg-img" :src="m.img"></image>
-				<view class="msg-main flex-col-nowrap">
+				<view class="msg-main flex-col-nowrap" @tap="toDetail(m.title)">
 					<view class="msg-title overflow-mag">{{m.title}}</view>
 					<view class="msg-content overflow-mag-muti">{{m.content}}</view>
 				</view>
@@ -35,6 +35,13 @@
 										content: '佛诞日，即释迦牟尼佛祖诞生之日，又称浴佛节、灌佛会、龙华会、华严会等。公元前 623年，佛祖诞生于北印度。',star: 0}]
 			}
 		},
+		methods:{
+			toDetail(title) {
+				uni.navigateTo({
+					url: "./detail?mTitle=" + title
+				})
+			}
+		}
 	}
 </script>
 

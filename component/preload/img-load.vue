@@ -60,7 +60,6 @@
 						require("../../static/canvas/bagua/bagua0037.png"),
 						require("../../static/canvas/bagua/bagua0038.png"),
 						require("../../static/canvas/bagua/bagua0039.png"),
-						require("../../static/canvas/bagua/bagua0040.png"),					
 						require("../../static/canvas/lianhua/lianhua0001.png"),
 						require("../../static/canvas/lianhua/lianhua0002.png"),
 						require("../../static/canvas/lianhua/lianhua0003.png"),
@@ -147,7 +146,7 @@
 			 //  }
 			},
 			per: function(val) {
-				if(val == 100) {
+				if(val > 90) {
 					this.$emit('func')
 				}
 			}
