@@ -264,8 +264,13 @@
 				
 			},
 			// 图片浮现
-			showImg(index) {
+			showImg(index) {				
 				let _this = this
+				// 香炉直接出现
+				if(index == 1) {
+					_this.opStyle[index].opacity = 1
+					return
+				}
 				// var oImg = document.getElementById(_this.imgId);
 				var alpha = 0;                //用一个变量存储当前透明度 
 				
