@@ -9,53 +9,42 @@
 				<!-- 祈福场景 -->
 				<view style="text-align: center;width: 100%;">
 					<view v-if="name == '求财'">
-						<!-- <image mode="aspectFit" class="lutos-left" src="../../static/temple/qiucaiCombination.png"></image>
-						<image mode="aspectFit" class="lutos-right" src="../../static/temple/qiucaiCombination.png"></image> -->
-						<!-- <bagua class="bagua-left"></bagua>
-						<bagua class="bagua-right"></bagua> -->
+						
 						<jinyuanbao class="yuanbao-left"></jinyuanbao>
 						<jinyuanbao class="yuanbao-right"></jinyuanbao>
-						<!-- <image class="foguang" src="../../static/temple/foguang.png"></image> -->
+						
 						<guangxiao class="light-view"></guangxiao>
 						<image class="fo-img" src="../../static/temple/qiucai.png"></image>
 					</view>	
 					<view v-if="name == '求子'">
-						<!-- <image mode="aspectFit" class="lutos-left" src="../../static/temple/qiuziCombination.png"></image>
-						<image mode="aspectFit" class="lutos-right" src="../../static/temple/qiuziCombination.png"></image> -->
-						<!-- <bagua class="bagua-left"></bagua>
-						<bagua class="bagua-right"></bagua> -->
+					
 						<lianhua class="bagua-left"></lianhua>
 						<lianhua class="bagua-right"></lianhua>
-						<!-- <image class="foguang qiuzifoguang" src="../../static/temple/foguang.png"></image> -->
+					
 						<guangxiao class="light-view"></guangxiao>
 						<image class="fo-img" src="../../static/temple/qiuzi.png"></image>
 					</view>	
 					<view v-if="name == '求姻缘'">
-						<!-- <image mode="aspectFit" class="lutos-left" src="../../static/temple/qiuyinyuanCombination.png"></image>
-						<image mode="aspectFit" class="lutos-right" src="../../static/temple/qiuyinyuanCombination.png"></image> -->
-						<!-- <bagua class="bagua-left"></bagua>
-						<bagua class="bagua-right"></bagua> -->
+						
 						<aixin class="aixin-left"></aixin>
 						<aixin class="aixin-right"></aixin>
-						<!-- <image class="foguang" src="../../static/temple/foguang.png"></image> -->
+						
 						<guangxiao class="light-view"></guangxiao>
 						<image class="fo-img" src="../../static/temple/qiuyinyuan.png"></image>
 					</view>	
 					<view v-if="name == '求平安'">
-						<!-- <bagua class="bagua-left"></bagua>
-						<bagua class="bagua-right"></bagua> -->
+					
 						<lianhua class="bagua-left"></lianhua>
 						<lianhua class="bagua-right"></lianhua>
-						<!-- <image class="foguang qiupinganfoguang" src="../../static/temple/foguang.png"></image> -->
+					
 						<guangxiao class="light-view"></guangxiao>
 						<image class="fo-img" src="../../static/temple/qiupingan.png"></image>
 					</view>	
 					<view v-if="name == '求学业'">
-						<!-- <image mode="aspectFit" class="lutos-left" src="../../static/temple/qiuxueyeCombination.png"></image>
-						<image mode="aspectFit" class="lutos-right" src="../../static/temple/qiuxueyeCombination.png"></image> -->
+						
 						<bagua class="bagua-left"></bagua>
 						<bagua class="bagua-right"></bagua>
-						<!-- <image class="foguang qiuxueyefoguang" src="../../static/temple/foguang.png"></image> -->
+					
 						<guangxiao class="light-view qiuxueyeLightView"></guangxiao>
 						<image class="fo-img" src="../../static/temple/qiuxueye.png"></image>
 					</view>	
