@@ -7,7 +7,7 @@
 			<view class="templeImfView">
 				<view class="nameLine">
 					<text class="nameText">{{item.name}}</text>
-					<view class="addressView">
+					<view class="addressView" @click="openMap">
 						<view>
 							<image class="locationIcon" src="../../static/fivefunctions/locationIcon.png"></image>
 						</view>
@@ -31,6 +31,8 @@
 	export default {
 		data() {
 			return {
+				longitude: 0,
+				latitude: 0,
 				temple: [{
 						img: '../../static/my/adress/jimingshiImg.png',
 						name: "鸡鸣寺",
@@ -88,9 +90,19 @@
 				uni.navigateTo({
 					url: "../temple/temple?tName=" + tName
 				})
-			}
+			},
+			//点击地图
+			openMap() { 
+				uni.openLocation({
+					latitude: 32.060490,
+					longitude: 118.795260,
+					name: "南京鸡鸣寺",
+					address: "江苏省南京市玄武区鸡鸣寺路1号"
+				})
+			},
 		},
 		onLoad(data) {
+			let _this = this
 			let functionNanme = '求平安'
 			if (data.functionNanme) {
 				functionNanme = data.functionNanme
@@ -98,6 +110,20 @@
 			uni.setNavigationBarTitle({
 				title: functionNanme
 			});
+
+			/* uni.getLocation({
+				type: 'wgs84',
+				success: function(res) {
+					console.log('当前位置的经度：' + res.longitude);
+					_this.longitude = res.longitude;
+					console.log('当前位置的纬度：' + res.latitude);
+					_this.latitude = res.latitude
+				},
+				fail: function() {
+					_this.a = 404
+				}
+			});
+ */
 		}
 
 	}
@@ -190,7 +216,8 @@
 				overflow: hidden;
 
 			}
-			.distanceText{
+
+			.distanceText {
 				text-align: right;
 				margin-left: 260upx;
 				height: 30upx;
