@@ -5,8 +5,8 @@
 			<image class="lazhu" src="../../static/temple/candle1.png"></image>
 		</view>
 	</view> -->
-	<view>
-		<navCustom class="nav-custom" :showTempleIcon="false" :showSearch="true" :navTitle="navTitle" :backStyle="navBackStyle" :isTab="true"></navCustom>
+	<view class="re">
+		<!-- <navCustom class="nav-custom" :showTempleIcon="false" :showSearch="true" :navTitle="navTitle" :backStyle="navBackStyle" :isTab="true"></navCustom> -->
 		<h2>乙信</h2>
 		
 		<!-- <image style="width: 300upx;height: 300upx;" mode="aspectFit" src="../../static/canvas/aixin/aixin.gif"></image> -->
@@ -24,7 +24,8 @@
 			<!-- <canvas style="width: 400px; height: 500px;" canvas-id="secondCanvas" id="c1"></canvas> -->
 		<!-- 	<canvas style="width: 400px; height: 500px;" canvas-id="secondCanvas" @error="canvasIdErrorCallback"></canvas> -->
 		</view>
-		
+		<filterTop v-if="showFilterBorad" class="filter-board" @hide="closeFilter()"></filterTop>
+		<view @tap="showFilter()">点击</view>
 		<!-- <div class="box">
 			<canvas id="canvas" width="800" height="600" ref="canvas"></canvas>
 		</div> -->
@@ -86,7 +87,8 @@
 						"../../static/canvas/bagua/bagua0038.png",
 						"../../static/canvas/bagua/bagua0039.png",
 						"../../static/canvas/bagua/bagua0040.png",
-						]
+						],
+					showFilterBorad: false
 			}
 		},
 		mounted() {
@@ -177,6 +179,12 @@
 			canvasIdErrorCallback: function (e) {
 				console.error(e.detail.errMsg)
 			},
+			// 显示筛选板
+			showFilter() {
+				let _this = this
+				_this.showFilterBorad = true
+				alert(_this.showFilterBorad)
+			}
 			
 		},
 		onLoad() {
@@ -187,11 +195,18 @@
 
 <style lang="scss">
 	page {
-		background: #000000;
+		//background: #000000;
 	}
 	
 	h2 {
 		color: #4CD964;
 	}
-	
+	.re {
+		//position: relative;
+	}
+	.filter-board {
+		position: absolute;
+		z-index: 100;
+		top: 200upx;
+	}
 </style>

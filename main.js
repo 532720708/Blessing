@@ -78,6 +78,14 @@ Vue.component('aViewPoint', aViewPoint)
 import uniloadmore from './component/uni-load-more/uni-load-more.vue'
 Vue.component('uni-load-more', uniloadmore)
 
+// 筛选面板
+import filterTop from './component/filter/filter-top.vue'
+Vue.component('filterTop', filterTop)
+
+// popup
+import uniPop from './component/uni-popup/uni-popup.vue'
+Vue.component('uniPop', uniPop)
+
 import store from './store'
 Vue.prototype.$store = store
 

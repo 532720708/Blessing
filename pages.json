@@ -1,15 +1,26 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		// 新首页
 		{
-			"path": "pages/index/index",
+			"path": "pages/index/newIndex",
 			"style": {
 				"app-plus": {
 					"titleNView": false
 				},
 				"navigationBarTitleText": "",
-                "enablePullDownRefresh": true  //设置为true表示当前页面开启下拉刷新
+		        "enablePullDownRefresh": true  //设置为true表示当前页面开启下拉刷新
 			}
 		},
+		// {
+		// 	"path": "pages/index/index",
+		// 	"style": {
+		// 		"app-plus": {
+		// 			"titleNView": false
+		// 		},
+		// 		"navigationBarTitleText": "",
+  //               "enablePullDownRefresh": true  //设置为true表示当前页面开启下拉刷新
+		// 	}
+		// },
 		{
 			"path": "pages/yixin/index",
 			"style": {
@@ -177,7 +188,7 @@
 	    "borderStyle": "black",
 	    "backgroundColor": "#ffffff",
 	    "list": [{
-	        "pagePath": "pages/index/index",
+	        "pagePath": "pages/index/newIndex",
 	        "iconPath": "static/tab/index.png",
 	        "selectedIconPath": "static/tab/index-on.png",
 	        "text": "首页"
