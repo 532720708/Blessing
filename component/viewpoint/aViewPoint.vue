@@ -167,8 +167,6 @@
 				this.commends.unshift(newCommend);
 				this.commend = "";
 				this.content.comment += 1;
-
-
 			},
 			likeAction() {
 				this.likeIcon = false;
