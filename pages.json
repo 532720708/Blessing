@@ -203,6 +203,15 @@
 					"titleNView":false
 				}
 			}
+		},
+		// 城市列表
+		{
+			"path":"pages/location/city",
+			"style": {
+				"app-plus": {
+					"titleNView":false
+				}
+			}
 		}
 	],
 	"tabBar": {

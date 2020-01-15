@@ -7,13 +7,13 @@
 		<view class="top-carousel">	
 			<!-- 搜索 -->
 			<view class="stickyTop">
-				<view class="search-view flex-row-wrap" @tap="toSearch()">
-					<image class="icon-loc" src="../../static/index/new/icon-loc.png" mode="aspectFit"></image>
-					<view class="location-info">南京</view>
+				<view class="search-view flex-row-wrap">
+					<image class="icon-loc" src="../../static/index/new/icon-loc.png" mode="aspectFit" @tap="toCity()"></image>
+					<view class="location-info overflow-mag" @tap="toCity()">{{curCity}}</view>
 					<image class="search-img" src="../../static/index/top/sousuo.png" mode="scaleToFill"></image>
 					<!-- <view class="search-tip">搜索寺庙</view> -->
 					<input class="search-input flex-row-wrap flex-center" :adjust-position="false" type="text" placeholder="搜索寺庙" 
-						placeholder-style="text-align:center;color: #343844" disabled confirm-type="search">
+						placeholder-style="text-align:center;color: #343844" disabled confirm-type="search" @tap="toSearch()">
 					</input>
 				</view>
 			</view>
@@ -37,7 +37,7 @@
 					<swiper-item v-for="(singleGroup, index) in newBlessType" :key="index">
 						<view class="type-grid flex-row-nowrap">
 							<view class='type-item flex-col-nowrap flex-center' :class="(tinx % 5) == 0 ? 'mgleft' : (tinx % 5 == 4 ? 'mgright' : '')" 
-								v-for="(type, tinx) in singleGroup" :key="tinx" @tap="toUrl(type.url)">
+								v-for="(type, tinx) in singleGroup" :key="tinx" @tap="toFunction(type.title)">
 								<image :src="type.icon" mode="scaleToFill"></image>
 								<view class="type-font">{{type.title}}</view>
 							</view>
@@ -60,7 +60,7 @@
 				</view>
 				<view class="temple-view">
 					<view class="temple-zone flex-row-wrap">
-						<view class="temple-item" v-for="(t, index) in famousTemples" :key="index">
+						<view class="temple-item" v-for="(t, index) in famousTemples" :key="index" @tap="toTemple(t.name)">
 							<image class="temple-back" :src="t.img"></image>
 							<view class="temple-name">{{t.name}}</view>
 							<view class="temple-add flex-row-nowrap city-font">
@@ -102,7 +102,7 @@
 							<view>{{t.city}}</view>
 						</view>
 						<view class="flex-col-nowrap flex-center">
-							<image class="item-back" :src="t.img"></image>
+							<image class="item-back" :src="t.img" @tap="toTemple(t.name)"></image>
 							<view class="item-info flex-row-nowrap">
 								<view class="item-name overflow-mag">{{t.name}}</view>
 								<view class="item-loc">{{t.dis}}km</view>
@@ -186,11 +186,11 @@
 				// 	{id: 10, title: '生财', icon: '../../static/index/type/shengcai.png', url: ''},
 				// 	{id: 11, title: '求子', icon: '../../static/index/type/qiuzi.png', url: ''}],
 					
-				blessType: [{id: 1, title: '求财', icon: '../../static/index/new/qiucai.png', url: '../buddhist/list'},
-					{id: 2, title: '求子', icon: '../../static/index/new/qiuzi.png', url: '../buddhist/musiclist'},
-					{id: 3, title: '求平安', icon: '../../static/index/new/qiupingan.png', url: '../buddhist/dailysignature'},
-					{id: 4, title: '求姻缘', icon: '../../static/index/new/qiuyinyuan.png', url: '../video/list'},
-					{id: 5, title: '求学业', icon: '../../static/index/new/qiuxueye.png', url: '../video/list'}
+				blessType: [{id: 1, title: '求财', icon: '../../static/index/new/qiucai.png', url: '../fivefunctions/function'},
+					{id: 2, title: '求子', icon: '../../static/index/new/qiuzi.png', url: '../fivefunctions/function'},
+					{id: 3, title: '求平安', icon: '../../static/index/new/qiupingan.png', url: '../fivefunctions/function'},
+					{id: 4, title: '求姻缘', icon: '../../static/index/new/qiuyinyuan.png', url: '../fivefunctions/function'},
+					{id: 5, title: '求学业', icon: '../../static/index/new/qiuxueye.png', url: '../fivefunctions/function'}
 					],
 					
 				mCarousels: [{id: 1, title: '一花一世界，一佛一如来', img: '../../static/index/middle/middle.png'},
@@ -235,7 +235,8 @@
 						{name:'视频',backImg:'../../static/index/new/shipin-back.png',iconImg:'../../static/index/new/icon-shipin.png', url:'../video/list'},
 						{name:'圣诞日',backImg:'../../static/index/new/shengdanri-back.png',iconImg:'../../static/index/new/icon-shengdanri.png', url: '../birthday/birthday'}
 						],
-				nearbyType: '附近'
+				nearbyType: '附近',
+				curCity: '南京'
 			
 			}
 		},
@@ -243,27 +244,22 @@
 			// 8个一组
 			newBlessType() {
 				return this.groupType()
-			}
+			},
+			// curCity() {
+			// 	var res = '南京'
+			// 	uni.getStorage({
+			// 		key: 'curCity',
+			// 		success: function(r) {
+			// 			res = r.data
+			// 			console.log(r.data)
+			// 		}
+			// 	})
+			// 	return res
+			// }
 		},
 		onLoad() {
-			// 模拟下拉刷新
-			// setTimeout(function () {
-			// 	console.log('start pulldown');
-			// }, 1000);
+		
 			
-			// 显示tabbar
-			// uni.showTabBar({
-			// 	animation: false,
-			// 	success(info) {
-			// 		console.log(info)
-			// 	},
-			// 	fail(err) {
-			// 		console.log(err)
-			// 	},
-			// 	complete() {
-			// 		
-			// 	}
-			// })
 				
 		},
 		// 停止刷新动画
@@ -327,6 +323,24 @@
 					url: '../viewpoint/viewpoints?selected=' + selected
 				})
 			},
+			// 跳转到按祈愿类型的列表页
+			toFunction(functionName) {
+				uni.navigateTo({
+					url: '../fivefunctions/function?functionName=' + functionName
+				})
+			},
+			// 跳转到城市页
+			toCity() {
+				uni.navigateTo({
+					url: '../location/city'
+				})
+			},
+			// 跳转指定寺庙
+			toTemple(name) {
+				uni.navigateTo({
+					url: '../temple/temple?tName=' + name
+				})
+			},
 			// 圣诞日卡片位置
 			curLeft(index) {
 				//return index*140 + 30
@@ -357,12 +371,16 @@
 						this.sortType = args[1]
 					}
 				}
-				this.$refs.popup.close()
+				let _this = this
+
+				_this.$refs.popup.close()
+
+				
 			},
 			// 上滑到筛选寺庙置顶
 			filterToTop() {
 				uni.pageScrollTo({
-					scrollTop: 700,
+					scrollTop: 670,
 					duration:300
 				});
 			}
@@ -405,7 +423,7 @@
 			.search-input {
 				margin-left: 25upx;
 				height: 100%;
-				width: 580upx;
+				width: 560upx;
 				border-radius: 40upx;
 				background: #ffffff;
 				font-size: 33upx;
@@ -419,6 +437,9 @@
 			.location-info {
 				font-size: 30upx;
 				color: #FFFFFF;
+				width: 90upx;
+				//text-align: justify;
+
 			}
 		}
 		.m-carousel {
@@ -613,8 +634,10 @@
 		
 		// 寺庙列表
 		.temples-by-condition {
+			padding-top: 30upx;
 			padding: 20upx auto;
 			background: #FFFFFF;
+			height: 1030upx;
 			.temple-item {
 				width: 230upx;
 				height: 340upx;

@@ -103,12 +103,12 @@
 		},
 		onLoad(data) {
 			let _this = this
-			let functionNanme = '求平安'
-			if (data.functionNanme) {
-				functionNanme = data.functionNanme
+			let functionName = '求平安'
+			if (data.functionName) {
+				functionName = data.functionName
 			}
 			uni.setNavigationBarTitle({
-				title: functionNanme
+				title: functionName
 			});
 
 			/* uni.getLocation({

@@ -86,6 +86,10 @@ Vue.component('filterTop', filterTop)
 import uniPop from './component/uni-popup/uni-popup.vue'
 Vue.component('uniPop', uniPop)
 
+// 刷新动画
+import refresh from './component/preload/refresh.vue'
+Vue.component('refresh', refresh)
+
 import store from './store'
 Vue.prototype.$store = store
 

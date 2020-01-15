@@ -24,8 +24,8 @@
 			<!-- <canvas style="width: 400px; height: 500px;" canvas-id="secondCanvas" id="c1"></canvas> -->
 		<!-- 	<canvas style="width: 400px; height: 500px;" canvas-id="secondCanvas" @error="canvasIdErrorCallback"></canvas> -->
 		</view>
-		<filterTop v-if="showFilterBorad" class="filter-board" @hide="closeFilter()"></filterTop>
-		<view @tap="showFilter()">点击</view>
+		<!-- <filterTop v-if="showFilterBorad" class="filter-board" @hide="closeFilter()"></filterTop>
+		<view @tap="showFilter()">点击</view> -->
 		<!-- <div class="box">
 			<canvas id="canvas" width="800" height="600" ref="canvas"></canvas>
 		</div> -->
@@ -33,6 +33,7 @@
 		<candle></candle>
 		<guangxiao></guangxiao>
 		<smog></smog> -->
+		<refresh></refresh>
 	</view>
 	
 	

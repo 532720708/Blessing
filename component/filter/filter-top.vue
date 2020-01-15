@@ -1,6 +1,10 @@
 <template>
 	<view class="content">
 		<scroll-view @touchmove.prevent>
+			<view v-if="showRefresh" class="refresh">
+				<refresh></refresh>
+			</view>
+			
 			<view class="all">
 				<view class="filter-view flex-row-nowrap">
 					<view class="nearby flex-row-nowrap col-center" :class="filterType == 'nearby' ? 'red' : ''">
@@ -57,6 +61,7 @@
 				<view class="reset" @tap="reset()">重置</view>
 				<view class="finish" @tap="commit()">完成</view>
 			</view>
+
 		</scroll-view>
 		
 
@@ -93,7 +98,8 @@
 				condition: '',
 				distance: '',
 				curTypes: '',
-				sType: ''
+				sType: '',
+				showRefresh: false
 			}
 		},
 		beforeMount() {
@@ -171,7 +177,14 @@
 			},
 			// 关闭弹层，传递条件
 			closeAndFilter(con) {
-				this.$emit('hide', this.filterType, con)
+				let _this = this
+				
+				// 模拟刷新数据
+				_this.showRefresh = true
+				setTimeout(function () {
+					_this.showRefresh = false
+					_this.$emit('hide', _this.filterType, con)
+				}, 1000);	
 			}
 		}
 	}
@@ -181,6 +194,13 @@
 	page {
 		font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
 	}
+	// 刷新动画
+	.refresh {
+		position: absolute;
+		top:180upx;
+		left: 350upx
+	}
+	
 	.all {
 		width: 100%;
 		height: auto;
