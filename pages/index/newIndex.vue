@@ -37,7 +37,7 @@
 					<swiper-item v-for="(singleGroup, index) in newBlessType" :key="index">
 						<view class="type-grid flex-row-nowrap">
 							<view class='type-item flex-col-nowrap flex-center' :class="(tinx % 5) == 0 ? 'mgleft' : (tinx % 5 == 4 ? 'mgright' : '')" 
-								v-for="(type, tinx) in singleGroup" :key="tinx" @tap="toFunction(type.title)">
+								v-for="(type, tinx) in singleGroup" :key="tinx" @tap="toUrl(type.url,type.title)">
 								<image :src="type.icon" mode="scaleToFill"></image>
 								<view class="type-font">{{type.title}}</view>
 							</view>
@@ -283,9 +283,9 @@
 				this.current = e.detail.current;
 			},
 			// 跳转指定板块
-			toUrl(url) {
+			toUrl(url,title) {
 				uni.navigateTo({
-					url: url
+					url: url + "?title=" + title
 				})
 			},
 			// 跳转搜索界面
