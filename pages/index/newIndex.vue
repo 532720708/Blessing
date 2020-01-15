@@ -37,7 +37,7 @@
 					<swiper-item v-for="(singleGroup, index) in newBlessType" :key="index">
 						<view class="type-grid flex-row-nowrap">
 							<view class='type-item flex-col-nowrap flex-center' :class="(tinx % 5) == 0 ? 'mgleft' : (tinx % 5 == 4 ? 'mgright' : '')" 
-								v-for="(type, tinx) in singleGroup" :key="tinx" @tap="toUrl(type.url)">
+								v-for="(type, tinx) in singleGroup" :key="tinx" @tap="toUrl(type.url,type.title)">
 								<image :src="type.icon" mode="scaleToFill"></image>
 								<view class="type-font">{{type.title}}</view>
 							</view>
@@ -186,11 +186,11 @@
 				// 	{id: 10, title: '生财', icon: '../../static/index/type/shengcai.png', url: ''},
 				// 	{id: 11, title: '求子', icon: '../../static/index/type/qiuzi.png', url: ''}],
 					
-				blessType: [{id: 1, title: '求财', icon: '../../static/index/new/qiucai.png', url: '../buddhist/list'},
-					{id: 2, title: '求子', icon: '../../static/index/new/qiuzi.png', url: '../buddhist/musiclist'},
-					{id: 3, title: '求平安', icon: '../../static/index/new/qiupingan.png', url: '../buddhist/dailysignature'},
-					{id: 4, title: '求姻缘', icon: '../../static/index/new/qiuyinyuan.png', url: '../video/list'},
-					{id: 5, title: '求学业', icon: '../../static/index/new/qiuxueye.png', url: '../video/list'}
+				blessType: [{id: 1, title: '求财', icon: '../../static/index/new/qiucai.png', url: '../fivefunctions/function'},
+					{id: 2, title: '求子', icon: '../../static/index/new/qiuzi.png', url: '../fivefunctions/function'},
+					{id: 3, title: '求平安', icon: '../../static/index/new/qiupingan.png', url: '../fivefunctions/function'},
+					{id: 4, title: '求姻缘', icon: '../../static/index/new/qiuyinyuan.png', url: '../fivefunctions/function'},
+					{id: 5, title: '求学业', icon: '../../static/index/new/qiuxueye.png', url: '../fivefunctions/function'}
 					],
 					
 				mCarousels: [{id: 1, title: '一花一世界，一佛一如来', img: '../../static/index/middle/middle.png'},
@@ -287,9 +287,9 @@
 				this.current = e.detail.current;
 			},
 			// 跳转指定板块
-			toUrl(url) {
+			toUrl(url,title) {
 				uni.navigateTo({
-					url: url
+					url: url + "?title=" + title
 				})
 			},
 			// 跳转搜索界面

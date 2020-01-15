@@ -102,13 +102,12 @@
 			},
 		},
 		onLoad(data) {
-			let _this = this
-			let functionNanme = '求平安'
-			if (data.functionNanme) {
-				functionNanme = data.functionNanme
+			let title = ''
+			if (data.title) {
+				title = data.title
 			}
 			uni.setNavigationBarTitle({
-				title: functionNanme
+				title: title
 			});
 
 			/* uni.getLocation({
