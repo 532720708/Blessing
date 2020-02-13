@@ -132,6 +132,51 @@
 			_this.curCarousel = _this.templeCarousel[0]
 			_this.curTempleList = _this.hotTempleList
 			
+			// 后端获取数据
+			_this.getData()
+		},
+		// 获取数据
+		getData() {
+			var _this = this
+			// 按省获取所有寺庙信息
+			_this.$http.Api_C.templeListByP(1, [], 3, function(err, rep) {
+				//uni.stopPullDownRefresh()
+				if (rep) {
+					//console.log(rep)
+					_this.temples = rep
+					console.log(_this.temples[0])
+				}			
+				else {
+					console.log(err)
+				}
+			})
+			
+			// 获取所有省市信息
+			_this.$http.Api_C.province(1, [], function(err, rep) {
+				//uni.stopPullDownRefresh()
+				if (rep) {
+					//console.log(rep)
+					_this.provinces = rep
+					console.log(_this.provinces)
+				}			
+				else {
+					console.log(err)
+				}
+			})
+			
+			// 获取所有热门寺庙信息
+			_this.$http.Api_C.hotTempleList(1, [], 20, function(err, rep) {
+				//uni.stopPullDownRefresh()
+				if (rep) {
+					//console.log(rep)
+					_this.hotTemples = rep
+					console.log(_this.hotTemples)
+				}			
+				else {
+					console.log(err)
+				}
+			})
+			
 		},
 		// 停止刷新动画
 		onPullDownRefresh() {

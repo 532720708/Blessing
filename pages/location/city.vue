@@ -14,7 +14,7 @@
 			<!-- 当前位置 -->
 			<view class="cur-city">
 				<view class="title-font">当前位置</view>
-				<view class="cur-city-block flex-row-nowrap">
+				<view class="cur-city-block flex-row-nowrap" @tap="searchToIndex(curCity)">
 					<image src="../../static/index/new/location/loc-red.png" class="loc-red-img" mode="aspectFit"></image>
 					<view>{{curCity}}</view>
 				</view>
@@ -361,7 +361,7 @@
 	// 分割线
 	.spilt {
 		margin-left: 30upx;
-		width: 80%;
+		width: 85%;
 		border-top: 1upx solid #e3e3e3;
 	}
 	

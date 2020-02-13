@@ -30,6 +30,16 @@
 				"navigationBarTitleText": ""
 			}
 		},
+		// 接口测试
+		{
+			"path": "pages/test/interface_t",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				},
+				"navigationBarTitleText": ""
+			}
+		},
 		//具体寺庙
 		{
 			"path":"pages/temple/temple",
@@ -230,7 +240,7 @@
 	        "selectedIconPath": "static/tab/temple-on.png",
 	        "text": "寺庙"
 	    }, {
-	        "pagePath": "pages/yixin/index",
+	        "pagePath": "pages/test/interface_t",
 	        "iconPath": "static/tab/yiyin.png",
 	        "selectedIconPath": "static/tab/yixin-on.png",
 	        "text": "乙信"

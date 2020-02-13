@@ -88,7 +88,7 @@
 			},
 			
 			// 按照id获取寺庙信息
-			getTempleInfoById(tId) {
+			getData(tId) {
 				var _this = this
 				_this.$http.Api_C.templeById(1, [], tId, function(err, rep) {
 					//uni.stopPullDownRefresh()
@@ -113,7 +113,11 @@
 				title: this.temple.name,
 			}); */
 			this.swiper = this.swiperGroup(this.temple.choice,this.subGroupLength)
+			
+			// 按照寺庙id获取寺庙详细信息
+			//_this.getData(1)
 		}
+		
 	}
 </script>
 

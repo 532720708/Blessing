@@ -71,7 +71,7 @@
 						</view>
 					</view>
 					
-					<image class="temple-float" src="../../static/index/new/float-qiucai.gif" ></image>
+					<image class="temple-float" src="../../static/index/new/float-qiucai.gif" @tap="toUrl('','求财')"></image>
 				</view>
 			</view>
 			
@@ -236,7 +236,8 @@
 						{name:'圣诞日',backImg:'../../static/index/new/shengdanri-back.png',iconImg:'../../static/index/new/icon-shengdanri.png', url: '../birthday/birthday'}
 						],
 				nearbyType: '附近',
-				curCity: '南京'
+				curCity: '南京',
+				temples: []
 			
 			}
 		},
@@ -258,8 +259,7 @@
 			// }
 		},
 		onLoad() {
-		
-			
+					
 				
 		},
 		// 停止刷新动画
@@ -284,8 +284,9 @@
 			},
 			// 跳转指定板块
 			toUrl(url,title) {
+				var u = url ? url : '../fivefunctions/function'
 				uni.navigateTo({
-					url: url + "?title=" + title
+					url: u + "?title=" + title
 				})
 			},
 			// 跳转搜索界面
@@ -487,7 +488,7 @@
 		z-index: 2000;
 		width: 150upx;
 		height: 300upx;
-		left: 120upx;
+		left: 90upx;
 		top: 190upx;
 	}
 	
