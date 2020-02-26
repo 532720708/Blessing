@@ -5,6 +5,7 @@
 </template>
 
 <script>
+	//import {sdk} from '../../static/js/open.plt.0.1.js'
 	export default {
 		data() {
 			return {
@@ -12,29 +13,51 @@
 			}
 		},
 		onLoad() {
-			this.getCity()
+			var _this = this
+			uniReady(function() {
+			    alert('平台SDK载入成功')
+				$abAct('token', 0, function(err, token) {
+							//uniConsole()
+				          console.log("loginAct err = " + err)
+				          console.log("loginAct back = " + token)
+						  //_this.getPrayData(token)
+				        })
+						
+				// 参数传0平台不需要检测token失效，传1需要检测token失效
+				// $abAct('login', 1, function(err, token) {
+				// 			uniConsole()
+				//           console.log("loginAct err = " + err)
+				//           console.log("loginAct back = " + token)
+				//         })
 			
-			this.getTempleData()
+				
+			})
+			//_this.getPrayData('ghsaghs/sahjshaj')
+			//this.getPrayData()
 			
-			this.getArticleData()
+			// this.getCity()
 			
-			this.getBuddhistData()
+			// this.getTempleData()
 			
-			this.searchInMagePage()
+			// this.getArticleData()
 			
-			this.getAdsData()
+			// this.getBuddhistData()
 			
-			this.getPrayData()
+			// this.searchInMagePage()
 			
-			this.getBirthData()
+			// this.getAdsData()
 			
-			this.getBuddistArticleData()
+			// this.getPrayData()
 			
-			this.getCommentData()
+			// this.getBirthData()
 			
-			this.getMusicData()
+			// this.getBuddistArticleData()
 			
-			this.getVideoData()
+			// this.getCommentData()
+			
+			// this.getMusicData()
+			
+			// this.getVideoData()
 		},
 		methods: {			
 			// 获取省市信息
@@ -224,38 +247,41 @@
 			},
 			
 			// 祈福信息
-			getPrayData() {
+			getPrayData(token) {
 				var _this = this
+				var now = Date.parse(new Date())/1000;
+				var prayDetail = {'token': token, 'timestamp': now, 'buddhaId': 1, 'content': '身体健康', 'templeId': 1, 'worship': '1,2'}
 				
 				// 获取默认的祈福语句
 				/**
 				 * @param {Object} buddhaId 佛像id
 				 * @param {Object} num 祈福语条数
 				 */
-				_this.$http.Api_C.defaultPrayContent(1, [], 1, 1, function(err, rep) {
-					//uni.stopPullDownRefresh()
-					if (rep) {
-						//console.log(rep)
-						_this.defaultPrayContent = rep
-						console.log('默认的祈福语句' , _this.defaultPrayContent)
-					}			
-					else {
-						console.log(err)
-					}
-				})
-				
-				// 祈福行为（暂时无法测试）
-				// _this.$http.Api_C.wish(1, [], '', function(err, rep) {
+				// _this.$http.Api_C.defaultPrayContent(1, [], 1, 1, function(err, rep) {
 				// 	//uni.stopPullDownRefresh()
 				// 	if (rep) {
 				// 		//console.log(rep)
-				// 		_this.prayRes = rep
-				// 		console.log('祈福结果：' +  _this.prayRes)
+				// 		_this.defaultPrayContent = rep
+				// 		console.log('默认的祈福语句' , _this.defaultPrayContent)
 				// 	}			
 				// 	else {
 				// 		console.log(err)
 				// 	}
 				// })
+				
+				//祈福行为（暂时无法测试）
+				_this.$http.Api_C.wish(1, [] , JSON.stringify(prayDetail), function(err, rep) {
+					//uni.stopPullDownRefresh()
+					if (rep) {
+						//console.log(rep)
+						_this.prayRes = rep
+						alert('祈福结果：' +  _this.prayRes)
+					}			
+					else {
+						console.log('错误')
+					}
+				})
+				
 				
 				// // 还愿行为（暂时无法测试）
 				// _this.$http.Api_C.backWish(1, [], '', function(err, rep) {
@@ -271,17 +297,17 @@
 				// })
 				
 				// 获得用户许愿记录
-				_this.$http.Api_C.prayHistory(1, [], 1, function(err, rep) {
-					//uni.stopPullDownRefresh()
-					if (rep) {
-						//console.log(rep)
-						_this.prayHistory = rep
-						console.log('用户许愿记录:' + _this.prayHistory)
-					}			
-					else {
-						console.log(err)
-					}
-				})
+				// _this.$http.Api_C.prayHistory(1, [], 1, function(err, rep) {
+				// 	//uni.stopPullDownRefresh()
+				// 	if (rep) {
+				// 		//console.log(rep)
+				// 		_this.prayHistory = rep
+				// 		console.log('用户许愿记录:' + _this.prayHistory)
+				// 	}			
+				// 	else {
+				// 		console.log(err)
+				// 	}
+				// })
 			},
 			
 			// 诸佛圣诞日信息

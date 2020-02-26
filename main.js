@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App'
 
+
 // 轮播样式
 import swiperDots from './component/carousel/swiper-dots.vue'
 Vue.component('swiperDots', swiperDots)

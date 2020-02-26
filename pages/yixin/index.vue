@@ -41,6 +41,7 @@
 
 <script>	
 	import animations from 'create-keyframe-animation';
+	
 	export default {
 		data () {
 			return {

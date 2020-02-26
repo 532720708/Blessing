@@ -1,51 +1,13 @@
 <script>
 	import Vue from 'vue'
+	import {sdk} from './static/js/open.plt.0.1.js'
 	export default {
+	
 		onLaunch: function() {
 			console.log('App Launch')			
-			var baguaImgs = [
-					require("./static/canvas/bagua/bagua0001.png"),
-					require("./static/canvas/bagua/bagua0002.png"),
-					require("./static/canvas/bagua/bagua0003.png"),
-					require("./static/canvas/bagua/bagua0004.png"),
-					require("./static/canvas/bagua/bagua0005.png"),
-					require("./static/canvas/bagua/bagua0006.png"),
-					require("./static/canvas/bagua/bagua0007.png"),
-					require("./static/canvas/bagua/bagua0008.png"),
-					require("./static/canvas/bagua/bagua0009.png"),
-					require("./static/canvas/bagua/bagua0010.png"),
-					require("./static/canvas/bagua/bagua0011.png"),
-					require("./static/canvas/bagua/bagua0012.png"),
-					require("./static/canvas/bagua/bagua0013.png"),
-					require("./static/canvas/bagua/bagua0014.png"),
-					require("./static/canvas/bagua/bagua0015.png"),
-					require("./static/canvas/bagua/bagua0016.png"),
-					require("./static/canvas/bagua/bagua0017.png"),
-					require("./static/canvas/bagua/bagua0018.png"),
-					require("./static/canvas/bagua/bagua0019.png"),
-					require("./static/canvas/bagua/bagua0020.png"),
-					require("./static/canvas/bagua/bagua0021.png"),
-					require("./static/canvas/bagua/bagua0022.png"),
-					require("./static/canvas/bagua/bagua0023.png"),
-					require("./static/canvas/bagua/bagua0024.png"),
-					require("./static/canvas/bagua/bagua0025.png"),
-					require("./static/canvas/bagua/bagua0026.png"),
-					require("./static/canvas/bagua/bagua0027.png"),
-					require("./static/canvas/bagua/bagua0028.png"),
-					require("./static/canvas/bagua/bagua0029.png"),
-					require("./static/canvas/bagua/bagua0030.png"),
-					require("./static/canvas/bagua/bagua0031.png"),
-					require("./static/canvas/bagua/bagua0032.png"),
-					require("./static/canvas/bagua/bagua0033.png"),
-					require("./static/canvas/bagua/bagua0034.png"),
-					require("./static/canvas/bagua/bagua0035.png"),
-					require("./static/canvas/bagua/bagua0036.png"),
-					require("./static/canvas/bagua/bagua0037.png"),
-					require("./static/canvas/bagua/bagua0038.png"),
-					require("./static/canvas/bagua/bagua0039.png"),
-					require("./static/canvas/bagua/bagua0040.png"),
-					require("./static/canvas/bagua/bagua0040.png"),
-				]
+			uniReady(function() {
+			    alert('平台SDK载入成功')	 
+			})
 			// var imgs = baguaImgs
 			// for(let img of imgs) {
 			// 	let i = new Image();
@@ -78,6 +40,9 @@
 			// 		// #endif
 			// 	}
 			// })
+
+			
+
 		},
 		onShow: function() {
 			console.log('App Show')

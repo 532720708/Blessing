@@ -168,6 +168,7 @@
 </template>
 
 <script>
+	import sdk from '../../static/js/open.plt.0.1.js'
 	export default {
 		data() {
 			return {
@@ -259,9 +260,24 @@
 			// }
 		},
 		onLoad() {
-					
+			//sdk()	
+			//uniReady.start()
+
+			//uniReady();
+			// uniReady(function() {
+			//     alert('平台SDK载入成功')
+			// 	$abAct('token', 0, function(err, token) {
+			// 	          alert("loginAct err = " + err)
+			// 	          alert("loginAct back = " + token)
+			// 	        })
+
 				
+			// })
+			
+			
+			
 		},
+
 		// 停止刷新动画
 		onPullDownRefresh() {
 			console.log('refresh');

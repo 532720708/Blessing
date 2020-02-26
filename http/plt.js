@@ -147,8 +147,8 @@ export default function(_rpc) {
 			 * @param {Object} args
 			 * @param {Object} _back
 			 */
-			wish(_t, args, _back) {
-				_rpc(_t, 'api/dev/wish', args, _back)
+			wish(_t, args, str, _back) {
+				_rpc(_t, 'api/dev/wish/' + str, args, _back)
 			},
 			
 			/**
