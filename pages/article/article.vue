@@ -32,7 +32,7 @@
 					cursor="100"/>
 				<image src="../../static/article/xihuan.png"></image>
 				<image src="../../static/article/shoucang.png"></image>
-				<image src="../../static/article/zhuanfa.png"></image>
+				<image src="../../static/article/zhuanfa.png" @tap="shareTo()"></image>
 			</view>
 		</view>
 	</view>
@@ -60,10 +60,63 @@
 			var _this = this 
 			if(data.aTitle) {
 				_this.article.title = data.aTitle
+				
+				// 若有真实数据拿id请求后端
+				//_this.getInitData(id)
 			}
 		},
 		methods:{
-			
+			// 分享文章（图片地址不能是本地）
+			shareTo() {
+				$abAct('shareReg', JSON.stringify({'title':this.article.title, 'summary': '学佛好文', 'imageUrl': '../../static/article/wenzhang_1.png'}), function(err, succ) {
+				  console.log("shareReg err = " + err)
+				  console.log("shareReg back = " + token)
+				})		
+			},
+			getInitData(id) {
+				// 获取文章信息
+				this.getArticle(id)
+				
+				// 获取评论信息
+				this.getComment(id)
+			},
+			getArticle(id) {
+				// 若有真实数据拿id请求后端
+				_this.$http.Api_C.articleById(1, [], id, function(err, rep) {
+					//uni.stopPullDownRefresh()
+					if (rep) {
+						//console.log(rep)
+						_this.articleInfo = rep
+						console.log('按id获取文章信息' , _this.articleInfo)
+					}			
+					else {
+						console.log(err)
+					}
+				})	
+			},
+			getComment(id) {
+				// 获取评论信息
+				/**
+				* @param cmtType  评论对象类型ID
+				* @param cmtObjId 评论对象具体ID
+				* @param need     是否需要跟回复 1要0不要
+				 */
+				_this.$http.Api_C.comment(1, [], 1, id, 0,  function(err, rep) {
+					//uni.stopPullDownRefresh()
+					if (rep) {
+						//console.log(rep)
+						_this.comment = rep
+						console.log('获取评论信息' , _this.comment)
+					}			
+					else {
+						console.log(err)
+					}
+				})
+			},
+			// 提交评论
+			commitComment() {
+				
+			}
 		}
 	}
 </script>

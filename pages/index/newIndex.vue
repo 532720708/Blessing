@@ -28,7 +28,7 @@
 				<image src="../../static/index/new/top-pingan.png" mode="scaleToFill"></image>
 			</view>
 			<view>
-				<image class="jieyuan" src="../../static/index/top/jieyuan.gif" mode="aspectFit"></image>
+				<image class="jieyuan" src="../../static/index/top/jieyuan.gif" mode="aspectFit" @tap="shareTo()"></image>
 			</view>
 			
 			<!-- 分类 -->
@@ -260,21 +260,15 @@
 			// }
 		},
 		onLoad() {
-			//sdk()	
-			//uniReady.start()
-
-			//uniReady();
-			// uniReady(function() {
-			//     alert('平台SDK载入成功')
-			// 	$abAct('token', 0, function(err, token) {
-			// 	          alert("loginAct err = " + err)
-			// 	          alert("loginAct back = " + token)
-			// 	        })
-
-				
-			// })
+			var _this = this
 			
 			
+			
+			// 获取首页数据
+			// _this.getInitData()
+			
+			// 获取大平台有关初始化信息
+			// _this.getPlatformInitData()
 			
 		},
 
@@ -285,7 +279,80 @@
 				uni.stopPullDownRefresh();
 			}, 500);
 		},
+		
 		methods: {
+			// 分享
+			shareTo() {    
+				$abAct('shareReg', JSON.stringify({'title':'宗教APP新人邀请'}), function(err, succ) {
+				  console.log("shareReg err = " + err)
+				  console.log("shareReg back = " + succ)
+				})				    
+				
+			},
+			
+			// 数据初始化
+			getInitData() {
+				var _this = this
+				
+				// 著名寺庙4个
+				_this.$http.Api_C.hotTempleList(1, [], 4, function(err, rep) {
+					//uni.stopPullDownRefresh()
+					if (rep) {
+						//console.log(rep)
+						_this.famousTemples = rep
+						console.log('首页著名寺庙信息:' , _this.hotTemples)
+					}			
+					else {
+						console.log(err)
+					}
+				})
+				
+				// 寺庙列表(三个排序维度参数)9个，暂无接口，传入所在地的经纬度
+				
+				// 文章3篇(最新的)，暂无接口				
+			},
+			
+			// 大平台关联信息初始化
+			getPlatformInitData() {
+				var _this = this
+				
+				uniReady(function() {
+				    alert('平台SDK载入成功')
+					
+					// 获取token
+					$abAct('token', 0, function(err, token) {
+					          alert("loginAct err = " + err)
+					          alert("loginAct back = " + token)
+							  
+							  // 存入本地缓存
+							  uni.setStorage({
+							      key: 'token',
+							      data: token,
+							      success: function () {
+							          console.log('token save');
+							      }
+							  });
+							  
+				
+							  
+					})
+						
+					// 获取定位（暂时只能获得经纬度）
+					$uniAct('getLocation', {
+					          altitude: true,
+					          success: function(res) {
+					            console.log('getLocation success' , res)
+					          },
+					          fail: function() {
+					            console.log('getLocation fail')
+					          },
+					          complete: function() {
+					            console.log('getLocation complete')
+					          },
+					        })		
+				})		
+			},
+			
 			groupType() {
 				var newItems = []
 				var items = this.blessType

@@ -133,51 +133,9 @@
 			_this.curTempleList = _this.hotTempleList
 			
 			// 后端获取数据
-			_this.getData()
+			//_this.getInitData()
 		},
-		// 获取数据
-		getData() {
-			var _this = this
-			// 按省获取所有寺庙信息
-			_this.$http.Api_C.templeListByP(1, [], 3, function(err, rep) {
-				//uni.stopPullDownRefresh()
-				if (rep) {
-					//console.log(rep)
-					_this.temples = rep
-					console.log(_this.temples[0])
-				}			
-				else {
-					console.log(err)
-				}
-			})
-			
-			// 获取所有省市信息
-			_this.$http.Api_C.province(1, [], function(err, rep) {
-				//uni.stopPullDownRefresh()
-				if (rep) {
-					//console.log(rep)
-					_this.provinces = rep
-					console.log(_this.provinces)
-				}			
-				else {
-					console.log(err)
-				}
-			})
-			
-			// 获取所有热门寺庙信息
-			_this.$http.Api_C.hotTempleList(1, [], 20, function(err, rep) {
-				//uni.stopPullDownRefresh()
-				if (rep) {
-					//console.log(rep)
-					_this.hotTemples = rep
-					console.log(_this.hotTemples)
-				}			
-				else {
-					console.log(err)
-				}
-			})
-			
-		},
+		
 		// 停止刷新动画
 		onPullDownRefresh() {
 			console.log('refresh');
@@ -185,25 +143,49 @@
 				uni.stopPullDownRefresh();
 			}, 500);
 		},
+		
 		methods: {
-			init() {
-				let _this = this
-				// 请求后端接口，有刷新动画
-				_this.$http.Api_C.province(1, [], function(err, rep) {
+			// 获取数据
+			getInitData() {
+				var _this = this
+				// 按省获取所有寺庙信息
+				_this.$http.Api_C.templeListByP(1, [], 3, function(err, rep) {
 					//uni.stopPullDownRefresh()
 					if (rep) {
-						console.log(rep)
-						_this.province = rep
+						//console.log(rep)
+						_this.temples = rep
+						console.log(_this.temples[0])
 					}			
 					else {
 						console.log(err)
 					}
 				})
 				
-				// 请求热门寺庙
-				_this.getHotTemples()
+				// 获取所有省市信息
+				_this.$http.Api_C.province(1, [], function(err, rep) {
+					if (rep) {
+						//console.log(rep)
+						_this.provinces = rep
+						console.log(_this.provinces)
+					}			
+					else {
+						console.log(err)
+					}
+				})
 				
-			},		
+				// 获取热门寺庙信息(暂定18个)
+				_this.$http.Api_C.hotTempleList(1, [], 18, function(err, rep) {
+					if (rep) {
+						//console.log(rep)
+						_this.hotTemples = rep
+						console.log(_this.hotTemples)
+					}			
+					else {
+						console.log(err)
+					}
+				})
+				
+			},
 			
 			// 返回页面顶部
 			toTop() {

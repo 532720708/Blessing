@@ -38,7 +38,27 @@
 				showBtn: false
 			}
 		},
+		onLoad() {
+			// this.getInitData()
+		},
 		methods: {
+			// 初始化所有视频内容
+			getInitData() {
+				var _this = this
+				
+				// 获取全部视频(分类型的)
+				_this.$http.Api_C.allVideo(1, [], function(err, rep) {
+					//uni.stopPullDownRefresh()
+					if (rep) {
+						//console.log(rep)
+						_this.allVideo = rep
+						console.log('全部视频' , _this.allVideo)
+					}			
+					else {
+						console.log(err)
+					}
+				})
+			},
 			showVideo(index, type) {
 				var curId = this.generateId(index, type)
 				this.showBack = false

@@ -89,6 +89,22 @@
 			mSearch
 		},
 		methods: {
+			// 关键字搜索后端接口
+			getSearchRes(key) {
+				var _this = this
+				// 搜索佛经/寺庙
+				_this.$http.Api_C.searchInMainPage(1, [], key, function(err, rep) {
+					//uni.stopPullDownRefresh()
+					if (rep) {
+						//console.log(rep)
+						_this.res = rep
+						console.log('搜索' + key + '得到:' , _this.res)
+					}			
+					else {
+						console.log(err)
+					}
+				})
+			},
 			init() {
 				this.loadDefaultKeyword();
 				this.loadOldKeyword();

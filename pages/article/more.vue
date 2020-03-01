@@ -42,7 +42,29 @@
 				uni.stopPullDownRefresh();
 			}, 500);
 		},
+		
+		onLoad() {
+			// this.getInitData()
+		},
+		
 		methods:{
+			// 初始化数据
+			getInitData() {
+				// 所有文章信息(不要正文)
+				// 获取所有文章信息
+				_this.$http.Api_C.articleList(1, [], function(err, rep) {
+					//uni.stopPullDownRefresh()
+					if (rep) {
+						//console.log(rep)
+						_this.allArticles = rep
+						console.log('所有文章信息:' , _this.allArticles)
+					}			
+					else {
+						console.log(err)
+					}
+				})
+			},
+			
 			// 跳转文章详情
 			toArticle(aTitle) {
 				uni.navigateTo({
